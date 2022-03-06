@@ -20,7 +20,7 @@ namespace ComGameMidtermASM
         {
             // TODO: Add your initialization logic here
 
-            // determine window size.
+            // determine window size. from Singleton class
             _graphics.PreferredBackBufferHeight = Singleton.SCREENHEIGHT;
             _graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
             _graphics.ApplyChanges();

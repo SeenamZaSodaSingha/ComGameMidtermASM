@@ -11,6 +11,7 @@ namespace ComGameMidtermASM
 {
     class Singleton
     {
+        // windows size.
         public const int SCREENWIDTH = 1600; //ชนาดจอ
         public const int SCREENHEIGHT = 800;
 
