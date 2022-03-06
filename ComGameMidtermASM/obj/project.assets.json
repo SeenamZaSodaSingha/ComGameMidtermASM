@@ -179,11 +179,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dylan\\Documents\\GitHub\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM.csproj",
+      "projectUniqueName": "C:\\Users\\dylan\\Documents\\GitHub\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM.csproj",
       "projectName": "ComGameMidtermASM",
-      "projectPath": "C:\\Users\\dylan\\Documents\\GitHub\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM.csproj",
+      "projectPath": "C:\\Users\\dylan\\Documents\\GitHub\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM.csproj",
       "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dylan\\Documents\\GitHub\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM\\obj\\",
+      "outputPath": "C:\\Users\\dylan\\Documents\\GitHub\\ComGameMidtermASM\\ComGameMidtermASM\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
