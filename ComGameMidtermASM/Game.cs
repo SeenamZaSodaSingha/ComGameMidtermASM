@@ -19,8 +19,11 @@ namespace ComGameMidtermASM
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            _graphics.PreferredBackBufferHeight = Singleton.SCREENWIDTH;
-            _graphics.PreferredBackBufferWidth = Singleton.SCREENH
+
+            // determine window size.
+            _graphics.PreferredBackBufferHeight = Singleton.SCREENHEIGHT;
+            _graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
+            _graphics.ApplyChanges();
             //
             base.Initialize();
         }
