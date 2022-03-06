@@ -22,3 +22,8 @@ C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\ne
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\netcoreapp3.1\ComGameMidtermASM.dll
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\netcoreapp3.1\ComGameMidtermASM.pdb
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\netcoreapp3.1\ComGameMidtermASM.genruntimeconfig.cache
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\picture\cyan_ball.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\picture\purple_ball.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\picture\red_ball.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\picture\yellow_ball.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\picture\ball.xnb

@@ -4,16 +4,21 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ComGameMidtermASM
 {
-    public class Game1 : Game
+    public class main : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+        Texture2D red_ball;
+        Texture2D ball;
+        Ball ball_;
 
-        public Game1()
+        public main()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            
         }
 
         protected override void Initialize()
@@ -31,6 +36,8 @@ namespace ComGameMidtermASM
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            red_ball = Content.Load<Texture2D>("picture/red_ball");
+            ball = Content.Load<Texture2D>("picture/ball");
 
             // TODO: use this.Content to load your game content here
         }
@@ -47,8 +54,10 @@ namespace ComGameMidtermASM
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            GraphicsDevice.Clear(Color.White);
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(ball, new Vector2(100, 700), null, Color.Brown, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            _spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
