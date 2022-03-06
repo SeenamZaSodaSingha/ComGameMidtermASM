@@ -1,2 +1,12 @@
-Pacman assets:
-https://pixelaholic.itch.io/pac-man-game-art
+Assets
+----------------------------------------------------------
+Pacman assets: https://pixelaholic.itch.io/pac-man-game-art
+Mario cannon: https://www.vhv.rs/viewpic/hJoJmJx_8-bit-bullet-bill-cannon-hd-png-download/
+
+Fonts
+----------------------------------------------------------
+Arcade classic: https://www.1001fonts.com/arcadeclassic-font.html
+Arcade: https://www.1001fonts.com/arcade-font.html
+Gastal: https://www.1001fonts.com/gasalt-font.html
+No-continue: https://www.1001fonts.com/no-continue-font.html
+November: https://www.1001fonts.com/november-font.html
