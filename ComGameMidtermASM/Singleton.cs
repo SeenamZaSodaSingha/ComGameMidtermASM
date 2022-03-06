@@ -12,18 +12,22 @@ namespace ComGameMidtermASM
     class Singleton
     {
         // windows size.
-        public const int SCREENWIDTH = 1600; //ชนาดจอ
-        public const int SCREENHEIGHT = 800;
+        public const int SCREENWIDTH = 800; //ชนาดจอ
+        public const int SCREENHEIGHT = 680;
+
+        // game panel size
+        public const int GAMEPANELWIDTH = 480;
+        public const int GAMEPANELHEIGHT = 600;
 
         //TODO: Game State Machine
         public enum GameState
         {
-            GameMain,
+            //GameMain,
             GameStart,
             GamePlaying,
             GameWin,
             GameLose,
-            GameEnded,
+            //GameEnded,
         }
  
         public GameState CurrentGameState;
