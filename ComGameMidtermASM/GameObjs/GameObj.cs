@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ComGameMidtermASM.GameObj
+namespace ComGameMidtermASM.GameObjs
 {
-    class GameObj : ICloneable
+    public class GameObj : ICloneable
     {
         protected Texture2D _texture;
 
