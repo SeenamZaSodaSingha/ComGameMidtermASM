@@ -9,6 +9,7 @@ namespace ComGameMidtermASM
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         GameObjs.Ball _ball;
+        GameObjs.BallShooter gun;
         private SpriteFont _spriteFont;
 
         public main()
@@ -39,7 +40,12 @@ namespace ComGameMidtermASM
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            //test 
+            gun = new GameObjs.BallShooter( this.Content.Load<Texture2D>("cannon/cannon-original.png"), this.Content.Load<Texture2D>("cannon/cannon-original.png"));
+            //
 
+            //load pacmans
+            
 
             // TODO: use this.Content to load your game content here
         }
@@ -58,7 +64,7 @@ namespace ComGameMidtermASM
         {
             GraphicsDevice.Clear(Color.White);
             _spriteBatch.Begin();
-            _spriteBatch.Draw(ball, new Vector2(100, 700), null, Color.Brown, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            gun.Draw(_spriteBatch);
             _spriteBatch.End();
             // TODO: Add your drawing code here
 

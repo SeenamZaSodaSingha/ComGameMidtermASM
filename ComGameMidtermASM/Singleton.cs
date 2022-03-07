@@ -15,12 +15,14 @@ namespace ComGameMidtermASM
         public const int SCREENWIDTH = 800; //ชนาดจอ
         public const int SCREENHEIGHT = 680;
 
-        // game panel size
+        // game panel size.
         public const int GAMEPANELWIDTH = 480;
         public const int GAMEPANELHEIGHT = 600;
 
-        public const int GAMEPANELWIDTH = 480 //ขนาดเกม
-        public const int GAMEPANELHEIGHT = 600;
+        // game panel location.
+        public const int GAMEPANELLOCX = 280;
+        public const int GAMEPANELLOCY = 40;
+
 
         //TODO: Game State Machine
         public enum GameState

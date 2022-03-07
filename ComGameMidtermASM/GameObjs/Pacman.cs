@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ComGameMidtermASM.GameObjs
 {
-    public class Ball : GameObj
+    class Pacman : GameObj
     {
         public enum COLOR
         {
@@ -21,7 +21,7 @@ namespace ComGameMidtermASM.GameObjs
 
         public COLOR color;
 
-        public Ball(Texture2D texture, int color_) : base(texture)
+        public Pacman(Texture2D texture, int color_) : base(texture)
         {
             switch (color_)
             {
@@ -60,3 +60,4 @@ namespace ComGameMidtermASM.GameObjs
 
     }
 }
+
