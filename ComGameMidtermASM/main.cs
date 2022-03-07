@@ -8,16 +8,22 @@ namespace ComGameMidtermASM
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        Texture2D red_ball;
-        Texture2D ball;
-        Ball ball_;
+        GameObjs.Ball _ball;
+        private SpriteFont _spriteFont;
 
         public main()
         {
             _graphics = new GraphicsDeviceManager(this);
+
+            // determine window size. from Singleton class
+            _graphics.PreferredBackBufferHeight = Singleton.SCREENHEIGHT;
+            _graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
+
+
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
+            _graphics.ApplyChanges();
             
         }
 
@@ -25,10 +31,7 @@ namespace ComGameMidtermASM
         {
             // TODO: Add your initialization logic here
 
-            // determine window size. from Singleton class
-            _graphics.PreferredBackBufferHeight = Singleton.SCREENHEIGHT;
-            _graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
-            _graphics.ApplyChanges();
+
             //
             base.Initialize();
         }
@@ -36,8 +39,7 @@ namespace ComGameMidtermASM
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            red_ball = Content.Load<Texture2D>("picture/red_ball");
-            ball = Content.Load<Texture2D>("picture/ball");
+
 
             // TODO: use this.Content to load your game content here
         }
