@@ -13,11 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-<<<<<<< Updated upstream
-#begin picture/ball.png
-=======
 #begin aim guide line/dot.png
->>>>>>> Stashed changes
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -27,15 +23,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-<<<<<<< Updated upstream
-/build:picture/ball.png
-
-#begin picture/cyan_ball.png
-=======
 /build:aim guide line/dot.png
 
 #begin cannon/base-transparent.png
->>>>>>> Stashed changes
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -45,15 +35,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-<<<<<<< Updated upstream
-/build:picture/cyan_ball.png
-
-#begin picture/purple_ball.png
-=======
 /build:cannon/base-transparent.png
 
 #begin cannon/canon-original.png
->>>>>>> Stashed changes
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -63,15 +47,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-<<<<<<< Updated upstream
-/build:picture/purple_ball.png
-
-#begin picture/red_ball.png
-=======
 /build:cannon/canon-original.png
 
 #begin cannon/canon-original-cyan.png
->>>>>>> Stashed changes
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -81,15 +59,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-<<<<<<< Updated upstream
-/build:picture/red_ball.png
-
-#begin picture/yellow_ball.png
-=======
 /build:cannon/canon-original-cyan.png
 
 #begin cannon/canon-original-magen.png
->>>>>>> Stashed changes
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -99,9 +71,6 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-<<<<<<< Updated upstream
-/build:picture/yellow_ball.png
-=======
 /build:cannon/canon-original-magen.png
 
 #begin cannon/canon-original-orange.png
@@ -151,56 +120,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:cannon/canon-original-yellow.png
-
-#begin fonts/arcade/ARCADE.TTF
-/importer:
-/processor:
-/build:fonts/arcade/ARCADE.TTF
-
-#begin fonts/arcade/pizzadudedotdk.txt
-/importer:
-/processor:
-/build:fonts/arcade/pizzadudedotdk.txt
-
-#begin fonts/arcadeclassic/ARCADECLASSIC.TTF
-/importer:
-/processor:
-/build:fonts/arcadeclassic/ARCADECLASSIC.TTF
-
-#begin fonts/arcadeclassic/pizzadudedotdk.txt
-/importer:
-/processor:
-/build:fonts/arcadeclassic/pizzadudedotdk.txt
-
-#begin fonts/gasalt/Gasalt-Black.ttf
-/importer:
-/processor:
-/build:fonts/gasalt/Gasalt-Black.ttf
-
-#begin fonts/gasalt/Gasalt-Regular.ttf
-/importer:
-/processor:
-/build:fonts/gasalt/Gasalt-Regular.ttf
-
-#begin fonts/gasalt/Gasalt-Thin.ttf
-/importer:
-/processor:
-/build:fonts/gasalt/Gasalt-Thin.ttf
-
-#begin fonts/no-continue/gomarice_no_continue.ttf
-/importer:
-/processor:
-/build:fonts/no-continue/gomarice_no_continue.ttf
-
-#begin fonts/november/novem___.ttf
-/importer:
-/processor:
-/build:fonts/november/novem___.ttf
-
-#begin fonts/november/ReadMe.txt
-/importer:
-/processor:
-/build:fonts/november/ReadMe.txt
 
 #begin ghost/blue_ghost.png
 /importer:TextureImporter
@@ -717,5 +636,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:pacman-right-color/yellow-pac/3.png
->>>>>>> Stashed changes
 
