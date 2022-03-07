@@ -19,6 +19,9 @@ namespace ComGameMidtermASM
         public const int GAMEPANELWIDTH = 480;
         public const int GAMEPANELHEIGHT = 600;
 
+        public const int GAMEPANELWIDTH = 480 //ขนาดเกม
+        public const int GAMEPANELHEIGHT = 600;
+
         //TODO: Game State Machine
         public enum GameState
         {

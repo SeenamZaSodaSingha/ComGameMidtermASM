@@ -4,11 +4,66 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+<<<<<<< Updated upstream
     <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/picture/ball.png</File>
     <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/picture/cyan_ball.png</File>
     <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/picture/purple_ball.png</File>
     <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/picture/red_ball.png</File>
     <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/picture/yellow_ball.png</File>
+=======
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/aim guide line/dot.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/cannon/base-transparent.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/cannon/canon-original.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/cannon/canon-original-cyan.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/cannon/canon-original-magen.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/cannon/canon-original-orange.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/cannon/canon-original-pink.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/cannon/canon-original-red.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/cannon/canon-original-yellow.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/blue_ghost.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/cyan_ghost.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/magen_ghost.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/orage_ghost.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/pink_ghost.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/red_ghost.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/yellow_ghost.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/cyan-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/cyan-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/cyan-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/magen-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/magen-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/magen-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/orange-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/orange-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/orange-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/pink-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/pink-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/pink-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/red-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/red-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/red-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/yellow-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/yellow-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/yellow-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/cyan-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/cyan-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/cyan-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/magen-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/magen-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/magen-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/orange-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/orange-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/orange-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/pink-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/pink-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/pink-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/red-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/red-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/red-pac/3.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/yellow-pac/1.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/yellow-pac/2.png</File>
+    <File>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/yellow-pac/3.png</File>
+>>>>>>> Stashed changes
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
@@ -16,5 +71,55 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+<<<<<<< Updated upstream
+=======
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+>>>>>>> Stashed changes
   </DestFiles>
 </SourceFileCollection>
