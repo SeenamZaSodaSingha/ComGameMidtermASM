@@ -56,7 +56,7 @@ namespace ComGameMidtermASM
                 Exit();
 
             // TODO: Add your update logic here
-
+            gun.Update(gameTime,null);
             base.Update(gameTime);
         }
 
