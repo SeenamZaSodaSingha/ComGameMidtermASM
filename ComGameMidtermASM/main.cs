@@ -38,10 +38,10 @@ namespace ComGameMidtermASM
         }
 
         protected override void LoadContent()
-        {
+        { 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             //test 
-            gun = new GameObjs.BallShooter( this.Content.Load<Texture2D>("cannon/cannon-original.png"), this.Content.Load<Texture2D>("cannon/cannon-original.png"));
+            gun = new GameObjs.BallShooter( this.Content.Load<Texture2D>("cannon/canon-original-cyan"), this.Content.Load<Texture2D>("cannon/canon-original-cyan"));
             //
 
             //load pacmans
