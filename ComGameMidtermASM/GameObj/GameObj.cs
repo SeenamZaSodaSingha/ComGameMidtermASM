@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ComGameMidtermASM.GameObj
 {
-    class GameObj : ICloneable
+    public class GameObj : ICloneable
     {
         protected Texture2D _texture;
 
@@ -21,7 +21,10 @@ namespace ComGameMidtermASM.GameObj
         public Vector2 Direction;
         public bool IsActive;
         public Rectangle Viewport;
-        
+        public Vector2 Origin;
+
+        public Vector2 crosshairPosition;
+        public Vector2 gunPosition;
 
         public Rectangle Rectangle
         {
@@ -38,6 +41,7 @@ namespace ComGameMidtermASM.GameObj
             Scale = Vector2.One;
             Rotation = 0f;
             IsActive = true;
+            Origin = new Vector2(_texture.Width / 2, _texture.Height / 2);
         }
 
         public virtual void Update(GameTime gameTime, List<GameObj> GameObjs)
@@ -46,6 +50,7 @@ namespace ComGameMidtermASM.GameObj
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
+            //spriteBatch.Draw(_texture, Position, null, Color.White, Rotation, Origin, Scale, SpriteEffects.None, 0);
         }
 
         public virtual void Reset()
