@@ -23,6 +23,8 @@ namespace ComGameMidtermASM.GameObjs
         public Rectangle Viewport;
         public string TextureDir;
 
+        public Color Color;
+
 
         public Rectangle Rectangle
         {

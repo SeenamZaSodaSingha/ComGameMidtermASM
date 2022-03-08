@@ -20,14 +20,14 @@ namespace ComGameMidtermASM
             _graphics = new GraphicsDeviceManager(this);
 
             // determine window size. from Singleton class
-            _graphics.PreferredBackBufferHeight = Singleton.SCREENHEIGHT;
-            _graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
+            this._graphics.PreferredBackBufferHeight = 900;
+            this._graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
 
 
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            _graphics.ApplyChanges();
+            this._graphics.ApplyChanges();
 
         }
 
@@ -48,9 +48,10 @@ namespace ComGameMidtermASM
 
             gameobjs = new List<GameObjs.GameObj>()
             {
+                new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1)),
                 gun,
                 movingball
-                
+            
             };
 
         }
@@ -83,9 +84,6 @@ namespace ComGameMidtermASM
             {
                 obj.Draw(_spriteBatch);
             }
-
-            print<Vector2>(movingball.Velocity, 0);
-            print<Vector2>(movingball.Position, 10);
 
 
             _spriteBatch.End();

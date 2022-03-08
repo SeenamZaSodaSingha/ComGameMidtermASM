@@ -24,6 +24,10 @@ namespace ComGameMidtermASM
         public const int GAMEPANELLOCX = 280;
         public const int GAMEPANELLOCY = 40;
 
+        // game panel border width.
+        public const int BOARDERWIDTH = 1;
+
+
         public const int BALLSPEED = 5;
 
         public const int GUNPOSITIONX = GAMEPANELLOCX + (GAMEPANELWIDTH/2);
