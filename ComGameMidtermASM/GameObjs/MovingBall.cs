@@ -10,6 +10,7 @@ namespace ComGameMidtermASM.GameObjs
     class MovingBall : Ball
     {
         public float MovingAngle;
+        float ballspeed;
 
 
         public MovingBall(Texture2D texture) : base(texture)
@@ -17,6 +18,7 @@ namespace ComGameMidtermASM.GameObjs
             // be false by default
             IsActive = false;
             Viewport = new Rectangle((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
+            ballspeed = Singleton.BALLSPEED;
         }
 
         public void Update(GameTime gameTime, List<GameObj> GameObjs)
@@ -37,8 +39,8 @@ namespace ComGameMidtermASM.GameObjs
 
             if (this.IsActive)
             {
-                this.Velocity.X = (float)(-Singleton.BALLSPEED * Math.Cos(this.MovingAngle));
-                this.Velocity.Y = (float)(-Singleton.BALLSPEED * Math.Sin(this.MovingAngle));
+                this.Velocity.X = (float)(-ballspeed * Math.Cos(this.MovingAngle));
+                this.Velocity.Y = (float)(-ballspeed * Math.Sin(this.MovingAngle));
 
                 this.Position.X += this.Velocity.X;
                 this.Position.Y += this.Velocity.Y;
@@ -67,23 +69,19 @@ namespace ComGameMidtermASM.GameObjs
             {
                 if (IsTouchingLeft(GameObj) && Velocity.X < 0)
                 {
-                    MovingAngle = (float)Math.Acos(Velocity.X / Singleton.BALLSPEED);
-                    //Velocity.X *= -1;
+                    MovingAngle = (float)Math.Acos(Velocity.X / ballspeed);
                 }
                 else if (IsTouchingRight(GameObj) && Velocity.X > 0)
                 {
-                    MovingAngle = (float) Math.Acos(Velocity.X/Singleton.BALLSPEED);
-                    //Velocity.X *= -1;
+                    MovingAngle = (float) Math.Acos(Velocity.X/ ballspeed);
                 }
                 else if (IsTouchingTop(GameObj) && Velocity.Y < 0)
                 {
-                    MovingAngle = (float)Math.Asin(Velocity.Y / Singleton.BALLSPEED);
-                    Velocity.Y *= -1;
+                    MovingAngle = (float)Math.Asin(Velocity.Y / ballspeed);
                 }
                 else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
                 {
-                    MovingAngle = (float)Math.Asin(Velocity.Y / Singleton.BALLSPEED);
-                    Velocity.Y *= -1;
+                    MovingAngle = (float)Math.Asin(Velocity.Y / ballspeed);
                 }
 
             }
