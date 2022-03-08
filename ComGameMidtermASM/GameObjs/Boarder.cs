@@ -22,15 +22,15 @@ namespace ComGameMidtermASM.GameObjs
             Viewport = new Rectangle((int)Position.X, (int)Position.Y, (int)Dimentions.X, (int)Dimentions.Y);
         }
 
-        //public Boarder(Texture2D texture) : base(texture)
-        //{
-        //    _texture = texture;
-        //    this.Position = new Vector2;
-        //    this.LineWidth = LineWidth;
-        //    Name = "boarder";
-        //    Color = Color.Black;
-        //    Viewport = new Rectangle((int)Position.X, (int)Position.Y, (int)Dimentions.X, (int)Dimentions.Y);
-        //}
+        public Boarder(Texture2D texture) : base(texture)
+        {
+            _texture = texture;
+            this.Position = new Vector2(Singleton.GAMEPANELLOCX, Singleton.GAMEPANELLOCY);
+            this.LineWidth = Singleton.BOARDERWIDTH;
+            Name = "boarder";
+            Color = Color.Black;
+            Viewport = new Rectangle((int)Position.X, (int)Position.Y, (int)Singleton.GAMEPANELWIDTH, (int)Singleton.GAMEPANELHEIGHT);
+        }
 
         public void SetColor(Color color)
         {
