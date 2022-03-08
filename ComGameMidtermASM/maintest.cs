@@ -48,7 +48,7 @@ namespace ComGameMidtermASM
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             //test 
-            gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/cannon-original-cyan"), Content.Load <Texture2D>("cannon/cannon-original-cyan"));
+            gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load <Texture2D>("cannon/base-transparent"));
             movingball = new GameObjs.MovingBall(Content.Load<Texture2D>("ghost/cyan_ghost"), gun.Position, gun.GetAngle());
 
             gameobjs = new List<GameObjs.GameObj>()
