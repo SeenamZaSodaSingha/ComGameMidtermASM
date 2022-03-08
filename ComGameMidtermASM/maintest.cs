@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace ComGameMidtermASM
 {
@@ -8,10 +9,10 @@ namespace ComGameMidtermASM
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        GameObjs.Ball ball;
-        GameObjs.MovingBall movingball;
-        GameObjs.BallShooter gun;
         private SpriteFont _spriteFont;
+        private GameObjs.BallShooter gun;
+        private GameObjs.MovingBall movingball;
+        List<GameObjs.GameObj> gameobjs;
 
         public maintest()
         {
@@ -47,10 +48,25 @@ namespace ComGameMidtermASM
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             //test 
-            gun = new GameObjs.BallShooter( Content.Load<Texture2D>("cannon/cannon-original-cyan") , Content.Load<Texture2D>("cannon/cannon-original-cyan"));
+            gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/cannon-original-cyan"), Content.Load <Texture2D>("cannon/cannon-original-cyan"));
+            movingball = new GameObjs.MovingBall(Content.Load<Texture2D>("ghost/cyan_ghost"), gun.Position, gun.GetAngle());
 
-            // TODO: use this.Content to load your game content here
+            gameobjs = new List<GameObjs.GameObj>()
+            {
+                gun,
+                movingball
+                
+            };
+
+        
+
         }
+    
+
+
+
+    // TODO: use this.Content to load your game content here
+
 
         protected override void Update(GameTime gameTime)
         {
@@ -58,8 +74,11 @@ namespace ComGameMidtermASM
                 Exit();
 
             // TODO: Add your update logic here
-            gun.Update(gameTime, null);
-            movingball.Update(gameTime, null);
+            foreach (GameObjs.GameObj obj in gameobjs)
+            {
+                obj.Update(gameTime, gameobjs);
+            }
+
             base.Update(gameTime);
         }
 
@@ -68,8 +87,10 @@ namespace ComGameMidtermASM
             GraphicsDevice.Clear(Color.White);
             _spriteBatch.Begin();
 
-            gun.Draw(_spriteBatch);
-            movingball.Draw(_spriteBatch);
+            foreach (GameObjs.GameObj obj in gameobjs)
+            {
+                obj.Draw(_spriteBatch);
+            }
 
             _spriteBatch.End();
             // TODO: Add your drawing code here
