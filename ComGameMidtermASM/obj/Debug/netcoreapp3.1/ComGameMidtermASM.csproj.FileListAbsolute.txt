@@ -74,3 +74,4 @@ C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\ne
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\pacman-right-color\yellow-pac\1.xnb
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\pacman-right-color\yellow-pac\2.xnb
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\pacman-right-color\yellow-pac\3.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\fonts\GameText.xnb

@@ -9,45 +9,41 @@ namespace ComGameMidtermASM.GameObjs
 {
     class MovingBall : Ball
     { 
-        float MovingAngle;
+        public float MovingAngle;
 
-        public MovingBall(Texture2D texture, Vector2 position, float MovingAngle) : base(texture)
+
+        public MovingBall(Texture2D texture) : base(texture)
         {
-            this.MovingAngle = MovingAngle;
-            Velocity.X = (float) (Singleton.BALLSPEED * Math.Cos(this.MovingAngle));
-            Velocity.Y = (float) (Singleton.BALLSPEED * Math.Sin(this.MovingAngle));
-            base.Position = position;
+            // be false by default
+            IsActive = false;
         }
 
-        public void update(GameTime gameTime, List<GameObj> GameObjs)
+        public override void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
-            foreach (GameObj g in GameObjs)
-            {
-                Collision(g);
-            }
-
-            Position.X += (int) Velocity.X;
-            Position.Y += (int) Velocity.Y;
             base.Update(gameTime, GameObjs);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            base.Draw(spriteBatch);
+            if (IsActive)
+            {
+                spriteBatch.Draw(_texture, Position, null, Color.White, MovingAngle + MathHelper.ToRadians(-90f), new Vector2(_texture.Width / 2, _texture.Height / 2), 1, SpriteEffects.None, 0f);
+                Reset();
+            }
         }
 
-        public void Reset()
+        public override void Reset()
         {
             base.Reset();
         }
 
-        private void Collision(GameObj GameObj)
-        {
-            if ( IsTouchingLeft(GameObj) || IsTouchingRight(GameObj) )
-            {
-                Velocity.X *= -1;
-            }
+        //private void Collision(GameObj GameObj)
+        //{
+        //    if ( IsTouchingLeft(GameObj) || IsTouchingRight(GameObj) )
+        //    {
+        //        Velocity.X *= -1;
+        //    }
             
-        }
+        //}
     }
 }

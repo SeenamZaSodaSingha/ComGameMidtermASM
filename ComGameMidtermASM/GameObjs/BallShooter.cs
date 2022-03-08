@@ -10,9 +10,12 @@ namespace ComGameMidtermASM.GameObjs
     class BallShooter : GameObj
     {
         float angle;
+        Vector2 Distance;
         //bool mRelease;
         Vector2 crosshairPosition;
         Texture2D crosshairTexture;
+        Texture2D balltexture;
+        MovingBall ball;
 
         //bool shot = false;
 
@@ -78,12 +81,14 @@ namespace ComGameMidtermASM.GameObjs
             }
         }
 
-        public BallShooter(Texture2D texture, Texture2D crosshairtexture) : base(texture)
+        public BallShooter(Texture2D texture, Texture2D crosshairtexture, Texture2D balltexture) : base(texture)
         {
             _texture = texture;
+            ball = new MovingBall(balltexture);
             crosshairTexture = crosshairtexture;
             Position.X = Singleton.GUNPOSITIONX;
             Position.Y = Singleton.GUNPOSITIONY;
+            ball.Position = Position;
         }
 
         public void SetTexture(Texture2D texture)
@@ -100,6 +105,7 @@ namespace ComGameMidtermASM.GameObjs
         {
             spriteBatch.Draw(_texture, Position, null, Color.White, angle + MathHelper.ToRadians(-90f), new Vector2(_texture.Width / 2, _texture.Height / 2), 1, SpriteEffects.None, 0f);
             spriteBatch.Draw(crosshairTexture, crosshairPosition, null, Color.White);
+            ball.Draw(spriteBatch);
             Reset();
             base.Draw(spriteBatch);
         }
@@ -111,11 +117,42 @@ namespace ComGameMidtermASM.GameObjs
 
         public override void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
+            // shoot a ball when mouse is click.
             Singleton.Instance.CurrentMouse = Mouse.GetState();
-            if (Singleton.Instance.CurrentMouse.Position.Y <= 600)
+            if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed)
             {
-                angle = (float)Math.Atan2(-Singleton.Instance.CurrentMouse.Position.Y + (_texture.Height / 2) + Position.Y,
-                    -Singleton.Instance.CurrentMouse.Position.X + (_texture.Width / 2) + Position.X);
+                ball.IsActive = true;
+            }
+            //
+
+            if (ball.IsActive)
+            {
+                //foreach (GameObj g in GameObjs)
+                //{
+                //    Collision(g);
+                //}
+
+                ball.Velocity.X = (float)(Singleton.BALLSPEED * ball.Velocity.X * Math.Cos(angle));
+                ball.Velocity.Y = (float)(Singleton.BALLSPEED * ball.Velocity.Y * Math.Sin(angle));
+
+                ball.Position.X += ball.Velocity.X;
+                ball.Position.Y += ball.Velocity.Y;
+
+            }
+            else
+            {
+                ball.MovingAngle = angle;
+            }
+
+
+
+            Singleton.Instance.CurrentMouse = Mouse.GetState();
+            if (Singleton.Instance.CurrentMouse.Position.Y <= Singleton.SCREENWIDTH)
+            {
+                Distance.Y = -Singleton.Instance.CurrentMouse.Position.Y + (_texture.Height / 2) + Position.Y;
+                Distance.X = -Singleton.Instance.CurrentMouse.Position.X + (_texture.Width / 2) + Position.X;
+
+                angle = (float)Math.Atan2(Distance.Y,Distance.X);
             }
 
             //Ref https://community.monogame.net/t/calculate-the-angle-between-two-points/6919/2

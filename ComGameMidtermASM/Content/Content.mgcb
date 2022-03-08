@@ -121,6 +121,13 @@
 /processorParam:TextureFormat=Color
 /build:cannon/canon-original-yellow.png
 
+#begin fonts/GameText.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:fonts/GameText.spritefont
+
 #begin ghost/blue_ghost.png
 /importer:TextureImporter
 /processor:TextureProcessor

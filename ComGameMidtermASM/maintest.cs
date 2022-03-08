@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using System;
 
 namespace ComGameMidtermASM
 {
@@ -34,22 +35,16 @@ namespace ComGameMidtermASM
         {
             // TODO: Add your initialization logic here
 
-            // shoot a ball when mouse is click.
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-            {
-                movingball = new GameObjs.MovingBall(Content.Load<Texture2D>("ghost/cyan_ghost"), gun.Position, gun.GetAngle());
-            }
-
-            //
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
             //test 
-            gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load <Texture2D>("cannon/base-transparent"));
-            movingball = new GameObjs.MovingBall(Content.Load<Texture2D>("ghost/cyan_ghost"), gun.Position, gun.GetAngle());
+            gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load <Texture2D>("aim guide line/dot"), Content.Load<Texture2D>("ghost/cyan_ghost"));
+            movingball = new GameObjs.MovingBall(Content.Load<Texture2D>("ghost/cyan_ghost"));
 
             gameobjs = new List<GameObjs.GameObj>()
             {
@@ -58,14 +53,10 @@ namespace ComGameMidtermASM
                 
             };
 
-        
-
         }
     
 
-
-
-    // TODO: use this.Content to load your game content here
+        // TODO: use this.Content to load your game content here
 
 
         protected override void Update(GameTime gameTime)
@@ -77,6 +68,7 @@ namespace ComGameMidtermASM
             foreach (GameObjs.GameObj obj in gameobjs)
             {
                 obj.Update(gameTime, gameobjs);
+
             }
 
             base.Update(gameTime);
@@ -92,10 +84,19 @@ namespace ComGameMidtermASM
                 obj.Draw(_spriteBatch);
             }
 
+            print<Vector2>(movingball.Velocity, 0);
+            print<Vector2>(movingball.Position, 10);
+
+
             _spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
+        }
+
+        public void print<T>(T stringable,int y)
+        {
+            _spriteBatch.DrawString(_spriteFont, stringable.ToString(), new Vector2(0,y), Color.Black);
         }
     }
 }
