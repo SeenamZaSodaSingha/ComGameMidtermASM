@@ -19,20 +19,21 @@ namespace ComGameMidtermASM
         {
             _graphics = new GraphicsDeviceManager(this);
 
-            // determine window size. from Singleton class
-            this._graphics.PreferredBackBufferHeight = 900;
-            this._graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
-
-
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
 
-            this._graphics.ApplyChanges();
+
 
         }
 
         protected override void Initialize()
         {
+            // determine window size. from Singleton class
+            _graphics.PreferredBackBufferHeight = Singleton.SCREENHEIGHT;
+            _graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
+
+            IsMouseVisible = true;
+            _graphics.ApplyChanges();
+
             // TODO: Add your initialization logic here
 
             base.Initialize();

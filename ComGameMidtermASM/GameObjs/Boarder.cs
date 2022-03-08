@@ -10,6 +10,7 @@ namespace ComGameMidtermASM.GameObjs
     public class Boarder : GameObj
     {
         protected int LineWidth;
+        Vector2 Dimentions;
 
         //texture = Texture2D(_spriteBatch.GraphicsDevice, 1, 1);
         public Boarder(Texture2D texture, Vector2 Position, Vector2 Dimentions, int LineWidth) : base(texture)
@@ -17,6 +18,7 @@ namespace ComGameMidtermASM.GameObjs
             _texture = texture;
             this.Position = Position;
             this.LineWidth = LineWidth;
+            this.Dimentions = Dimentions;
             Name = "boarder";
             Color = Color.Black;
             Viewport = new Rectangle((int)Position.X, (int)Position.Y, (int)Dimentions.X, (int)Dimentions.Y);
@@ -27,6 +29,7 @@ namespace ComGameMidtermASM.GameObjs
             _texture = texture;
             this.Position = new Vector2(Singleton.GAMEPANELLOCX, Singleton.GAMEPANELLOCY);
             this.LineWidth = Singleton.BOARDERWIDTH;
+            this.Dimentions = new Vector2(Singleton.GAMEPANELWIDTH, Singleton.GAMEPANELHEIGHT);
             Name = "boarder";
             Color = Color.Black;
             Viewport = new Rectangle((int)Position.X, (int)Position.Y, (int)Singleton.GAMEPANELWIDTH, (int)Singleton.GAMEPANELHEIGHT);
