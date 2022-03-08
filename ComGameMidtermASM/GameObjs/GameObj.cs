@@ -21,6 +21,7 @@ namespace ComGameMidtermASM.GameObjs
         public Vector2 Direction;
         public bool IsActive;
         public Rectangle Viewport;
+        public string TextureDir;
 
 
         public Rectangle Rectangle

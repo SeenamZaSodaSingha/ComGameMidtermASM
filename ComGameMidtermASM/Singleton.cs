@@ -1,5 +1,6 @@
 ﻿// class contain constant value.
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,12 @@ namespace ComGameMidtermASM
         // game panel location.
         public const int GAMEPANELLOCX = 280;
         public const int GAMEPANELLOCY = 40;
+
+        public const int BALLSPEED = 1;
+
+        public const int GUNPOSITIONX = GAMEPANELLOCX + (GAMEPANELWIDTH/2);
+        public const int GUNPOSITIONY = GAMEPANELLOCY + (GAMEPANELHEIGHT/2) - 30;
+
 
 
         //TODO: Game State Machine

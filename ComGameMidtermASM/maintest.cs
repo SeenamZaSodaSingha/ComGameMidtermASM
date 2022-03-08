@@ -4,15 +4,16 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ComGameMidtermASM
 {
-    public class main : Game
+    public class maintest : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        GameObjs.Ball _ball;
+        GameObjs.Ball ball;
+        GameObjs.MovingBall movingball;
         GameObjs.BallShooter gun;
         private SpriteFont _spriteFont;
 
-        public main()
+        public maintest()
         {
             _graphics = new GraphicsDeviceManager(this);
 
@@ -25,23 +26,28 @@ namespace ComGameMidtermASM
             IsMouseVisible = true;
 
             _graphics.ApplyChanges();
-            
+
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
 
+            // shoot a ball when mouse is click.
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            {
+                movingball = new GameObjs.MovingBall(Content.Load<Texture2D>("ghost/cyan_ghost"), gun.Position, gun.GetAngle());
+            }
 
             //
             base.Initialize();
         }
 
         protected override void LoadContent()
-        { 
+        {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             //test 
-
+            gun = new GameObjs.BallShooter( Content.Load<Texture2D>("cannon/cannon-original-cyan") , Content.Load<Texture2D>("cannon/cannon-original-cyan"));
 
             // TODO: use this.Content to load your game content here
         }
@@ -52,7 +58,8 @@ namespace ComGameMidtermASM
                 Exit();
 
             // TODO: Add your update logic here
-            gun.Update(gameTime,null);
+            gun.Update(gameTime, null);
+            movingball.Update(gameTime, null);
             base.Update(gameTime);
         }
 
@@ -61,7 +68,9 @@ namespace ComGameMidtermASM
             GraphicsDevice.Clear(Color.White);
             _spriteBatch.Begin();
 
-            
+            gun.Draw(_spriteBatch);
+            movingball.Draw(_spriteBatch);
+
             _spriteBatch.End();
             // TODO: Add your drawing code here
 
