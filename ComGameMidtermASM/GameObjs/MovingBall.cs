@@ -75,12 +75,15 @@ namespace ComGameMidtermASM.GameObjs
                 {
                     MovingAngle = (float) Math.Acos(Velocity.X/ ballspeed);
                 }
+
                 else if (IsTouchingTop(GameObj) && Velocity.Y < 0)
                 {
+                    //ballspeed = 0;
                     MovingAngle = (float)Math.Asin(Velocity.Y / ballspeed);
                 }
                 else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
                 {
+                    //ballspeed = 0;
                     MovingAngle = (float)Math.Asin(Velocity.Y / ballspeed);
                 }
 
