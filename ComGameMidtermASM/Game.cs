@@ -14,8 +14,12 @@ namespace ComGameMidtermASM
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private BallShooter gun;
+        private Texture2D Texture;
+        private Texture2D background;
         List<GameObj.GameObj> _gameObj;
         Ball[,] ball;
+        private int colorID;
+        Random rand = new Random();
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -36,43 +40,77 @@ namespace ComGameMidtermASM
             
             base.Initialize();
         }
-
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             //gun = new BallShooter(this.Content.Load<Texture2D>("gun"), this.Content.Load<Texture2D>("crosshairs"));
-            var gunTexture = Content.Load<Texture2D>("gun");
+            var gunTexture = Content.Load<Texture2D>("base-transparent");
             var crosshairTexture = Content.Load<Texture2D>("crosshairs");
-            var ghost = Content.Load<Texture2D>("blue_ghost");
+            var blue_ghost = Content.Load<Texture2D>("blue_ghost");
+            var cyan_ghost = Content.Load<Texture2D>("cyan_ghost");
+            var magen_ghost = Content.Load<Texture2D>("magen_ghost");
+            var red_ghost = Content.Load<Texture2D>("red_ghost");
+            var orange_ghost = Content.Load<Texture2D>("orage_ghost");
+            var pink_ghost = Content.Load<Texture2D>("pink_ghost");
+            var yellow_ghost = Content.Load<Texture2D>("yellow_ghost");
+            background = Content.Load<Texture2D>("Raccoon_norm");
             // TODO: use this.Content to load your game content here
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 8 - (i % 2); j++)
                 {
-                    if(i % 2 == 1)
+                    colorID = rand.Next(0, 7);
+                    switch (colorID)
                     {
-                        ball[i, j] = new Ball(ghost, 0)
+                        case 0:
+                            Texture = blue_ghost;
+                            break;
+                        case 1:
+                            Texture = cyan_ghost;
+                            break;
+                        case 2:
+                            Texture = magen_ghost;
+                            break;
+                        case 3:
+                            Texture = orange_ghost;
+                            break;
+                        case 4:
+                            Texture = red_ghost;
+                            break;
+                        case 5:
+                            Texture = pink_ghost;
+                            break;
+                        case 6:
+                            Texture = yellow_ghost;
+                            break;
+                    }
+                    if (i % 2 == 1)
+                    {
+                        ball[i, j] = new Ball(Texture, colorID)
                         {
-                            Position = new Vector2((j * ghost.Width) + ghost.Width / 2, i * ghost.Height)
+                            Position = new Vector2((j * Texture.Width) + Texture.Width / 2, i * Texture.Height),
+                            //color = GetColor(color)
                         };
                     }
                     else
                     {
-                        ball[i, j] = new Ball(ghost, 0)
+                        ball[i, j] = new Ball(Texture, colorID)
                         {
-                            Position = new Vector2(j * ghost.Width, i * ghost.Height)
+                            Position = new Vector2(j * Texture.Width, i * Texture.Height)
                         };
                     }
                 }
             }
             _gameObj = new List<GameObj.GameObj>()
             {
-                new BallShooter(gunTexture, crosshairTexture)
+                new BallShooter(gunTexture, crosshairTexture, blue_ghost, 0)
                 {
-                    Position = new Vector2(Singleton.SCREENWIDTH / 2, Singleton.SCREENHEIGHT - gunTexture.Height)
+                    Position = new Vector2(Singleton.SCREENWIDTH / 2, Singleton.SCREENHEIGHT - gunTexture.Height / 2)
                 }
             };
         }
+
+      
 
         protected override void Update(GameTime gameTime)
         {
@@ -84,7 +122,7 @@ namespace ComGameMidtermASM
             }
             //gun.Update(gameTime, null);
             // TODO: Add your update logic here
-
+            //for(int i = 0; i < )
             base.Update(gameTime);
         }
 
@@ -92,6 +130,7 @@ namespace ComGameMidtermASM
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             _spriteBatch.Begin();
+            _spriteBatch.Draw(background, new Vector2(0, 0), Color.White);
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 8 - (i % 2); j++)

@@ -49,3 +49,11 @@ E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\gun.xnb
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\crosshairs.xnb
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\blue_ghost.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\cyan_ghost.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\magen_ghost.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\orage_ghost.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\pink_ghost.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\red_ghost.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\yellow_ghost.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\base-transparent.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Raccoon_norm.xnb

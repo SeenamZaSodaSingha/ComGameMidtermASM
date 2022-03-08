@@ -4,11 +4,27 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/base-transparent.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/blue_ghost.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/crosshairs.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/cyan_ghost.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/gun.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/magen_ghost.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/orage_ghost.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/pink_ghost.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Raccoon_norm.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/red_ghost.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/yellow_ghost.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -12,10 +12,11 @@ namespace ComGameMidtermASM
     class Singleton
     {
         // windows size.
-        public const int SCREENWIDTH = 600; //ชนาดจอ
-        public const int SCREENHEIGHT = 800;
+        public const int SCREENWIDTH = 480; //ชนาดจอ
+        public const int SCREENHEIGHT = 600;
 
         //TODO: Game State Machine
+
         public enum GameState
         {
             GameMain,
