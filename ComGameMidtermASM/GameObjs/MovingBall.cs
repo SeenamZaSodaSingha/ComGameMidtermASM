@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input;
 namespace ComGameMidtermASM.GameObjs
 {
     class MovingBall : Ball
-    { 
+    {
         public float MovingAngle;
 
 
@@ -18,7 +18,7 @@ namespace ComGameMidtermASM.GameObjs
             IsActive = false;
         }
 
-        public override void Update(GameTime gameTime, List<GameObj> GameObjs, float angle)
+        public void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
             // shoot a this when mouse is click.
             Singleton.Instance.CurrentMouse = Mouse.GetState();
@@ -41,10 +41,6 @@ namespace ComGameMidtermASM.GameObjs
                 this.Position.X += this.Velocity.X;
                 this.Position.Y += this.Velocity.Y;
 
-            }
-            else
-            {
-                this.MovingAngle = angle;
             }
             base.Update(gameTime, GameObjs);
         }
@@ -69,7 +65,7 @@ namespace ComGameMidtermASM.GameObjs
             {
                 Velocity.X *= -1;
             }
-            else if (IsTouchingTop(GameObj) || IsTouchingBottom(GameObj)
+            else if (IsTouchingTop(GameObj) || IsTouchingBottom(GameObj))
             { 
                 Velocity.Y *= -1;
             }

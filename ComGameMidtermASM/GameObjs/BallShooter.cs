@@ -11,10 +11,8 @@ namespace ComGameMidtermASM.GameObjs
     {
         float angle;
         Vector2 Distance;
-        //bool mRelease;
         Vector2 crosshairPosition;
         Texture2D crosshairTexture;
-        Texture2D balltexture;
         MovingBall ball;
 
         //bool shot = false;
@@ -117,7 +115,11 @@ namespace ComGameMidtermASM.GameObjs
 
         public override void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
-            ball.Update(gameTime, GameObjs, angle);
+            if (!ball.IsActive)
+            {
+                ball.MovingAngle = angle;
+            }
+            ball.Update(gameTime, GameObjs);
             Singleton.Instance.CurrentMouse = Mouse.GetState();
             if (Singleton.Instance.CurrentMouse.Position.Y <= Singleton.SCREENWIDTH)
             {
