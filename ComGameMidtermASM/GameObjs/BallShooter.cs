@@ -117,35 +117,7 @@ namespace ComGameMidtermASM.GameObjs
 
         public override void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
-            // shoot a ball when mouse is click.
-            Singleton.Instance.CurrentMouse = Mouse.GetState();
-            if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed)
-            {
-                ball.IsActive = true;
-            }
-            //
-
-            if (ball.IsActive)
-            {
-                //foreach (GameObj g in GameObjs)
-                //{
-                //    Collision(g);
-                //}
-
-                ball.Velocity.X = (float)(Singleton.BALLSPEED * ball.Velocity.X * Math.Cos(angle));
-                ball.Velocity.Y = (float)(Singleton.BALLSPEED * ball.Velocity.Y * Math.Sin(angle));
-
-                ball.Position.X += ball.Velocity.X;
-                ball.Position.Y += ball.Velocity.Y;
-
-            }
-            else
-            {
-                ball.MovingAngle = angle;
-            }
-
-
-
+            ball.Update(gameTime, GameObjs, angle);
             Singleton.Instance.CurrentMouse = Mouse.GetState();
             if (Singleton.Instance.CurrentMouse.Position.Y <= Singleton.SCREENWIDTH)
             {

@@ -18,8 +18,34 @@ namespace ComGameMidtermASM.GameObjs
             IsActive = false;
         }
 
-        public override void Update(GameTime gameTime, List<GameObj> GameObjs)
+        public override void Update(GameTime gameTime, List<GameObj> GameObjs, float angle)
         {
+            // shoot a this when mouse is click.
+            Singleton.Instance.CurrentMouse = Mouse.GetState();
+            if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed)
+            {
+                this.IsActive = true;
+            }
+            //
+
+            if (this.IsActive)
+            {
+                foreach (GameObj g in GameObjs)
+                {
+                    Collision(g);
+                }
+
+                this.Velocity.X = (float)(-Singleton.BALLSPEED * Math.Cos(this.MovingAngle));
+                this.Velocity.Y = (float)(-Singleton.BALLSPEED * Math.Sin(this.MovingAngle));
+
+                this.Position.X += this.Velocity.X;
+                this.Position.Y += this.Velocity.Y;
+
+            }
+            else
+            {
+                this.MovingAngle = angle;
+            }
             base.Update(gameTime, GameObjs);
         }
 
@@ -37,13 +63,16 @@ namespace ComGameMidtermASM.GameObjs
             base.Reset();
         }
 
-        //private void Collision(GameObj GameObj)
-        //{
-        //    if ( IsTouchingLeft(GameObj) || IsTouchingRight(GameObj) )
-        //    {
-        //        Velocity.X *= -1;
-        //    }
-            
-        //}
+        private void Collision(GameObj GameObj)
+        {
+            if (IsTouchingLeft(GameObj) || IsTouchingRight(GameObj))
+            {
+                Velocity.X *= -1;
+            }
+            else if (IsTouchingTop(GameObj) || IsTouchingBottom(GameObj)
+            { 
+                Velocity.Y *= -1;
+            }
+        }
     }
 }
