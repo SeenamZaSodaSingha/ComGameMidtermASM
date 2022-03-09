@@ -12,8 +12,9 @@ namespace ComGameMidtermASM
         private SpriteBatch _spriteBatch;
         private SpriteFont _spriteFont;
         public static List<GameObjs.GameObj> gameobjs = ObjInstances.gameobjs;
-
-
+        private bool activate = false;
+        private Texture2D DefaultTexture;
+        private int x, y;
         Random rand = new Random();
         int colorID;
 
@@ -47,7 +48,7 @@ namespace ComGameMidtermASM
 
             //load ghost 
             //var crosshairTexture = Content.Load<Texture2D>("ghost/crosshairs");
-            var DefaultTexture = Content.Load<Texture2D>("ghost/blue_ghost");
+            DefaultTexture = Content.Load<Texture2D>("ghost/blue_ghost");
             var blue_ghost = Content.Load<Texture2D>("ghost/blue_ghost");
             var cyan_ghost = Content.Load<Texture2D>("ghost/cyan_ghost");
             var magen_ghost = Content.Load<Texture2D>("ghost/magen_ghost");
@@ -132,6 +133,49 @@ namespace ComGameMidtermASM
                 }
             }
 
+            if (ObjInstances.movingball.IsActive)
+            {
+                pos = ObjInstances.movingball.Position;
+                activate = true;
+            }
+            if (!ObjInstances.movingball.IsActive && activate)
+            {
+                x = (int)Math.Round((pos.X - Singleton.GAMEPANELLOCX) / DefaultTexture.Width - 1);
+                y = (int)Math.Round((pos.Y - Singleton.GAMEPANELLOCY)/ DefaultTexture.Height - 1);
+                if(y % 2 == 1)
+                {
+                    ObjInstances.ball[x, y] = new GameObjs.Ball(DefaultTexture)
+                    {
+                        Position = new Vector2((x * DefaultTexture.Width) + DefaultTexture.Width + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height ) + DefaultTexture.Height/2 + Singleton.GAMEPANELLOCY),
+                    };
+                    ObjInstances.ball[x, y].SetColor(ObjInstances.movingball.color);
+                    ObjInstances.ball[x, y]._texture = Content.Load<Texture2D>(ObjInstances.ball[x, y].TextureDir);
+                    activate = false;
+                }
+                else
+                {
+                    ObjInstances.ball[x, y] = new GameObjs.Ball(DefaultTexture)
+                    {
+                        Position = new Vector2((x * DefaultTexture.Width)+ DefaultTexture.Width / 2 + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height) + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY),
+                    };
+                    ObjInstances.ball[x, y].SetColor(ObjInstances.movingball.color);
+                    ObjInstances.ball[x, y]._texture = Content.Load<Texture2D>(ObjInstances.ball[x, y].TextureDir);
+                    activate = false;
+                }
+
+                //for (int i = 0; i < 9; i++)
+                //{
+                //    for (int j = 0; j < 8 - (i % 2); j++)
+                //    {
+                //        if (ObjInstances.ball[i, j] != null)
+                //        {
+                //            ObjInstances.ball[i, j].Update(gameTime, gameobjs);
+                //        }
+                //    }
+                //}
+            }
+
+
             base.Update(gameTime);
         }
         Vector2 pos;
@@ -157,13 +201,6 @@ namespace ComGameMidtermASM
                 }
             }
 
-            
-
-            if (ObjInstances.movingball.IsActive)
-            {
-                pos = ObjInstances.movingball.Position;
-
-            }
             print<Vector2>(pos, 0);
 
             _spriteBatch.End();

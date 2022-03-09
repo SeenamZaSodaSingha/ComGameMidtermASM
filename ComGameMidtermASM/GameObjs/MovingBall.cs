@@ -19,7 +19,7 @@ namespace ComGameMidtermASM.GameObjs
             ballspeed = Singleton.BALLSPEED;
         }
 
-        public void Update(GameTime gameTime, List<GameObj> GameObjs)
+        public override void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
             // shoot a ball when mouse is click.
             Singleton.Instance.CurrentMouse = Mouse.GetState();
