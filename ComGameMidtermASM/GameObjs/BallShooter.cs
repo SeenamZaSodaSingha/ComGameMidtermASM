@@ -35,6 +35,7 @@ namespace ComGameMidtermASM.GameObjs
 
         public void SetColor(int color_)
         {
+            this.color_ = color_;
             switch (color_)
             {
                 case 0:

@@ -26,7 +26,7 @@ namespace ComGameMidtermASM.GameObjs
         public int HitboxDX;
         public int HitboxDY;
         public string TextureDir;
-
+        public int color_;
         public Color Color;
 
 

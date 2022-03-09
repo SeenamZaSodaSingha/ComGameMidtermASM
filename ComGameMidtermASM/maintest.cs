@@ -43,7 +43,7 @@ namespace ComGameMidtermASM
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
             //load content
-            ObjInstances.gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load <Texture2D>("aim guide line/dot"), Content.Load<Texture2D>("ghost/blue_ghost"));
+            ObjInstances.gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load<Texture2D>("aim guide line/dot"), Content.Load<Texture2D>("ghost/blue_ghost"));
             ObjInstances.boarder = new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1));
 
             //load ghost 
@@ -59,7 +59,7 @@ namespace ComGameMidtermASM
             //background = Content.Load<Texture2D>("ghost/Raccoon_norm");
 
             // Random ghost color
-            ObjInstances.ball = new GameObjs.Ball[9,8];
+            ObjInstances.ball = new GameObjs.Ball[9, 8];
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 8 - (i % 2); j++)
@@ -68,7 +68,7 @@ namespace ComGameMidtermASM
                     {
                         ObjInstances.ball[i, j] = new GameObjs.Ball(DefaultTexture)
                         {
-                            Position = new Vector2((j * DefaultTexture.Width) + DefaultTexture.Width + Singleton.GAMEPANELLOCX, i * DefaultTexture.Height + DefaultTexture.Height/2  + Singleton.GAMEPANELLOCY),
+                            Position = new Vector2((j * DefaultTexture.Width) + DefaultTexture.Width + Singleton.GAMEPANELLOCX, i * DefaultTexture.Height + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY),
                             //color = GetColor(color)
                         };
                     }
@@ -76,7 +76,7 @@ namespace ComGameMidtermASM
                     {
                         ObjInstances.ball[i, j] = new GameObjs.Ball(DefaultTexture)
                         {
-                            Position = new Vector2(j * DefaultTexture.Width + DefaultTexture.Width/2 + Singleton.GAMEPANELLOCX, i * DefaultTexture.Height + DefaultTexture.Height/2 + Singleton.GAMEPANELLOCY)
+                            Position = new Vector2(j * DefaultTexture.Width + DefaultTexture.Width / 2 + Singleton.GAMEPANELLOCX, i * DefaultTexture.Height + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY)
                         };
                     }
 
@@ -87,15 +87,16 @@ namespace ComGameMidtermASM
 
                 }
             }
-                //
+            //
 
 
 
 
-                //set color of gun and ball.
-                ObjInstances.gun.SetColor(3);
-                ObjInstances.gun.Reset(Content.Load<Texture2D>(ObjInstances.gun.TextureDir));
-                ObjInstances.movingball._texture = Content.Load<Texture2D>(ObjInstances.movingball.TextureDir);
+            //set color of gun and ball.
+            colorID = rand.Next(0, 6);
+            ObjInstances.gun.SetColor(colorID);
+            ObjInstances.gun.Reset(Content.Load<Texture2D>(ObjInstances.gun.TextureDir));
+            ObjInstances.movingball._texture = Content.Load<Texture2D>(ObjInstances.movingball.TextureDir);
 
 
             gameobjs.Add(ObjInstances.boarder);
@@ -103,7 +104,7 @@ namespace ComGameMidtermASM
             gameobjs.Add(ObjInstances.movingball);
 
         }
-    
+
 
         // TODO: use this.Content to load your game content here
 
@@ -141,33 +142,27 @@ namespace ComGameMidtermASM
             }
             if (!ObjInstances.movingball.IsActive && activate)
             {
-                x = (int)Math.Round((pos.X - Singleton.GAMEPANELLOCX) / DefaultTexture.Width - 1);
-                y = (int)Math.Ceiling((pos.Y - Singleton.GAMEPANELLOCY)/ DefaultTexture.Height - 1);
-                if(y % 2 == 1)
+                x = (int)Math.Ceiling((pos.X - Singleton.GAMEPANELLOCX) / DefaultTexture.Width - 1);
+                y = (int)Math.Ceiling((pos.Y - Singleton.GAMEPANELLOCY) / DefaultTexture.Height - 1);
+                if (y % 2 == 1)
                 {
-                    if (x < 0) x = 0;
-                    if (x > 7) x = 7;
-                    if (y < 0) y = 0;
                     if (y > 8) y = 8;
                     ObjInstances.ball[y, x] = new GameObjs.Ball(DefaultTexture)
                     {
-                        Position = new Vector2((x * DefaultTexture.Width) + DefaultTexture.Width + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height ) + DefaultTexture.Height/2 + Singleton.GAMEPANELLOCY),
+                        Position = new Vector2((x * DefaultTexture.Width) + DefaultTexture.Width + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height) + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY),
                     };
-                    ObjInstances.ball[y, x].SetColor(ObjInstances.movingball.color);
+                    ObjInstances.ball[y, x].SetColor(ObjInstances.gun.color_);
                     ObjInstances.ball[y, x]._texture = Content.Load<Texture2D>(ObjInstances.ball[y, x].TextureDir);
                     activate = false;
                 }
                 else
                 {
-                    if (x < 0) x = 0;
-                    if (x > 6) x = 6;
-                    if (y < 0) y = 0;
                     if (y > 8) y = 8;
                     ObjInstances.ball[y, x] = new GameObjs.Ball(DefaultTexture)
                     {
-                        Position = new Vector2((x * DefaultTexture.Width)+ DefaultTexture.Width / 2 + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height) + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY),
+                        Position = new Vector2((x * DefaultTexture.Width) + DefaultTexture.Width / 2 + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height) + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY),
                     };
-                    ObjInstances.ball[y, x].SetColor(ObjInstances.movingball.color);
+                    ObjInstances.ball[y, x].SetColor(ObjInstances.gun.color_);
                     ObjInstances.ball[y, x]._texture = Content.Load<Texture2D>(ObjInstances.ball[y, x].TextureDir);
                     activate = false;
                 }
@@ -208,12 +203,15 @@ namespace ComGameMidtermASM
                     if (ObjInstances.ball[i, j] != null)
                     {
                         ObjInstances.ball[i, j].Draw(_spriteBatch);
+                        print<String>(ObjInstances.ball[i, j].color_.ToString(), j * 25, i * 25 + 200);
                     }
                 }
             }
 
-            print<Vector2>(pos, 0);
-            print<String>((y.ToString() + " " + x.ToString()), 10);
+            print<Vector2>(pos, 0, 0);
+            print<String>((y.ToString() + " " + x.ToString()), 0, 100);
+            print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
+
 
             _spriteBatch.End();
             // TODO: Add your drawing code here
@@ -221,9 +219,9 @@ namespace ComGameMidtermASM
             base.Draw(gameTime);
         }
 
-        public void print<T>(T stringable,int y)
+        public void print<T>(T stringable, int x, int y)
         {
-            _spriteBatch.DrawString(_spriteFont, stringable.ToString(), new Vector2(0,y), Color.Black);
+            _spriteBatch.DrawString(_spriteFont, stringable.ToString(), new Vector2(x, y), Color.Black);
         }
     }
 }

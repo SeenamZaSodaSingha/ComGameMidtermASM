@@ -174,19 +174,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dylan\\.nuget\\packages\\": {}
+    "C:\\Users\\ariya\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dylan\\Documents\\GitHub\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM.csproj",
+      "projectUniqueName": "E:\\ハウス\\Assignment\\Kmitl\\Year_2\\Semester_2\\Computer_Game\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM.csproj",
       "projectName": "ComGameMidtermASM",
-      "projectPath": "C:\\Users\\dylan\\Documents\\GitHub\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM.csproj",
-      "packagesPath": "C:\\Users\\dylan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dylan\\Documents\\GitHub\\ComGameMidtermASM\\ComGameMidtermASM\\obj\\",
+      "projectPath": "E:\\ハウス\\Assignment\\Kmitl\\Year_2\\Semester_2\\Computer_Game\\ComGameMidtermASM\\ComGameMidtermASM\\ComGameMidtermASM.csproj",
+      "packagesPath": "C:\\Users\\ariya\\.nuget\\packages\\",
+      "outputPath": "E:\\ハウス\\Assignment\\Kmitl\\Year_2\\Semester_2\\Computer_Game\\ComGameMidtermASM\\ComGameMidtermASM\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\dylan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ariya\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -194,6 +199,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "http://teamcity.monogame.net/guestAuth/app/nuget/feed/_Root/default/v3/index.json": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -236,7 +242,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
