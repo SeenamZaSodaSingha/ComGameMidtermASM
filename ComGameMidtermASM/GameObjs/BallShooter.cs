@@ -16,8 +16,10 @@ namespace ComGameMidtermASM.GameObjs
 
         //bool shot = false;
 
+        //NOTE :Enum is useless?
         public enum COLOR
         {
+            none,
             cyan,
             magenta,
             orange,
@@ -27,6 +29,15 @@ namespace ComGameMidtermASM.GameObjs
         }
 
         public COLOR color;
+
+        public BallShooter(List<Texture2D> _textures, Texture2D crosshairtexture, List<Texture2D> balltextures) : base(_textures)
+        {
+            ObjInstances.movingball = new MovingBall(balltextures);
+            crosshairTexture = crosshairtexture;
+            Position.X = Singleton.GUNPOSITIONX;
+            Position.Y = Singleton.GUNPOSITIONY;
+
+        }
 
         public string GetTextureDir()
         {
@@ -40,43 +51,57 @@ namespace ComGameMidtermASM.GameObjs
             {
                 case 0:
                     {
-                        color = COLOR.cyan;
-                        TextureDir = "cannon/canon-original-cyan";
+                        color = COLOR.none;
+                        TextureDir = "cannon/canon-original";
+                        _texture = _textures[0];
                         SetBallColor(color);
                         break;
                     }
                 case 1:
                     {
-                        color = COLOR.magenta;
-                        TextureDir = "cannon/canon-original-magen";
+                        color = COLOR.cyan;
+                        TextureDir = "cannon/canon-original-cyan";
+                        _texture = _textures[1];
                         SetBallColor(color);
                         break;
                     }
                 case 2:
                     {
-                        color = COLOR.orange;
-                        TextureDir = "cannon/canon-original-orange";
+                        color = COLOR.magenta;
+                        TextureDir = "cannon/canon-original-magen";
+                        _texture = _textures[2];
                         SetBallColor(color);
                         break;
                     }
                 case 3:
                     {
-                        color = COLOR.pink;
-                        TextureDir = "cannon/canon-original-pink";
+                        color = COLOR.orange;
+                        TextureDir = "cannon/canon-original-orange";
+                        _texture = _textures[3];
                         SetBallColor(color);
                         break;
                     }
                 case 4:
                     {
-                        color = COLOR.red;
-                        TextureDir = "cannon/canon-original-red";
+                        color = COLOR.pink;
+                        TextureDir = "cannon/canon-original-pink";
+                        _texture = _textures[4];
                         SetBallColor(color);
                         break;
                     }
                 case 5:
                     {
+                        color = COLOR.red;
+                        TextureDir = "cannon/canon-original-red";
+                        _texture = _textures[5];
+                        SetBallColor(color);
+                        break;
+                    }
+                case 6:
+                    {
                         color = COLOR.yellow;
                         TextureDir = "cannon/canon-original-yellow";
+                        _texture = _textures[6];
                         SetBallColor(color);
                         break;
                     }
@@ -91,6 +116,7 @@ namespace ComGameMidtermASM.GameObjs
                 case COLOR.cyan:
                     {
                         TextureDir = "cannon/canon-original-cyan";
+                        _texture = _textures[0];
                         SetBallColor(color);
                         this.color_ = 0;
                         break;
@@ -98,6 +124,7 @@ namespace ComGameMidtermASM.GameObjs
                 case COLOR.magenta:
                     {
                         TextureDir = "cannon/canon-original-magen";
+                        _texture = _textures[1];
                         SetBallColor(color);
                         this.color_ = 1;
                         break;
@@ -105,6 +132,7 @@ namespace ComGameMidtermASM.GameObjs
                 case COLOR.orange:
                     {
                         TextureDir = "cannon/canon-original-orange";
+                        _texture = _textures[2];
                         SetBallColor(color);
                         this.color_ = 2;
                         break;
@@ -112,6 +140,7 @@ namespace ComGameMidtermASM.GameObjs
                 case COLOR.pink:
                     {
                         TextureDir = "cannon/canon-original-pink";
+                        _texture = _textures[3];
                         SetBallColor(color);
                         this.color_ = 3;
                         break;
@@ -119,6 +148,7 @@ namespace ComGameMidtermASM.GameObjs
                 case COLOR.red:
                     {
                         TextureDir = "cannon/canon-original-red";
+                        _texture = _textures[4];
                         SetBallColor(color);
                         this.color_ = 4;
                         break;
@@ -126,21 +156,12 @@ namespace ComGameMidtermASM.GameObjs
                 case COLOR.yellow:
                     {
                         TextureDir = "cannon/canon-original-yellow";
+                        _texture = _textures[5];
                         SetBallColor(color);
                         this.color_ = 5;
                         break;
                     }
             }
-        }
-
-        public BallShooter(Texture2D texture, Texture2D crosshairtexture, Texture2D balltexture) : base(texture)
-        {
-            _texture = texture;
-            ObjInstances.movingball = new MovingBall(balltexture);
-            crosshairTexture = crosshairtexture;
-            Position.X = Singleton.GUNPOSITIONX;
-            Position.Y = Singleton.GUNPOSITIONY;
-            
         }
 
         public float GetAngle()
@@ -150,7 +171,7 @@ namespace ComGameMidtermASM.GameObjs
 
         protected void SetBallColor(COLOR color)
         {
-            ObjInstances.movingball.SetColor( (GameObjs.Ball.COLOR) color );
+            ObjInstances.movingball.SetColor((GameObjs.Ball.COLOR)color);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
@@ -183,7 +204,7 @@ namespace ComGameMidtermASM.GameObjs
                 Distance.Y = -Singleton.Instance.CurrentMouse.Position.Y + (_texture.Height / 2) + Position.Y;
                 Distance.X = -Singleton.Instance.CurrentMouse.Position.X + (_texture.Width / 2) + Position.X;
 
-                angle = (float)Math.Atan2(Distance.Y,Distance.X);
+                angle = (float)Math.Atan2(Distance.Y, Distance.X);
             }
 
             //Ref https://community.monogame.net/t/calculate-the-angle-between-two-points/6919/2

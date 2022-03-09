@@ -1,0 +1,22 @@
+﻿
+public void CheckRemoveBubble(Bubble[,] gameObjects, Color ColorTarget, Vector2 me) {
+            if ((me.X >= 0 && me.Y >= 0) && (me.X <= 7 && me.Y <= 8) && (gameObjects[(int)me.Y, (int)me.X] != null && gameObjects[(int)me.Y, (int)me.X].color == ColorTarget)) {
+                Singleton.Instance.removeBubble.Add(me);
+                gameObjects[(int)me.Y, (int)me.X] = null;
+            } else {
+                return;
+            }
+            CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X + 1, me.Y)); // Right
+            CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X - 1, me.Y)); // Left
+            if (me.Y % 2 == 0) {
+                CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X, me.Y - 1)); // Top Right
+                CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X - 1, me.Y - 1)); // Top Left
+                CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X, me.Y + 1)); // Bot Right
+                CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X - 1, me.Y + 1)); // Bot Left
+            } else {
+                CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X + 1, me.Y - 1)); // Top Right
+                CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X, me.Y - 1)); // Top Left
+                CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X + 1, me.Y + 1)); // Bot Right
+                CheckRemoveBubble(gameObjects, ColorTarget, new Vector2(me.X, me.Y + 1)); // Bot         }
+            }
+        }
