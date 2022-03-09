@@ -11,6 +11,7 @@ namespace ComGameMidtermASM
         public static List<GameObjs.GameObj> gameobjs = new List<GameObjs.GameObj>();
         public static GameObjs.MovingBall movingball;
         public static GameObjs.BallShooter gun;
+        public static GameObjs.Boarder boarder;
 
     }
 }

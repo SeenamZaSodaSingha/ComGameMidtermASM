@@ -39,14 +39,17 @@ namespace ComGameMidtermASM
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
             //test 
             ObjInstances.gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load <Texture2D>("aim guide line/dot"), Content.Load<Texture2D>("ghost/blue_ghost"));
+            ObjInstances.boarder = new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1));
 
+            //set color of gun and ball.
             ObjInstances.gun.SetColor(3);
             ObjInstances.gun.Reset(Content.Load<Texture2D>(ObjInstances.gun.TextureDir));
             ObjInstances.movingball._texture = Content.Load<Texture2D>(ObjInstances.movingball.TextureDir);
 
 
-            gameobjs.Add(new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1)));
+            gameobjs.Add(ObjInstances.boarder);
             gameobjs.Add(ObjInstances.gun);
+            gameobjs.Add(ObjInstances.movingball);
 
         }
     

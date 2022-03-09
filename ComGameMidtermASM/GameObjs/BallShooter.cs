@@ -86,11 +86,10 @@ namespace ComGameMidtermASM.GameObjs
         {
             _texture = texture;
             ObjInstances.movingball = new MovingBall(balltexture);
-            maintest.gameobjs.Add(ObjInstances.movingball);
             crosshairTexture = crosshairtexture;
             Position.X = Singleton.GUNPOSITIONX;
             Position.Y = Singleton.GUNPOSITIONY;
-            ObjInstances.movingball.Position = Position;
+            
         }
 
         public float GetAngle()
@@ -122,6 +121,7 @@ namespace ComGameMidtermASM.GameObjs
         {
             if (!ObjInstances.movingball.IsActive)
             {
+                ObjInstances.movingball.Position = Position;
                 ObjInstances.movingball.MovingAngle = angle;
             }
             ObjInstances.movingball.Update(gameTime, GameObjs);

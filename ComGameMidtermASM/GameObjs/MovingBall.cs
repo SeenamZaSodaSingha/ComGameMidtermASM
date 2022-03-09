@@ -17,7 +17,7 @@ namespace ComGameMidtermASM.GameObjs
         {
             // be false by default
             IsActive = false;
-            Viewport = new Rectangle((int)Position.X, (int)Position.Y, _texture.Width, _texture.Height);
+            Viewport = new Rectangle((int)Position.X, (int)Position.Y, (int)_texture.Width/2, (int)_texture.Height/2);
             ballspeed = Singleton.BALLSPEED;
         }
 
@@ -53,7 +53,9 @@ namespace ComGameMidtermASM.GameObjs
         {
             if (IsActive)
             {
-                spriteBatch.Draw(_texture, Position, null, Color.White, MovingAngle + MathHelper.ToRadians(-90f), new Vector2(_texture.Width / 2, _texture.Height / 2), 1, SpriteEffects.None, 0f);
+                Rotation = MovingAngle + MathHelper.ToRadians(-90f);
+                Rotation = 0;
+                spriteBatch.Draw(_texture, Position, null, Color.White, Rotation , new Vector2(_texture.Width / 2, _texture.Height / 2), 1, SpriteEffects.None, 0f);
                 Reset();
             }
         }
@@ -80,7 +82,8 @@ namespace ComGameMidtermASM.GameObjs
                 else if (IsTouchingTop(GameObj) && Velocity.Y < 0)
                 {
                     //ballspeed = 0;
-                    MovingAngle = (float) Math.Asin(Velocity.Y / ballspeed);
+                    //MovingAngle = (float) Math.Asin(Velocity.Y / ballspeed);
+                    IsActive = false;
                 }
                 else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
                 {

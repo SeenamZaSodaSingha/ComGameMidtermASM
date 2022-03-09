@@ -31,7 +31,7 @@ namespace ComGameMidtermASM
         public const int BALLSPEED = 5;
 
         public const int GUNPOSITIONX = GAMEPANELLOCX + (GAMEPANELWIDTH/2);
-        public const int GUNPOSITIONY = GAMEPANELLOCY + (GAMEPANELHEIGHT) - 30;
+        public const int GUNPOSITIONY = GAMEPANELLOCY + (GAMEPANELHEIGHT) - 50;
 
 
 
