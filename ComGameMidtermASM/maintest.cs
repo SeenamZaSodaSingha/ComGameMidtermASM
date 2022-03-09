@@ -165,7 +165,7 @@ namespace ComGameMidtermASM
                     {
                         Position = new Vector2((x * DefaultTexture.Width) + DefaultTexture.Width / 2 + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height) + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY),
                     };
-                    ObjInstances.ball[y, x].SetColor(ObjInstances.gun.color_);
+                    ObjInstances.ball[y, x].SetColor(ObjInstances.movingball.color);
                     ObjInstances.ball[y, x]._texture = Content.Load<Texture2D>(ObjInstances.ball[y, x].TextureDir);
                     activate = false;
                 }
