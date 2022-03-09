@@ -20,7 +20,11 @@ namespace ComGameMidtermASM.GameObjs
         public string Name;
         public Vector2 Direction;
         public bool IsActive;
-        public Rectangle Viewport;
+
+        public int HitboxX;
+        public int HitboxY;
+        public int HitboxDX;
+        public int HitboxDY;
         public string TextureDir;
 
         public Color Color;
@@ -30,7 +34,12 @@ namespace ComGameMidtermASM.GameObjs
         {
             get
             {
-                return new Rectangle((int)Position.X, (int)Position.Y, Viewport.Width, Viewport.Height);
+                return new Rectangle(
+                    HitboxX,
+                    HitboxY,
+                    HitboxDX,
+                    HitboxDY
+                    );
             }
         }
 
@@ -41,6 +50,7 @@ namespace ComGameMidtermASM.GameObjs
             Scale = Vector2.One;
             Rotation = 0f;
             IsActive = true;
+
         }
 
         public virtual void Update(GameTime gameTime, List<GameObj> GameObjs)

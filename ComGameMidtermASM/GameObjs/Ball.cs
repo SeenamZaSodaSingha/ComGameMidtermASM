@@ -11,18 +11,22 @@ namespace ComGameMidtermASM.GameObjs
     {
 
         public enum COLOR
-        {
+        {   
             cyan,
             magenta,
             orange,
             pink,
             red,
-            yellow
+            yellow,
+            blue
         }
 
         public COLOR color;
 
-        public Ball(Texture2D texture) : base(texture) { }
+        public Ball(Texture2D texture) : base(texture) 
+        {
+            TextureDir = "ghost/blue_ghost";
+        }
 
         public void SetColor(int color_)
         {
@@ -62,6 +66,12 @@ namespace ComGameMidtermASM.GameObjs
                     {
                         color = COLOR.yellow;
                         TextureDir = "ghost/yellow_ghost";
+                        break;
+                    }
+                case 6:
+                    {
+                        color = COLOR.yellow;
+                        TextureDir = "ghost/blue_ghost";
                         break;
                     }
             }
@@ -106,6 +116,10 @@ namespace ComGameMidtermASM.GameObjs
 
         public override void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
+            HitboxX = (int)(Position.X - _texture.Width / 2);
+            HitboxY = (int)(Position.Y - _texture.Height / 2);
+            HitboxDX = (int)(_texture.Width);
+            HitboxDY = (int)(_texture.Height);
             base.Update(gameTime, GameObjs);
         }
 

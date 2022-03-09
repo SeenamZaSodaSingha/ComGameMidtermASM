@@ -16,7 +16,6 @@ namespace ComGameMidtermASM.GameObjs
         {
             // be false by default
             IsActive = false;
-            Viewport = new Rectangle((int)Position.X, (int)Position.Y, (int)_texture.Width/2, (int)_texture.Height/2);
             ballspeed = Singleton.BALLSPEED;
         }
 
@@ -31,7 +30,19 @@ namespace ComGameMidtermASM.GameObjs
             //
 
             // do a collision
-            Collision(ObjInstances.boarder);
+            Collisionboarder(ObjInstances.boarder);
+
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 8 - (i % 2); j++)
+                {
+                    if (ObjInstances.ball[i, j] != null)
+                    {
+                        Collisionball(ObjInstances.ball[i, j]);
+                    }
+                }
+            }
 
             //update ball position
             if (this.IsActive)
@@ -62,7 +73,7 @@ namespace ComGameMidtermASM.GameObjs
             base.Reset();
         }
 
-        private void Collision(GameObj GameObj)
+        private void Collisionboarder(GameObj GameObj)
         {
             if (IsTouchingLeft(GameObj) && Velocity.X < 0)
             {
@@ -83,6 +94,27 @@ namespace ComGameMidtermASM.GameObjs
             {
                 //ballspeed = 0;
                 MovingAngle = (float) Math.Asin(Velocity.Y / ballspeed);
+            }
+        }
+
+        private void Collisionball(GameObj GameObj)
+        {
+            if (IsTouchingLeft(GameObj) && Velocity.X < 0)
+            {
+                IsActive = false;
+            }
+            else if (IsTouchingRight(GameObj) && Velocity.X > 0)
+            {
+                IsActive = false;
+            }
+            else if (IsTouchingTop(GameObj) && Velocity.Y < 0)
+            {
+                IsActive = false;
+            }
+            else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
+            {
+                IsActive = false;
+
             }
         }
     }

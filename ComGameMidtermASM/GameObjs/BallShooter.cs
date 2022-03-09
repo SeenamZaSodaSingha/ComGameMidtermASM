@@ -126,7 +126,8 @@ namespace ComGameMidtermASM.GameObjs
             }
             ObjInstances.movingball.Update(gameTime, GameObjs);
             Singleton.Instance.CurrentMouse = Mouse.GetState();
-            if (Singleton.Instance.CurrentMouse.Position.Y <= Singleton.SCREENWIDTH)
+
+            if (Singleton.Instance.CurrentMouse.Position.Y <= 560)
             {
                 Distance.Y = -Singleton.Instance.CurrentMouse.Position.Y + (_texture.Height / 2) + Position.Y;
                 Distance.X = -Singleton.Instance.CurrentMouse.Position.X + (_texture.Width / 2) + Position.X;
