@@ -48,7 +48,7 @@ namespace ComGameMidtermASM.GameObjs
                 case 1:
                     {
                         color = COLOR.magenta;
-                        TextureDir = "cannon/canon-original-magenta";
+                        TextureDir = "cannon/canon-original-magen";
                         SetBallColor(color);
                         break;
                     }
@@ -76,6 +76,50 @@ namespace ComGameMidtermASM.GameObjs
                 case 5:
                     {
                         color = COLOR.yellow;
+                        TextureDir = "cannon/canon-original-yellow";
+                        SetBallColor(color);
+                        break;
+                    }
+            }
+        }
+
+        public void SetColor(COLOR color_)
+        {
+            color = color_;
+            switch (color_)
+            {
+                case COLOR.cyan:
+                    {
+                        TextureDir = "cannon/canon-original-cyan";
+                        SetBallColor(color);
+                        break;
+                    }
+                case COLOR.magenta:
+                    {
+                        TextureDir = "cannon/canon-original-magen";
+                        SetBallColor(color);
+                        break;
+                    }
+                case COLOR.orange:
+                    {
+                        TextureDir = "cannon/canon-original-orange";
+                        SetBallColor(color);
+                        break;
+                    }
+                case COLOR.pink:
+                    {
+                        TextureDir = "cannon/canon-original-pink";
+                        SetBallColor(color);
+                        break;
+                    }
+                case COLOR.red:
+                    {
+                        TextureDir = "cannon/canon-original-red";
+                        SetBallColor(color);
+                        break;
+                    }
+                case COLOR.yellow:
+                    {
                         TextureDir = "cannon/canon-original-yellow";
                         SetBallColor(color);
                         break;

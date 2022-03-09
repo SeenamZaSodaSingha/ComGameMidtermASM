@@ -42,20 +42,27 @@ namespace ComGameMidtermASM
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
-            //load content
-            ObjInstances.gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load<Texture2D>("aim guide line/dot"), Content.Load<Texture2D>("ghost/blue_ghost"));
+
+            DefaultTexture = Content.Load<Texture2D>("ghost/blue_ghost");
+
+            //load boarder
             ObjInstances.boarder = new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1));
+            
+            //load and set nextball indicater
+            ObjInstances.nextball = new GameObjs.Ball(DefaultTexture);
+            colorID = rand.Next(0, 6);
+            ObjInstances.nextball.SetColor(colorID);
+            ObjInstances.nextball._texture = Content.Load<Texture2D>(ObjInstances.nextball.TextureDir);
+            ObjInstances.nextball.Position = new Vector2(190, 570);
+
+            //load and set gun and ball
+            ObjInstances.gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load <Texture2D>("aim guide line/dot"), DefaultTexture);
+            ObjInstances.gun.SetColor((GameObjs.BallShooter.COLOR)ObjInstances.nextball.color);
+            ObjInstances.gun.Reset(Content.Load<Texture2D>(ObjInstances.gun.TextureDir));
+            ObjInstances.movingball._texture = Content.Load<Texture2D>(ObjInstances.movingball.TextureDir);
 
             //load ghost 
             //var crosshairTexture = Content.Load<Texture2D>("ghost/crosshairs");
-            DefaultTexture = Content.Load<Texture2D>("ghost/blue_ghost");
-            var blue_ghost = Content.Load<Texture2D>("ghost/blue_ghost");
-            var cyan_ghost = Content.Load<Texture2D>("ghost/cyan_ghost");
-            var magen_ghost = Content.Load<Texture2D>("ghost/magen_ghost");
-            var red_ghost = Content.Load<Texture2D>("ghost/red_ghost");
-            var orange_ghost = Content.Load<Texture2D>("ghost/orage_ghost");
-            var pink_ghost = Content.Load<Texture2D>("ghost/pink_ghost");
-            var yellow_ghost = Content.Load<Texture2D>("ghost/yellow_ghost");
             //background = Content.Load<Texture2D>("ghost/Raccoon_norm");
 
             // Random ghost color
@@ -88,15 +95,6 @@ namespace ComGameMidtermASM
                 }
             }
             //
-
-
-
-
-            //set color of gun and ball.
-            colorID = rand.Next(0, 6);
-            ObjInstances.gun.SetColor(colorID);
-            ObjInstances.gun.Reset(Content.Load<Texture2D>(ObjInstances.gun.TextureDir));
-            ObjInstances.movingball._texture = Content.Load<Texture2D>(ObjInstances.movingball.TextureDir);
 
 
             gameobjs.Add(ObjInstances.boarder);
@@ -133,6 +131,9 @@ namespace ComGameMidtermASM
                 }
             }
 
+            //update next ball indicator
+            ObjInstances.nextball.Update(gameTime, gameobjs);
+
 
             //sucking balls
             if (ObjInstances.movingball.IsActive)
@@ -143,9 +144,10 @@ namespace ComGameMidtermASM
             if (!ObjInstances.movingball.IsActive && activate)
             {
                 x = (int)Math.Ceiling((pos.X - Singleton.GAMEPANELLOCX) / DefaultTexture.Width - 1);
-                y = (int)Math.Ceiling((pos.Y - Singleton.GAMEPANELLOCY) / DefaultTexture.Height - 1);
-                if (y % 2 == 1)
+                y = (int)Math.Ceiling((pos.Y - Singleton.GAMEPANELLOCY)/ DefaultTexture.Height - 1);
+                if(y % 2 == 1)
                 {
+                    if (y < 0) y = 0;
                     if (y > 8) y = 8;
                     ObjInstances.ball[y, x] = new GameObjs.Ball(DefaultTexture)
                     {
@@ -157,6 +159,7 @@ namespace ComGameMidtermASM
                 }
                 else
                 {
+                    if (y < 0) y = 0;
                     if (y > 8) y = 8;
                     ObjInstances.ball[y, x] = new GameObjs.Ball(DefaultTexture)
                     {
@@ -167,17 +170,15 @@ namespace ComGameMidtermASM
                     activate = false;
                 }
 
-                //for (int i = 0; i < 9; i++)
-                //{
-                //    for (int j = 0; j < 8 - (i % 2); j++)
-                //    {
-                //        if (ObjInstances.ball[i, j] != null)
-                //        {
-                //            ObjInstances.ball[i, j].Update(gameTime, gameobjs);
-                //        }
-                //    }
-                //}
 
+                //set gun color
+                ObjInstances.gun.SetColor((GameObjs.BallShooter.COLOR)ObjInstances.nextball.color);
+                ObjInstances.gun.Reset(Content.Load<Texture2D>(ObjInstances.gun.TextureDir));
+                ObjInstances.movingball._texture = Content.Load<Texture2D>(ObjInstances.movingball.TextureDir);
+
+                colorID = rand.Next(0, 6);
+                ObjInstances.nextball.SetColor(colorID);
+                ObjInstances.nextball._texture = Content.Load<Texture2D>(ObjInstances.nextball.TextureDir);
 
             }
 
@@ -208,10 +209,13 @@ namespace ComGameMidtermASM
                 }
             }
 
+
+            //draw next ball indicator
+            ObjInstances.nextball.Draw(_spriteBatch);
+
             print<Vector2>(pos, 0, 0);
             print<String>((y.ToString() + " " + x.ToString()), 0, 100);
             print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
-
 
             _spriteBatch.End();
             // TODO: Add your drawing code here

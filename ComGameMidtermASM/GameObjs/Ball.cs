@@ -90,6 +90,7 @@ namespace ComGameMidtermASM.GameObjs
                     }
                 case COLOR.magenta:
                     {
+                        TextureDir = "ghost/magen_ghost";
                         break;
                     }
                 case COLOR.orange:
