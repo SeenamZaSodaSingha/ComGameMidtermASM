@@ -31,37 +31,74 @@ namespace ComGameMidtermASM.GameObjs
                 case 0:
                     {
                         color = COLOR.cyan;
-                        TextureDir = "canon/canon-original-cyan";
+                        TextureDir = "ghost/cyan_ghost";
                         break;
                     }
                 case 1:
                     {
                         color = COLOR.magenta;
-                        TextureDir = "canon/canon-original-magenta";
+                        TextureDir = "ghost/magen_ghost";
                         break;
                     }
                 case 2:
                     {
                         color = COLOR.orange;
-                        TextureDir = "canon/canon-original-orange";
+                        TextureDir = "ghost/orage_ghost";
                         break;
                     }
                 case 3:
                     {
                         color = COLOR.pink;
-                        TextureDir = "canon/canon-original-pink";
+                        TextureDir = "ghost/pink_ghost";
                         break;
                     }
                 case 4:
                     {
                         color = COLOR.red;
-                        TextureDir = "canon/canon-original-red";
+                        TextureDir = "ghost/red_ghost";
                         break;
                     }
                 case 5:
                     {
                         color = COLOR.yellow;
-                        TextureDir = "canon/canon-original-yellow";
+                        TextureDir = "ghost/yellow_ghost";
+                        break;
+                    }
+            }
+        }
+
+        public void SetColor(COLOR color_)
+        {
+            color = color_;
+            switch (color_)
+            {
+                case COLOR.cyan:
+                    {
+                        TextureDir = "ghost/cyan_ghost";
+                        break;
+                    }
+                case COLOR.magenta:
+                    {
+                        break;
+                    }
+                case COLOR.orange:
+                    {
+                        TextureDir = "ghost/orage_ghost";
+                        break;
+                    }
+                case COLOR.pink:
+                    {
+                        TextureDir = "ghost/pink_ghost";
+                        break;
+                    }
+                case COLOR.red:
+                    {
+                        TextureDir = "ghost/red_ghost";
+                        break;
+                    }
+                case COLOR.yellow:
+                    {
+                        TextureDir = "ghost/yellow_ghost";
                         break;
                     }
             }

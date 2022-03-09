@@ -65,7 +65,8 @@ namespace ComGameMidtermASM.GameObjs
 
         private void Collision(GameObj GameObj)
         {
-            if (string.Compare(GameObj.Name, "boarder") == 0)
+            bool isboarder = string.Compare(GameObj.Name, "boarder") == 0;
+            if (isboarder)
             {
                 if (IsTouchingLeft(GameObj) && Velocity.X < 0)
                 {
@@ -79,12 +80,12 @@ namespace ComGameMidtermASM.GameObjs
                 else if (IsTouchingTop(GameObj) && Velocity.Y < 0)
                 {
                     //ballspeed = 0;
-                    MovingAngle = (float)Math.Asin(Velocity.Y / ballspeed);
+                    MovingAngle = (float) Math.Asin(Velocity.Y / ballspeed);
                 }
                 else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
                 {
                     //ballspeed = 0;
-                    MovingAngle = (float)Math.Asin(Velocity.Y / ballspeed);
+                    MovingAngle = (float) Math.Asin(Velocity.Y / ballspeed);
                 }
 
             }

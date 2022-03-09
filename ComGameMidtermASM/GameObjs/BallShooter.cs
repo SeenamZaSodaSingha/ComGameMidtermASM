@@ -13,7 +13,6 @@ namespace ComGameMidtermASM.GameObjs
         Vector2 Distance;
         Vector2 crosshairPosition;
         Texture2D crosshairTexture;
-        MovingBall ball;
 
         //bool shot = false;
 
@@ -29,51 +28,55 @@ namespace ComGameMidtermASM.GameObjs
 
         public COLOR color;
 
-        protected string textureDir;
-
         public string GetTextureDir()
         {
-            return textureDir;
+            return TextureDir;
         }
 
-        public void Setcolor(int color_)
+        public void SetColor(int color_)
         {
             switch (color_)
             {
                 case 0:
                     {
                         color = COLOR.cyan;
-                        textureDir = "cannon/cannon-original-cyan";
+                        TextureDir = "cannon/canon-original-cyan";
+                        SetBallColor(color);
                         break;
                     }
                 case 1:
                     {
                         color = COLOR.magenta;
-                        textureDir = "cannon/cannon-original-magenta";
+                        TextureDir = "cannon/canon-original-magenta";
+                        SetBallColor(color);
                         break;
                     }
                 case 2:
                     {
                         color = COLOR.orange;
-                        textureDir = "cannon/cannon-original-orange";
+                        TextureDir = "cannon/canon-original-orange";
+                        SetBallColor(color);
                         break;
                     }
                 case 3:
                     {
                         color = COLOR.pink;
-                        textureDir = "cannon/cannon-original-pink";
+                        TextureDir = "cannon/canon-original-pink";
+                        SetBallColor(color);
                         break;
                     }
                 case 4:
                     {
                         color = COLOR.red;
-                        textureDir = "cannon/cannon-original-red";
+                        TextureDir = "cannon/canon-original-red";
+                        SetBallColor(color);
                         break;
                     }
                 case 5:
                     {
                         color = COLOR.yellow;
-                        textureDir = "cannon/cannon-original-yellow";
+                        TextureDir = "cannon/canon-original-yellow";
+                        SetBallColor(color);
                         break;
                     }
             }
@@ -82,16 +85,12 @@ namespace ComGameMidtermASM.GameObjs
         public BallShooter(Texture2D texture, Texture2D crosshairtexture, Texture2D balltexture) : base(texture)
         {
             _texture = texture;
-            ball = new MovingBall(balltexture);
+            ObjInstances.movingball = new MovingBall(balltexture);
+            maintest.gameobjs.Add(ObjInstances.movingball);
             crosshairTexture = crosshairtexture;
             Position.X = Singleton.GUNPOSITIONX;
             Position.Y = Singleton.GUNPOSITIONY;
-            ball.Position = Position;
-        }
-
-        public void SetTexture(Texture2D texture)
-        {
-            _texture = texture;
+            ObjInstances.movingball.Position = Position;
         }
 
         public float GetAngle()
@@ -99,27 +98,33 @@ namespace ComGameMidtermASM.GameObjs
             return angle;
         }
 
+        protected void SetBallColor(COLOR color)
+        {
+            ObjInstances.movingball.SetColor( (GameObjs.Ball.COLOR) color );
+        }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(_texture, Position, null, Color.White, angle + MathHelper.ToRadians(-90f), new Vector2(_texture.Width / 2, _texture.Height / 2), 1, SpriteEffects.None, 0f);
             spriteBatch.Draw(crosshairTexture, crosshairPosition, null, Color.White);
-            ball.Draw(spriteBatch);
+            ObjInstances.movingball.Draw(spriteBatch);
             Reset();
             base.Draw(spriteBatch);
         }
 
-        public override void Reset()
+        public void Reset(Texture2D texture)
         {
+            _texture = texture;
             base.Reset();
         }
 
         public override void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
-            if (!ball.IsActive)
+            if (!ObjInstances.movingball.IsActive)
             {
-                ball.MovingAngle = angle;
+                ObjInstances.movingball.MovingAngle = angle;
             }
-            ball.Update(gameTime, GameObjs);
+            ObjInstances.movingball.Update(gameTime, GameObjs);
             Singleton.Instance.CurrentMouse = Mouse.GetState();
             if (Singleton.Instance.CurrentMouse.Position.Y <= Singleton.SCREENWIDTH)
             {

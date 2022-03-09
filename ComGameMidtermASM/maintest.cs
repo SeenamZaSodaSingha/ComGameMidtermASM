@@ -11,18 +11,12 @@ namespace ComGameMidtermASM
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private SpriteFont _spriteFont;
-        private GameObjs.BallShooter gun;
-        private GameObjs.MovingBall movingball;
-        List<GameObjs.GameObj> gameobjs;
+        public static List<GameObjs.GameObj> gameobjs = ObjInstances.gameobjs;
 
         public maintest()
         {
             _graphics = new GraphicsDeviceManager(this);
-
             Content.RootDirectory = "Content";
-
-
-
         }
 
         protected override void Initialize()
@@ -44,16 +38,15 @@ namespace ComGameMidtermASM
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
             //test 
-            gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load <Texture2D>("aim guide line/dot"), Content.Load<Texture2D>("ghost/cyan_ghost"));
-            movingball = new GameObjs.MovingBall(Content.Load<Texture2D>("ghost/cyan_ghost"));
+            ObjInstances.gun = new GameObjs.BallShooter(Content.Load<Texture2D>("cannon/base-transparent"), Content.Load <Texture2D>("aim guide line/dot"), Content.Load<Texture2D>("ghost/blue_ghost"));
 
-            gameobjs = new List<GameObjs.GameObj>()
-            {
-                new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1)),
-                gun,
-                movingball
-            
-            };
+            ObjInstances.gun.SetColor(3);
+            ObjInstances.gun.Reset(Content.Load<Texture2D>(ObjInstances.gun.TextureDir));
+            ObjInstances.movingball._texture = Content.Load<Texture2D>(ObjInstances.movingball.TextureDir);
+
+
+            gameobjs.Add(new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1)));
+            gameobjs.Add(ObjInstances.gun);
 
         }
     

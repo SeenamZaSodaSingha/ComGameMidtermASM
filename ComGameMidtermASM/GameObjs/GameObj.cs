@@ -11,7 +11,7 @@ namespace ComGameMidtermASM.GameObjs
 {
     public class GameObj : ICloneable
     {
-        protected Texture2D _texture;
+        public Texture2D _texture;
 
         public Vector2 Position;
         public float Rotation;
