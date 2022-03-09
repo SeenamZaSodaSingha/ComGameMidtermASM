@@ -3,11 +3,7 @@
   <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/cannon/canon-original-red.png</SourceFile>
   <SourceTime>2022-03-09T10:07:32.8089992+07:00</SourceTime>
   <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/cannon/canon-original-red.xnb</DestFile>
-<<<<<<< HEAD
-  <DestTime>2022-03-09T21:38:23.1655638+07:00</DestTime>
-=======
-  <DestTime>2022-03-09T21:34:24.7201526+07:00</DestTime>
->>>>>>> 10417f5df4d8d21b331a65e978a1f1e8dfce3673
+  <DestTime>2022-03-09T21:43:07.393772+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

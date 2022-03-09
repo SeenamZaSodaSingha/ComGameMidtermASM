@@ -3,11 +3,7 @@
   <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/unicorn_cat.png</SourceFile>
   <SourceTime>2022-03-09T19:27:24.2212537+07:00</SourceTime>
   <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/unicorn_cat.xnb</DestFile>
-<<<<<<< HEAD
-  <DestTime>2022-03-09T21:38:23.7121243+07:00</DestTime>
-=======
-  <DestTime>2022-03-09T21:34:25.1816989+07:00</DestTime>
->>>>>>> 10417f5df4d8d21b331a65e978a1f1e8dfce3673
+  <DestTime>2022-03-09T21:43:07.8303631+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

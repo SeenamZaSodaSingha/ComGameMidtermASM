@@ -3,11 +3,7 @@
   <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/pink-pac/2.png</SourceFile>
   <SourceTime>2022-03-09T10:07:32.9290013+07:00</SourceTime>
   <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/pacman-right-color/pink-pac/2.xnb</DestFile>
-<<<<<<< HEAD
-  <DestTime>2022-03-09T21:38:23.4835644+07:00</DestTime>
-=======
-  <DestTime>2022-03-09T21:34:24.9576905+07:00</DestTime>
->>>>>>> 10417f5df4d8d21b331a65e978a1f1e8dfce3673
+  <DestTime>2022-03-09T21:43:07.6493272+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
