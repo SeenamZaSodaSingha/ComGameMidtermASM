@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace ComGameMidtermASM.GameObjs
 {
-    class BallShooter : GameObj
+    class Gun : GameObj
     {
         float angle;
         Vector2 Distance;
@@ -30,7 +30,7 @@ namespace ComGameMidtermASM.GameObjs
 
         public COLOR color;
 
-        public BallShooter(List<Texture2D> _textures, Texture2D crosshairtexture, List<Texture2D> balltextures) : base(_textures)
+        public Gun(List<Texture2D> _textures, Texture2D crosshairtexture, List<Texture2D> balltextures) : base(_textures)
         {
             ObjInstances.movingball = new MovingBall(balltextures);
             crosshairTexture = crosshairtexture;

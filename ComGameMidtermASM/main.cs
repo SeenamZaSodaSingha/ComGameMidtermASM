@@ -9,7 +9,7 @@ namespace ComGameMidtermASM
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         GameObjs.Ball _ball;
-        GameObjs.BallShooter gun;
+        GameObjs.Gun gun;
         private SpriteFont _spriteFont;
 
         public main()
