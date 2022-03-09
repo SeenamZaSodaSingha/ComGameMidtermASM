@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/base-transparent.png</SourceFile>
-  <SourceTime>2022-03-08T18:50:54.9696052+07:00</SourceTime>
+  <SourceTime>2022-03-08T23:09:41.2528063+07:00</SourceTime>
   <DestFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/base-transparent.xnb</DestFile>
-  <DestTime>2022-03-08T18:57:03.1289336+07:00</DestTime>
+  <DestTime>2022-03-08T23:09:42.3003314+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -21,7 +21,7 @@ namespace ComGameMidtermASM.GameObj
         public float angle;
         private bool reverseForward;
         private bool reverseBackward;
-        SpriteFont gameFont;
+        public Vector2 ballshooter;
         public Ball(Texture2D texture, int color)
             :base(texture)
         {
@@ -68,21 +68,23 @@ namespace ComGameMidtermASM.GameObj
 
         public override void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
+            Vector2 diff = Vector2.Subtract(ballshooter, new Vector2(Singleton.Instance.CurrentMouse.X, Singleton.Instance.CurrentMouse.Y));
+            Vector2 dir = Vector2.Normalize(diff);
+                //Position += Velocity * gameTime.ElapsedGameTime.Ticks / TimeSpan.TicksPerSecond * dir;
             if (IsActive)
             {
+
                 Velocity.X = speed * (float)Math.Cos(angle);
                 Velocity.Y = speed * (float)Math.Sin(angle);
-                Position.X += Velocity.X;
-                Position.Y += Velocity.Y;
-                if(Position.X + ballTexture.Width > Singleton.SCREENWIDTH)
+                
+                if(Position.X + ballTexture.Width >= Singleton.SCREENWIDTH || Position.X <= 0 || reverseBackward)
                 {
-                    Velocity.X = -Velocity.X;
+                    Velocity.X *= -1;
+                    reverseBackward = true;
+                    //reverseForward = false;
                 }
-                else if(Position.X < 0)
-                {
-                    Velocity.X = -Velocity.X;
-                }
-
+                //Position -= Velocity * dir * gameTime.ElapsedGameTime.Ticks / TimeSpan.TicksPerSecond;
+                Position += Velocity;
             }
         }
 

@@ -30,7 +30,7 @@ namespace ComGameMidtermASM.GameObj
         public override void Update(GameTime gameTime, List<GameObj> GameObj)
         {
             Singleton.Instance.CurrentMouse = Mouse.GetState();
-            if (Singleton.Instance.CurrentMouse.Position.Y <= 480)
+            if (Singleton.Instance.CurrentMouse.Position.Y <= 480 || (Singleton.Instance.CurrentMouse.Position.Y <= 540 && Singleton.Instance.CurrentMouse.Position.X > 75))
             {
                 //angle = (float)(Math.Atan2(-Singleton.Instance.CurrentMouse.Position.Y + gunTexture.Height / 2 + Position.Y,
                 //                            -Singleton.Instance.CurrentMouse.Position.X + gunTexture.Width / 2 + Position.X));
@@ -43,6 +43,8 @@ namespace ComGameMidtermASM.GameObj
                         IsActive = true,
                         speed = 20,
                         angle = angle + MathHelper.ToRadians(-90f),
+                        ballshooter = Position,
+                        Velocity = new Vector2(100, 100)
                     };
                     shooting = true;
                 }

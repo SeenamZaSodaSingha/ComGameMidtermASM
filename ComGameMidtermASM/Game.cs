@@ -120,6 +120,10 @@ namespace ComGameMidtermASM
             {
                 sprite.Update(gameTime, _gameObj);
             }
+            if ()
+            {
+
+            }
             //gun.Update(gameTime, null);
             // TODO: Add your update logic here
             //for(int i = 0; i < )
