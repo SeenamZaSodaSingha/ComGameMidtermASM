@@ -1,0 +1,35 @@
+Assets
+----------------------------------------------------------
+Pacman assets: https://pixelaholic.itch.io/pac-man-game-art
+Mario cannon: https://www.vhv.rs/viewpic/hJoJmJx_8-bit-bullet-bill-cannon-hd-png-download/
+Win xp wallpaper: http://wallpaperswide.com/windows_xp_original-wallpapers.html
+Unicorn: https://imgflip.com/memetemplate/Welcome-To-The-Internets
+Dinosaur: https://imgflip.com/memetemplate/10072622/Dinosaur
+Raccoon: https://imgflip.com/memetemplate/Lame-Pun-Coon
+
+
+Fonts
+----------------------------------------------------------
+Arcade classic: https://www.1001fonts.com/arcadeclassic-font.html
+Arcade: https://www.1001fonts.com/arcade-font.html
+Gastal: https://www.1001fonts.com/gasalt-font.html
+No-continue: https://www.1001fonts.com/no-continue-font.html
+November: https://www.1001fonts.com/november-font.html
+
+Sounds
+----------------------------------------------------------
+Backgroung Gameplay music[mp3]
+- https://www.youtube.com/watch?v=NmCCQxVBfyM&t=15s
+- https://www.youtube.com/watch?v=hueJrl83sOQ
+- https://www.youtube.com/watch?v=E8FQBjVlERk
+- https://www.youtube.com/watch?v=s-Dq5FJEH10
+
+Pacman effects - https://www.classicgaming.cc/classics/pac-man/sounds
+Menu music[mp3] 
+- https://www.youtube.com/watch?v=E3tkgU0pQmQ&list=PLhXE6u8HSm21NqNyhWTpUcF9Ynzu2bVtX
+- https://www.youtube.com/watch?v=3CS93CdMv_E&list=PLhXE6u8HSm21NqNyhWTpUcF9Ynzu2bVtX&index=2
+
+Shoot effect[wav] - OC Kue
+Bounch[wav] - https://www.youtube.com/watch?v=id8dytpO7jQ
+Button click[wav] - 
+Ball pop[wav] - https://www.youtube.com/watch?v=h5xuAk5pBs0
