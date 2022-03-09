@@ -121,6 +121,18 @@
 /processorParam:TextureFormat=Color
 /build:cannon/canon-original-yellow.png
 
+#begin crosshairs.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:crosshairs.png
+
 #begin fonts/GameText.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -643,4 +655,28 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:pacman-right-color/yellow-pac/3.png
+
+#begin Raccoon_norm.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Raccoon_norm.png
+
+#begin unicorn_cat.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:unicorn_cat.png
 

@@ -152,3 +152,6 @@ E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\netcoreapp3.1\ComGameMidtermASM.dll
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\netcoreapp3.1\ComGameMidtermASM.pdb
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\netcoreapp3.1\ComGameMidtermASM.genruntimeconfig.cache
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\crosshairs.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Raccoon_norm.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\unicorn_cat.xnb

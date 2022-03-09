@@ -122,6 +122,7 @@ namespace ComGameMidtermASM.GameObjs
             HitboxY = (int)(Position.Y - _texture.Height / 2);
             HitboxDX = (int)(_texture.Width);
             HitboxDY = (int)(_texture.Height);
+
             base.Update(gameTime, GameObjs);
         }
 

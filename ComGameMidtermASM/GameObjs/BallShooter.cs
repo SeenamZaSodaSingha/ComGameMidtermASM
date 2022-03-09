@@ -92,36 +92,42 @@ namespace ComGameMidtermASM.GameObjs
                     {
                         TextureDir = "cannon/canon-original-cyan";
                         SetBallColor(color);
+                        this.color_ = 0;
                         break;
                     }
                 case COLOR.magenta:
                     {
                         TextureDir = "cannon/canon-original-magen";
                         SetBallColor(color);
+                        this.color_ = 1;
                         break;
                     }
                 case COLOR.orange:
                     {
                         TextureDir = "cannon/canon-original-orange";
                         SetBallColor(color);
+                        this.color_ = 2;
                         break;
                     }
                 case COLOR.pink:
                     {
                         TextureDir = "cannon/canon-original-pink";
                         SetBallColor(color);
+                        this.color_ = 3;
                         break;
                     }
                 case COLOR.red:
                     {
                         TextureDir = "cannon/canon-original-red";
                         SetBallColor(color);
+                        this.color_ = 4;
                         break;
                     }
                 case COLOR.yellow:
                     {
                         TextureDir = "cannon/canon-original-yellow";
                         SetBallColor(color);
+                        this.color_ = 5;
                         break;
                     }
             }

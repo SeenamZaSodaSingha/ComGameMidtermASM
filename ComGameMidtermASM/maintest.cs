@@ -17,7 +17,7 @@ namespace ComGameMidtermASM
         private int x, y;
         Random rand = new Random();
         int colorID;
-
+        private Texture2D background;
         public maintest()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -44,6 +44,7 @@ namespace ComGameMidtermASM
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
 
             DefaultTexture = Content.Load<Texture2D>("ghost/blue_ghost");
+            background = Content.Load<Texture2D>("Raccoon_norm");
 
             //load boarder
             ObjInstances.boarder = new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1));
@@ -165,7 +166,7 @@ namespace ComGameMidtermASM
                     {
                         Position = new Vector2((x * DefaultTexture.Width) + DefaultTexture.Width / 2 + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height) + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY),
                     };
-                    ObjInstances.ball[y, x].SetColor(ObjInstances.movingball.color);
+                    ObjInstances.ball[y, x].SetColor(ObjInstances.gun.color_);
                     ObjInstances.ball[y, x]._texture = Content.Load<Texture2D>(ObjInstances.ball[y, x].TextureDir);
                     activate = false;
                 }
@@ -180,17 +181,91 @@ namespace ComGameMidtermASM
                 ObjInstances.nextball.SetColor(colorID);
                 ObjInstances.nextball._texture = Content.Load<Texture2D>(ObjInstances.nextball.TextureDir);
 
+
+                //Logic of deleting balls
+                //How to Remove
+                bool checking = true;
+                while (checking)
+                {
+                    if (x % 2 == 0)
+                    {
+                        //top
+                        if (x - 1 >= 0 && y - 1 >= 0 && ObjInstances.ball[y - 1, x - 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x - 1].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+                        if (y - 1 >= 0 && ObjInstances.ball[y - 1, x] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+
+                        //side
+                        if (x + 1 <= 6 && ObjInstances.ball[y, x + 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y, x + 1].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+                        if (x - 1 >= 0 && ObjInstances.ball[y, x - 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y, x - 1].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+
+                        //bottom
+                        if (y + 1 <= 9 && x - 1 >= 0 && ObjInstances.ball[y + 1, x - 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x - 1].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+                        if (y + 1 <= 9 && ObjInstances.ball[y + 1, x] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+                    }
+                    else
+                    {
+                        //top
+                        if (ObjInstances.ball[y - 1, x + 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x + 1].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+                        if (ObjInstances.ball[y - 1, x] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+
+                        //side
+                        if (ObjInstances.ball[y, x + 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y, x + 1].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+                        if (ObjInstances.ball[y, x - 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y, x - 1].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+
+                        //bottom
+                        if (ObjInstances.ball[y + 1, x + 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x + 1].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+                        if (ObjInstances.ball[y + 1, x] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x].color_)
+                        {
+                            ObjInstances.ball[y, x].SetColor(0);
+                        }
+                    }
+                    checking = false;
+                }
+
             }
 
 
             base.Update(gameTime);
         }
+        
         Vector2 pos;
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
             _spriteBatch.Begin();
-
+            _spriteBatch.Draw(background, new Vector2(Singleton.GAMEPANELLOCX, Singleton.GAMEPANELLOCY), null, Color.White);
             foreach (GameObjs.GameObj obj in gameobjs)
             {
                 obj.Draw(_spriteBatch);
@@ -216,7 +291,7 @@ namespace ComGameMidtermASM
             print<Vector2>(pos, 0, 0);
             print<String>((y.ToString() + " " + x.ToString()), 0, 100);
             print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
-
+            print<String>(ObjInstances.movingball.color_.ToString(), 200, 150);
             _spriteBatch.End();
             // TODO: Add your drawing code here
 
