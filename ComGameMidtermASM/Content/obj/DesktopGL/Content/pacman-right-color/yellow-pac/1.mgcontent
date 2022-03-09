@@ -3,7 +3,11 @@
   <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/yellow-pac/1.png</SourceFile>
   <SourceTime>2022-03-09T10:07:32.9309978+07:00</SourceTime>
   <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/pacman-right-color/yellow-pac/1.xnb</DestFile>
+<<<<<<< HEAD
   <DestTime>2022-03-09T21:38:23.5135623+07:00</DestTime>
+=======
+  <DestTime>2022-03-09T21:34:24.9726913+07:00</DestTime>
+>>>>>>> 10417f5df4d8d21b331a65e978a1f1e8dfce3673
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
