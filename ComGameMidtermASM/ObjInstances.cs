@@ -13,7 +13,7 @@ namespace ComGameMidtermASM
         // next ball indicator.
         public static GameObjs.Ball nextball;
         public static GameObjs.MovingBall movingball;
-        public static GameObjs.BallShooter gun;
+        public static GameObjs.Gun gun;
         public static GameObjs.Boarder boarder;
 
     }

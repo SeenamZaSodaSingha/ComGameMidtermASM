@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Graphics;
 //using ComGameMidtermASM.GameObj;
 
 namespace ComGameMidtermASM
@@ -32,7 +33,6 @@ namespace ComGameMidtermASM
 
         public const int GUNPOSITIONX = GAMEPANELLOCX + (GAMEPANELWIDTH/2);
         public const int GUNPOSITIONY = GAMEPANELLOCY + (GAMEPANELHEIGHT) - 50;
-
 
 
         //TODO: Game State Machine

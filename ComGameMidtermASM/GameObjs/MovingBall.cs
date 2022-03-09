@@ -12,7 +12,7 @@ namespace ComGameMidtermASM.GameObjs
         float ballspeed;
 
 
-        public MovingBall(Texture2D texture) : base(texture)
+        public MovingBall(List<Texture2D> _textures) : base(_textures)
         {
             // be false by default
             IsActive = false;

@@ -1,5 +1,4 @@
-﻿
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -28,6 +27,7 @@ namespace ComGameMidtermASM.GameObjs
         public string TextureDir;
         public int color_;
         public Color Color;
+        protected List<Texture2D> _textures;
 
 
         public Rectangle Rectangle
@@ -46,6 +46,17 @@ namespace ComGameMidtermASM.GameObjs
         public GameObj(Texture2D texture)
         {
             _texture = texture;
+            Position = Vector2.Zero;
+            Scale = Vector2.One;
+            Rotation = 0f;
+            IsActive = true;
+
+        }
+
+        public GameObj(List<Texture2D> textures)
+        {
+            _textures = textures;
+            _texture = _textures[0];
             Position = Vector2.Zero;
             Scale = Vector2.One;
             Rotation = 0f;
