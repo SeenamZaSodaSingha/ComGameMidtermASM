@@ -22,10 +22,13 @@ namespace ComGameMidtermASM.GameObjs
         }
 
         public COLOR color;
-
+        public bool Destroy;
+        public bool visit;
         public Ball(Texture2D texture) : base(texture) 
         {
             TextureDir = "ghost/blue_ghost";
+            Destroy = false;
+            visit = false;
         }
 
         public void SetColor(int color_)

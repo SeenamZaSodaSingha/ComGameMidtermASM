@@ -2,7 +2,11 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
+using ComGameMidtermASM.GameObjs;
 using System;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
+
 
 namespace ComGameMidtermASM
 {
@@ -13,10 +17,13 @@ namespace ComGameMidtermASM
         private SpriteFont _spriteFont;
         public static List<GameObjs.GameObj> gameobjs = ObjInstances.gameobjs;
         private bool activate = false;
+        List<GameObj> _gameObj;
+        
         private Texture2D DefaultTexture;
         private int x, y;
         Random rand = new Random();
         int colorID;
+        private int count;
         private Texture2D background;
         public maintest()
         {
@@ -31,6 +38,7 @@ namespace ComGameMidtermASM
             _graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
 
             IsMouseVisible = true;
+            _gameObj = new List<GameObj>();
             _graphics.ApplyChanges();
 
             // TODO: Add your initialization logic here
@@ -141,6 +149,7 @@ namespace ComGameMidtermASM
             {
                 pos = ObjInstances.movingball.Position;
                 activate = true;
+                count = 0;
             }
             if (!ObjInstances.movingball.IsActive && activate)
             {
@@ -153,6 +162,8 @@ namespace ComGameMidtermASM
                     ObjInstances.ball[y, x] = new GameObjs.Ball(DefaultTexture)
                     {
                         Position = new Vector2((x * DefaultTexture.Width) + DefaultTexture.Width + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height) + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY),
+                        visit = false,
+                        Destroy = false,
                     };
                     ObjInstances.ball[y, x].SetColor(ObjInstances.gun.color_);
                     ObjInstances.ball[y, x]._texture = Content.Load<Texture2D>(ObjInstances.ball[y, x].TextureDir);
@@ -184,75 +195,39 @@ namespace ComGameMidtermASM
 
                 //Logic of deleting balls
                 //How to Remove
-                bool checking = true;
-                while (checking)
+                CheckBall(ObjInstances.ball, ObjInstances.ball[y, x].color_, y, x);
+                for (int i = 0; i < 9; i++)
                 {
-                    if (x % 2 == 0)
+                    for (int j = 0; j < 8; j++)
                     {
-                        //top
-                        if (x - 1 >= 0 && y - 1 >= 0 && ObjInstances.ball[y - 1, x - 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x - 1].color_)
+                        if(ObjInstances.ball[i, j] != null)
                         {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-                        if (y - 1 >= 0 && ObjInstances.ball[y - 1, x] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-
-                        //side
-                        if (x + 1 <= 6 && ObjInstances.ball[y, x + 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y, x + 1].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-                        if (x - 1 >= 0 && ObjInstances.ball[y, x - 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y, x - 1].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-
-                        //bottom
-                        if (y + 1 <= 9 && x - 1 >= 0 && ObjInstances.ball[y + 1, x - 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x - 1].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-                        if (y + 1 <= 9 && ObjInstances.ball[y + 1, x] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
+                            ObjInstances.ball[i, j].visit = false;
+                            if (ObjInstances.ball[i, j].Destroy == true)
+                            {
+                                count++;
+                            }
                         }
                     }
-                    else
-                    {
-                        //top
-                        if (ObjInstances.ball[y - 1, x + 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x + 1].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-                        if (ObjInstances.ball[y - 1, x] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-
-                        //side
-                        if (ObjInstances.ball[y, x + 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y, x + 1].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-                        if (ObjInstances.ball[y, x - 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y, x - 1].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-
-                        //bottom
-                        if (ObjInstances.ball[y + 1, x + 1] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x + 1].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-                        if (ObjInstances.ball[y + 1, x] != null && ObjInstances.ball[y, x].color_ == ObjInstances.ball[y - 1, x].color_)
-                        {
-                            ObjInstances.ball[y, x].SetColor(0);
-                        }
-                    }
-                    checking = false;
                 }
+                if (count >= 3)
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        for (int j = 0; j < 8; j++)
+                        {
+                            if (ObjInstances.ball[i, j] != null)
+                            {
+                                if (ObjInstances.ball[i, j].Destroy == true)
+                                {
+                                    ObjInstances.ball[i, j].Position = new Vector2(0, 0);
+                                    ObjInstances.ball[i, j].color_ = -1;
+                                }
+                            }
+                        }
+                    }
+                }
+                
 
             }
 
@@ -290,7 +265,7 @@ namespace ComGameMidtermASM
 
             print<Vector2>(pos, 0, 0);
             print<String>((y.ToString() + " " + x.ToString()), 0, 100);
-            print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
+            //print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
             print<String>(ObjInstances.movingball.color_.ToString(), 200, 150);
             _spriteBatch.End();
             // TODO: Add your drawing code here
@@ -301,6 +276,37 @@ namespace ComGameMidtermASM
         public void print<T>(T stringable, int x, int y)
         {
             _spriteBatch.DrawString(_spriteFont, stringable.ToString(), new Vector2(x, y), Color.Black);
+        }
+
+        public void CheckBall(GameObjs.Ball[,] ball, int color, int x, int y)
+        {
+            //if ((me.X >= 0 && me.Y >= 0) && (me.X <= 7 && me.Y <= 8) && (gameObjects[(int)me.Y, (int)me.X] != null && gameObjects[(int)me.Y, (int)me.X].color == ColorTarget))
+            if(((x >= 0 && y >= 0) && (x <= 8 && y <= 7)) && (ball[x, y] != null) && (!ball[x, y].visit) &&  (ball[x, y].color_ == color))
+            {
+                ball[x, y].visit = true;
+                ball[x, y].Destroy = true;
+                //ball[x, y] = null;
+                CheckBall(ball, color, x - 1, y);//Left
+                CheckBall(ball, color, x + 1, y); // Right
+                if (y % 2 == 0)
+                {
+                    CheckBall(ball, color, x, y - 1); // Top Right
+                    CheckBall(ball, color, x - 1, y - 1); // Top Left
+                    CheckBall(ball, color, x, y + 1); // Bot Right
+                    CheckBall(ball, color, x - 1, y + 1); // Bot Left
+                }
+                else
+                {
+                    CheckBall(ball, color, x + 1, y - 1); // Top Right
+                    CheckBall(ball, color, x, y - 1); // Top Left
+                    CheckBall(ball, color, x + 1, y + 1); // Bot Right
+                    CheckBall(ball, color, x, y + 1); // Bot Left	
+                }
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }
