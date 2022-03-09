@@ -19,7 +19,7 @@ namespace ComGameMidtermASM
         private Texture2D background;
         List<Texture2D> ball_textures;
         List<Texture2D> gun_textures;
-        
+
         public maintest()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -55,6 +55,7 @@ namespace ComGameMidtermASM
 
             gun_textures = new List<Texture2D>
             {
+                Content.Load<Texture2D>("cannon/base-transparent"),
                 Content.Load<Texture2D>("cannon/canon-original-cyan"),
                 Content.Load<Texture2D>("cannon/canon-original-magen"),
                 Content.Load<Texture2D>("cannon/canon-original-orange"),
@@ -81,7 +82,7 @@ namespace ComGameMidtermASM
 
             //load and set gun and ball
             ObjInstances.gun = new GameObjs.Gun(gun_textures, Content.Load<Texture2D>("aim guide line/dot"), ball_textures);
-            ObjInstances.gun.SetColor((GameObjs.Gun.COLOR)ObjInstances.nextball.color);
+            ObjInstances.gun.SetColor(ObjInstances.nextball.color_);
 
             //load ghost 
             //var crosshairTexture = Content.Load<Texture2D>("ghost/crosshairs");
@@ -191,8 +192,7 @@ namespace ComGameMidtermASM
 
 
                 //set gun color
-                ObjInstances.gun.SetColor((GameObjs.Gun.COLOR)ObjInstances.nextball.color);
-                ObjInstances.gun.Reset(Content.Load<Texture2D>(ObjInstances.gun.TextureDir));
+                ObjInstances.gun.SetColor(ObjInstances.nextball.color_);
 
                 colorID = rand.Next(1, 7);
                 ObjInstances.nextball.SetColor(colorID);

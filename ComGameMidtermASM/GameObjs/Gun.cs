@@ -14,25 +14,10 @@ namespace ComGameMidtermASM.GameObjs
         Vector2 crosshairPosition;
         Texture2D crosshairTexture;
 
-        //bool shot = false;
-
-        //NOTE :Enum is useless?
-        public enum COLOR
-        {
-            none,
-            cyan,
-            magenta,
-            orange,
-            pink,
-            red,
-            yellow
-        }
-
-        public COLOR color;
-
         public Gun(List<Texture2D> _textures, Texture2D crosshairtexture, List<Texture2D> balltextures) : base(_textures)
         {
             ObjInstances.movingball = new MovingBall(balltextures);
+            SetBallColor(0);
             crosshairTexture = crosshairtexture;
             Position.X = Singleton.GUNPOSITIONX;
             Position.Y = Singleton.GUNPOSITIONY;
@@ -51,114 +36,51 @@ namespace ComGameMidtermASM.GameObjs
             {
                 case 0:
                     {
-                        color = COLOR.none;
                         TextureDir = "cannon/canon-original";
                         _texture = _textures[0];
-                        SetBallColor(color);
+                        SetBallColor(0);
                         break;
                     }
                 case 1:
                     {
-                        color = COLOR.cyan;
                         TextureDir = "cannon/canon-original-cyan";
                         _texture = _textures[1];
-                        SetBallColor(color);
+                        SetBallColor(1);
                         break;
                     }
                 case 2:
                     {
-                        color = COLOR.magenta;
                         TextureDir = "cannon/canon-original-magen";
                         _texture = _textures[2];
-                        SetBallColor(color);
+                        SetBallColor(2);
                         break;
                     }
                 case 3:
                     {
-                        color = COLOR.orange;
                         TextureDir = "cannon/canon-original-orange";
                         _texture = _textures[3];
-                        SetBallColor(color);
+                        SetBallColor(3);
                         break;
                     }
                 case 4:
                     {
-                        color = COLOR.pink;
                         TextureDir = "cannon/canon-original-pink";
                         _texture = _textures[4];
-                        SetBallColor(color);
+                        SetBallColor(4);
                         break;
                     }
                 case 5:
                     {
-                        color = COLOR.red;
                         TextureDir = "cannon/canon-original-red";
                         _texture = _textures[5];
-                        SetBallColor(color);
+                        SetBallColor(5);
                         break;
                     }
                 case 6:
                     {
-                        color = COLOR.yellow;
                         TextureDir = "cannon/canon-original-yellow";
                         _texture = _textures[6];
-                        SetBallColor(color);
-                        break;
-                    }
-            }
-        }
-
-        public void SetColor(COLOR color_)
-        {
-            color = color_;
-            switch (color_)
-            {
-                case COLOR.cyan:
-                    {
-                        TextureDir = "cannon/canon-original-cyan";
-                        _texture = _textures[0];
-                        SetBallColor(color);
-                        this.color_ = 0;
-                        break;
-                    }
-                case COLOR.magenta:
-                    {
-                        TextureDir = "cannon/canon-original-magen";
-                        _texture = _textures[1];
-                        SetBallColor(color);
-                        this.color_ = 1;
-                        break;
-                    }
-                case COLOR.orange:
-                    {
-                        TextureDir = "cannon/canon-original-orange";
-                        _texture = _textures[2];
-                        SetBallColor(color);
-                        this.color_ = 2;
-                        break;
-                    }
-                case COLOR.pink:
-                    {
-                        TextureDir = "cannon/canon-original-pink";
-                        _texture = _textures[3];
-                        SetBallColor(color);
-                        this.color_ = 3;
-                        break;
-                    }
-                case COLOR.red:
-                    {
-                        TextureDir = "cannon/canon-original-red";
-                        _texture = _textures[4];
-                        SetBallColor(color);
-                        this.color_ = 4;
-                        break;
-                    }
-                case COLOR.yellow:
-                    {
-                        TextureDir = "cannon/canon-original-yellow";
-                        _texture = _textures[5];
-                        SetBallColor(color);
-                        this.color_ = 5;
+                        SetBallColor(6);
                         break;
                     }
             }
@@ -169,9 +91,9 @@ namespace ComGameMidtermASM.GameObjs
             return angle;
         }
 
-        protected void SetBallColor(COLOR color)
+        protected void SetBallColor(int color)
         {
-            ObjInstances.movingball.SetColor((GameObjs.Ball.COLOR)color);
+            ObjInstances.movingball.SetColor(color);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
