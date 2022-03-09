@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/cyan_ghost.png</SourceFile>
-  <SourceTime>2022-03-09T10:20:46.9624512+07:00</SourceTime>
-  <DestFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/ghost/cyan_ghost.xnb</DestFile>
-  <DestTime>2022-03-09T12:06:01.8487323+07:00</DestTime>
+  <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/cyan_ghost.png</SourceFile>
+  <SourceTime>2022-03-09T10:07:32.8129996+07:00</SourceTime>
+  <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/ghost/cyan_ghost.xnb</DestFile>
+  <DestTime>2022-03-09T14:37:52.3343488+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -32,17 +32,7 @@ namespace ComGameMidtermASM.GameObjs
             // do a collision
             Collisionboarder(ObjInstances.boarder);
 
-
-            for (int i = 0; i < 4; i++)
-            {
-                for (int j = 0; j < 8 - (i % 2); j++)
-                {
-                    if (ObjInstances.ball[i, j] != null)
-                    {
-                        Collisionball(ObjInstances.ball[i, j]);
-                    }
-                }
-            }
+            Collisionballs(ObjInstances.ball);
 
             //update ball position
             if (this.IsActive)
@@ -114,8 +104,27 @@ namespace ComGameMidtermASM.GameObjs
             else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
             {
                 IsActive = false;
-
             }
         }
+
+        private void Collisionballs(GameObjs.Ball[,] ball)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 8 - (i % 2); j++)
+                {
+                    if (ObjInstances.ball[i, j] != null)
+                    {
+                        Collisionball(ObjInstances.ball[i, j]);
+                        if (IsTouching(ObjInstances.ball[i, j]))
+                        {
+                            IsActive = false;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
