@@ -24,10 +24,6 @@ namespace ComGameMidtermASM.GameObjs
 
         }
 
-        public string GetTextureDir()
-        {
-            return TextureDir;
-        }
 
         public void SetColor(int color_)
         {
@@ -36,49 +32,42 @@ namespace ComGameMidtermASM.GameObjs
             {
                 case 0:
                     {
-                        TextureDir = "cannon/canon-original";
                         _texture = _textures[0];
                         SetBallColor(0);
                         break;
                     }
                 case 1:
                     {
-                        TextureDir = "cannon/canon-original-cyan";
                         _texture = _textures[1];
                         SetBallColor(1);
                         break;
                     }
                 case 2:
                     {
-                        TextureDir = "cannon/canon-original-magen";
                         _texture = _textures[2];
                         SetBallColor(2);
                         break;
                     }
                 case 3:
                     {
-                        TextureDir = "cannon/canon-original-orange";
                         _texture = _textures[3];
                         SetBallColor(3);
                         break;
                     }
                 case 4:
                     {
-                        TextureDir = "cannon/canon-original-pink";
                         _texture = _textures[4];
                         SetBallColor(4);
                         break;
                     }
                 case 5:
                     {
-                        TextureDir = "cannon/canon-original-red";
                         _texture = _textures[5];
                         SetBallColor(5);
                         break;
                     }
                 case 6:
                     {
-                        TextureDir = "cannon/canon-original-yellow";
                         _texture = _textures[6];
                         SetBallColor(6);
                         break;
