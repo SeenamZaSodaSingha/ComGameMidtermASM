@@ -27,6 +27,9 @@ namespace ComGameMidtermASM
         private Texture2D background;
         List<Texture2D> ball_textures;
         List<Texture2D> gun_textures;
+        List<Texture2D> pac_textures;
+        int width = 60;
+        int height = 60;
 
         public maintest()
         {
@@ -73,6 +76,16 @@ namespace ComGameMidtermASM
                 Content.Load<Texture2D>("cannon/canon-original-yellow")
             };
 
+            //pac_textures = new List<Texture2D>
+            //{
+            //    Content.Load<Texture2D>(""),
+            //    Content.Load<Texture2D>(""),
+            //    Content.Load<Texture2D>(""),
+            //    Content.Load<Texture2D>(""),
+            //    Content.Load<Texture2D>(""),
+            //    Content.Load<Texture2D>(""),
+            //};
+
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
@@ -107,7 +120,7 @@ namespace ComGameMidtermASM
                     {
                         ObjInstances.ball[i, j] = new GameObjs.Ball(ball_textures)
                         {
-                            Position = new Vector2((j * ball_textures[0].Width) + ball_textures[0].Width + Singleton.GAMEPANELLOCX, i * ball_textures[0].Height + ball_textures[0].Height / 2 + Singleton.GAMEPANELLOCY),
+                            Position = new Vector2((j * width) + width + Singleton.GAMEPANELLOCX, i * height + height / 2 + Singleton.GAMEPANELLOCY),
                             //color = GetColor(color)
                         };
                     }
@@ -115,7 +128,7 @@ namespace ComGameMidtermASM
                     {
                         ObjInstances.ball[i, j] = new GameObjs.Ball(ball_textures)
                         {
-                            Position = new Vector2(j * ball_textures[0].Width + ball_textures[0].Width / 2 + Singleton.GAMEPANELLOCX, i * ball_textures[0].Height + ball_textures[0].Height / 2 + Singleton.GAMEPANELLOCY)
+                            Position = new Vector2(j * width + width / 2 + Singleton.GAMEPANELLOCX, i * height + height / 2 + Singleton.GAMEPANELLOCY)
                         };
                     }
 
@@ -175,15 +188,15 @@ namespace ComGameMidtermASM
             }
             if (!ObjInstances.movingball.IsActive && activate)
             {
-                x = (int)Math.Ceiling((pos.X - Singleton.GAMEPANELLOCX) / ball_textures[0].Width - 1);
-                y = (int)Math.Ceiling((pos.Y - Singleton.GAMEPANELLOCY) / ball_textures[0].Height - 1);
+                x = (int)Math.Ceiling((pos.X - Singleton.GAMEPANELLOCX) / width - 1);
+                y = (int)Math.Ceiling((pos.Y - Singleton.GAMEPANELLOCY) / height - 1);
                 if (y % 2 == 1)
                 {
                     if (y < 0) y = 0;
                     if (y > 8) y = 8;
                     ObjInstances.ball[y, x] = new GameObjs.Ball(ball_textures)
                     {
-                        Position = new Vector2((x * DefaultTexture.Width) + DefaultTexture.Width + Singleton.GAMEPANELLOCX, (y * DefaultTexture.Height) + DefaultTexture.Height / 2 + Singleton.GAMEPANELLOCY),
+                        Position = new Vector2((x * width) + width + Singleton.GAMEPANELLOCX, (y * height) + height / 2 + Singleton.GAMEPANELLOCY),
                         visit = false,
                         Destroy = false,
                     };
@@ -196,7 +209,7 @@ namespace ComGameMidtermASM
                     if (y > 8) y = 8;
                     ObjInstances.ball[y, x] = new GameObjs.Ball(ball_textures)
                     {
-                        Position = new Vector2((x * ball_textures[0].Width) + ball_textures[0].Width / 2 + Singleton.GAMEPANELLOCX, (y * ball_textures[0].Height) + ball_textures[0].Height / 2 + Singleton.GAMEPANELLOCY),
+                        Position = new Vector2((x * width) + width / 2 + Singleton.GAMEPANELLOCX, (y * height) + height / 2 + Singleton.GAMEPANELLOCY),
                     };
                     ObjInstances.ball[y, x].SetColor(ObjInstances.movingball.color_);
                     activate = false;
@@ -239,7 +252,21 @@ namespace ComGameMidtermASM
                                 {
                                     ObjInstances.ball[i, j].Position = new Vector2(0, 0);
                                     ObjInstances.ball[i, j].color_ = -1;
+                                    ObjInstances.ball[i, j].Destroy = false;
                                 }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        for (int j = 0; j < 8; j++)
+                        {
+                            if (ObjInstances.ball[i, j] != null)
+                            {
+                                ObjInstances.ball[i, j].Destroy = false;
                             }
                         }
                     }

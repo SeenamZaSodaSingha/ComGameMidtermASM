@@ -23,11 +23,13 @@ namespace ComGameMidtermASM.GameObjs
         public COLOR color;
         public bool Destroy;
         public bool visit;
-        public Ball(Texture2D texture) : base(texture) 
+        List<Texture2D> textures;
+        public Ball(List<Texture2D> texture) : base(texture[0]) 
         {
             TextureDir = "ghost/blue_ghost";
             Destroy = false;
             visit = false;
+            textures = texture;
         }
 
         public void SetColor(int color_)
@@ -38,49 +40,49 @@ namespace ComGameMidtermASM.GameObjs
                 case 0:
                     {
                         color = COLOR.blue;
-                        _texture = _textures[0];
+                        _texture = textures[0];
                         TextureDir = "ghost/blue_ghost";
                         break;
                     }
                 case 1:
                     {
                         color = COLOR.cyan;
-                        _texture = _textures[1];
+                        _texture = textures[1];
                         TextureDir = "ghost/cyan_ghost";
                         break;
                     }
                 case 2:
                     {
                         color = COLOR.magenta;
-                        _texture = _textures[2];
+                        _texture = textures[2];
                         TextureDir = "ghost/magen_ghost";
                         break;
                     }
                 case 3:
                     {
                         color = COLOR.orange;
-                        _texture = _textures[3];
+                        _texture = textures[3];
                         TextureDir = "ghost/orage_ghost";
                         break;
                     }
                 case 4:
                     {
                         color = COLOR.pink;
-                        _texture = _textures[4];
+                        _texture = textures[4];
                         TextureDir = "ghost/pink_ghost";
                         break;
                     }
                 case 5:
                     {
                         color = COLOR.red;
-                        _texture = _textures[5];
+                        _texture = textures[5];
                         TextureDir = "ghost/red_ghost";
                         break;
                     }
                 case 6:
                     {
                         color = COLOR.yellow;
-                        _texture = _textures[6];
+                        _texture = textures[6];
                         TextureDir = "ghost/yellow_ghost";
                         break;
                     }
@@ -96,37 +98,37 @@ namespace ComGameMidtermASM.GameObjs
                 case COLOR.cyan:
                     {
                         TextureDir = "ghost/cyan_ghost";
-                        _texture = _textures[1];
+                        _texture = textures[1];
                         break;
                     }
                 case COLOR.magenta:
                     {
                         TextureDir = "ghost/magen_ghost";
-                        _texture = _textures[2];
+                        _texture = textures[2];
                         break;
                     }
                 case COLOR.orange:
                     {
                         TextureDir = "ghost/orage_ghost";
-                        _texture = _textures[3];
+                        _texture = textures[3];
                         break;
                     }
                 case COLOR.pink:
                     {
                         TextureDir = "ghost/pink_ghost";
-                        _texture = _textures[4];
+                        _texture = textures[4];
                         break;
                     }
                 case COLOR.red:
                     {
                         TextureDir = "ghost/red_ghost";
-                        _texture = _textures[5];
+                        _texture = textures[5];
                         break;
                     }
                 case COLOR.yellow:
                     {
                         TextureDir = "ghost/yellow_ghost";
-                        _texture = _textures[6];
+                        _texture = textures[6];
                         break;
                     }
             }
