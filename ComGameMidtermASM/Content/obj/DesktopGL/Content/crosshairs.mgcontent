@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/crosshairs.png</SourceFile>
-  <SourceTime>2022-03-10T15:51:43.8432995+07:00</SourceTime>
-  <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/crosshairs.xnb</DestFile>
-  <DestTime>2022-03-10T15:51:48.1746641+07:00</DestTime>
+  <SourceFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/crosshairs.png</SourceFile>
+  <SourceTime>2017-11-18T08:35:48+07:00</SourceTime>
+  <DestFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/crosshairs.xnb</DestFile>
+  <DestTime>2022-03-10T17:27:21.4803381+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

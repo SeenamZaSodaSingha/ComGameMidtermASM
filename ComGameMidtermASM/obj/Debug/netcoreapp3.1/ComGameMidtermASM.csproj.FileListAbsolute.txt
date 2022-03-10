@@ -162,3 +162,7 @@ C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\ne
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover2.xnb
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover3.xnb
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\win.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover2.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover3.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\win.xnb
