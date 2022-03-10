@@ -347,18 +347,34 @@ namespace ComGameMidtermASM
                 }
                 if(turn == 5)
                 {
-                    for (int i = 8; i > 0; i--)
+                    for (int i = 7; i > 0; i--)
                     {
                         for (int j = 7; j >= 0; j--)
                         {
-                            if (ObjInstances.ball[i, j] != null && i+1 <= 7)
+                            if (ObjInstances.ball[i, j] != null && i + 1 <= 7)
                             {
                                 boom.Play();
-                                ObjInstances.ball[i, j] = ObjInstances.ball[i - 1, j];
-                                ObjInstances.ball[i - 1, j] = null;
+                                ObjInstances.ball[i + 1, j] = new GameObjs.Ball(ball_textures)
+                                {
+                                    Position = new Vector2((j * width) + width + Singleton.GAMEPANELLOCX, ((i+1) * height) + height / 2 + Singleton.GAMEPANELLOCY),
+                                    visit = false,
+                                    Destroy = false,
+                                };
+                                ObjInstances.ball[i + 1, j].SetColor(ObjInstances.ball[i, j].color_);
+                                //ObjInstances.ball[i + 1, j] = ObjInstances.ball[i, j];
+                                //ObjInstances.ball[i + 1, j] = null;
                             }
                         }
                     }
+                    //for (int i = 0; i < 5; i++)
+                    //{
+                    //    for (int j = 0; j < 8; j++)
+                    //    {
+
+                    //        ObjInstances.ball[i, j] = ObjInstances.ball[0, 0];
+
+                    //    }
+                    //}
                     turn = 0;
                 }
 
