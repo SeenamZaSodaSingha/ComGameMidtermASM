@@ -94,7 +94,7 @@ namespace ComGameMidtermASM
             //TODO FIXME: unnecessary assignment.
             ball_textures[0] = Content.Load<Texture2D>("ghost/blue_ghost");
             background = Content.Load<Texture2D>("Raccoon_norm");
-            losescreen = Content.Load<Texture2D>("Gameover");
+            losescreen = Content.Load<Texture2D>("Gameover3");
 
             //load boarder
             ObjInstances.boarder = new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1));
@@ -228,8 +228,13 @@ namespace ComGameMidtermASM
 
                 CheckBall(ObjInstances.ball, ObjInstances.ball[y, x].color_, y, x);
                 }
+                // cheak if lose
                 else
                 {
+                    _graphics.IsFullScreen = true;
+                    _graphics.PreferredBackBufferWidth = 1920;
+                    _graphics.PreferredBackBufferHeight = 1080;
+                    _graphics.ApplyChanges();
                     Singleton.CurrentGameState = Singleton.GameState.GameLose;
                 }
             
@@ -312,14 +317,6 @@ namespace ComGameMidtermASM
                 }
             }
 
-
-            //draw lose screen.
-            if (Singleton.CurrentGameState == Singleton.GameState.GameLose)
-            {
-                _spriteBatch.Draw(losescreen, new Vector2(0, 0), null, Color.White);
-            }
-
-
             //draw next ball indicator
             ObjInstances.nextball.Draw(_spriteBatch);
 
@@ -327,8 +324,14 @@ namespace ComGameMidtermASM
             print<String>((y.ToString() + " " + x.ToString()), 0, 100);
             //print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
             print<String>(ObjInstances.movingball.color_.ToString(), 200, 150);
-            _spriteBatch.End();
 
+            //draw lose screen.
+            if (Singleton.CurrentGameState == Singleton.GameState.GameLose)
+            {
+                _spriteBatch.Draw(losescreen, new Vector2(0, 0), null, Color.White);
+            }
+
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
 

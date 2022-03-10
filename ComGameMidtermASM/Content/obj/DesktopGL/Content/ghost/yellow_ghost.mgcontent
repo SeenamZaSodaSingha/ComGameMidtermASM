@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/yellow_ghost.png</SourceFile>
-  <SourceTime>2022-03-10T14:40:19.1990618+07:00</SourceTime>
+  <SourceTime>2022-03-10T15:51:43.8472994+07:00</SourceTime>
   <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/ghost/yellow_ghost.xnb</DestFile>
-  <DestTime>2022-03-10T14:40:22.3690616+07:00</DestTime>
+  <DestTime>2022-03-10T15:51:48.4367752+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

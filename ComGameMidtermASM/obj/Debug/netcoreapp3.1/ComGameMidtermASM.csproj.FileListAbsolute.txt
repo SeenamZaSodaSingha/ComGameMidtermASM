@@ -159,3 +159,6 @@ C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\ne
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Raccoon_norm.xnb
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\unicorn_cat.xnb
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover2.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover3.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\win.xnb
