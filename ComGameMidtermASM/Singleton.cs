@@ -29,6 +29,8 @@ namespace ComGameMidtermASM
         // game panel border width.
         public const int BOARDERWIDTH = 1;
 
+        public const float MAINVOLUME = 1f;
+
         //TODO
         public const int NUMBALLSROW = 9;
         public int NUMBALLSCOL = 8;

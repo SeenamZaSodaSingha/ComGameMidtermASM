@@ -60,6 +60,8 @@ namespace ComGameMidtermASM
 
         protected override void LoadContent()
         {
+            
+            // TODO extrac medthoid loader
             ball_textures = new List<Texture2D>
             {
                 Content.Load<Texture2D>("ghost/blue_ghost"),
@@ -131,23 +133,29 @@ namespace ComGameMidtermASM
                 Content.Load<Texture2D>("pacman-right-color/red-pac/3"),
                 Content.Load<Texture2D>("pacman-right-color/yellow-pac/3"),
             };
+            
+            background = Content.Load<Texture2D>("Raccoon_norm");
+            losescreen = Content.Load<Texture2D>("Gameover3");
 
             boom = Content.Load<SoundEffect>("Witcher 3 Quest completed - [HQ] Sound Effect").CreateInstance();
             bounce = Content.Load<SoundEffect>("MARIO JUMP SOUND EFFECT (FREE DOWNLOAD)").CreateInstance();
             click = Content.Load<SoundEffect>("Project-nebula_bullet").CreateInstance();
             moving = Content.Load<SoundEffect>("pacman_chomp").CreateInstance();
             hit = Content.Load<SoundEffect>("Project-Nenula_Click").CreateInstance();
-            bounce.Volume = 0.5f;
-            click.Volume = 1.0f;
-            boom.Volume = 0.7f;
-            moving.Volume = 0.5f;
-            hit.Volume = 0.8f;
+            
+            
+            // assign volume
+            bounce.Volume = 0.4f * Singleton.MAINVOLUME;
+            click.Volume = 1.0f * Singleton.MAINVOLUME;
+            boom.Volume = 0.7f * Singleton.MAINVOLUME;
+            moving.Volume = 0.5f * Singleton.MAINVOLUME;
+            hit.Volume = 0.8f * Singleton.MAINVOLUME;
+            
+            
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
 
 
-            background = Content.Load<Texture2D>("Raccoon_norm");
-            losescreen = Content.Load<Texture2D>("Gameover3");
             Singleton.Instance.sound = moving;
             //load boarder
             ObjInstances.boarder = new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1));
@@ -166,6 +174,8 @@ namespace ComGameMidtermASM
             //var crosshairTexture = Content.Load<Texture2D>("ghost/crosshairs");
             //background = Content.Load<Texture2D>("ghost/Raccoon_norm");
 
+
+            //TODO: extract medthoid here
             // Random ghost color
             ObjInstances.ball = new GameObjs.Ball[9, 8];
             for (int i = 0; i < 4; i++)
@@ -207,17 +217,17 @@ namespace ComGameMidtermASM
 
         protected override void Update(GameTime gameTime)
         {
-            
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            //TODO: extract medthoid here
             // update
             foreach (GameObjs.GameObj obj in gameobjs)
             {
                 obj.Update(gameTime, gameobjs);
 
             }
-
             //update ghost
             for (int i = 0; i < 9; i++)
             {
@@ -233,7 +243,8 @@ namespace ComGameMidtermASM
             //update next ball indicator
             ObjInstances.nextball.Update(gameTime, gameobjs);
 
-
+            
+            //TODO: extract medthoid here
             //sucking balls
             if (ObjInstances.movingball.IsActive)
             {
@@ -276,14 +287,14 @@ namespace ComGameMidtermASM
 
 
 
-                //set gun color
-                ObjInstances.gun.SetColor(ObjInstances.nextball.color_);
+                    //set gun color
+                    ObjInstances.gun.SetColor(ObjInstances.nextball.color_);
 
-                colorID = rand.Next(1, 7);
-                ObjInstances.nextball.SetColor(colorID);
+                    colorID = rand.Next(1, 7);
+                    ObjInstances.nextball.SetColor(colorID);
 
 
-                CheckBall(ObjInstances.ball, ObjInstances.ball[y, x].color_, y, x);
+                    CheckBall(ObjInstances.ball, ObjInstances.ball[y, x].color_, y, x);
                 }
                 // cheak if lose
                 else
@@ -294,7 +305,9 @@ namespace ComGameMidtermASM
                     _graphics.ApplyChanges();
                     Singleton.CurrentGameState = Singleton.GameState.GameLose;
                 }
-            
+
+                
+                //TODO extract med
                 //Logic of deleting balls
                 //How to Remove
                 for (int i = 0; i < 9; i++)
@@ -314,7 +327,7 @@ namespace ComGameMidtermASM
                 if (count >= 3)
                 {
 
-                    
+
                     for (int i = 0; i < 9; i++)
                     {
                         for (int j = 0; j < 8; j++)
@@ -345,7 +358,7 @@ namespace ComGameMidtermASM
                         }
                     }
                 }
-                if(turn == 5)
+                if (turn == 5)
                 {
                     for (int i = 7; i > 0; i--)
                     {
@@ -356,7 +369,7 @@ namespace ComGameMidtermASM
                                 boom.Play();
                                 ObjInstances.ball[i + 1, j] = new GameObjs.Ball(ball_textures)
                                 {
-                                    Position = new Vector2((j * width) + width + Singleton.GAMEPANELLOCX, ((i+1) * height) + height / 2 + Singleton.GAMEPANELLOCY),
+                                    Position = new Vector2((j * width) + width + Singleton.GAMEPANELLOCX, ((i + 1) * height) + height / 2 + Singleton.GAMEPANELLOCY),
                                     visit = false,
                                     Destroy = false,
                                 };
@@ -391,11 +404,14 @@ namespace ComGameMidtermASM
             GraphicsDevice.Clear(Color.White);
             _spriteBatch.Begin();
             _spriteBatch.Draw(background, new Vector2(Singleton.GAMEPANELLOCX, Singleton.GAMEPANELLOCY), null, Color.White);
+
+
+            //TODO: extract medthoid here
+            //draw gun balls barder
             foreach (GameObjs.GameObj obj in gameobjs)
             {
                 obj.Draw(_spriteBatch);
             }
-
             //draw ghost
             for (int i = 0; i < 9; i++)
             {
@@ -412,11 +428,15 @@ namespace ComGameMidtermASM
             //draw next ball indicator
             ObjInstances.nextball.Draw(_spriteBatch);
 
+
+            //for debug
             print<Vector2>(pos, 0, 0);
             print<String>((y.ToString() + " " + x.ToString()), 0, 100);
             //print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
             print<String>(ObjInstances.movingball.color_.ToString(), 200, 150);
 
+
+            //TODO: extract medthoid here
             //draw lose screen.
             if (Singleton.CurrentGameState == Singleton.GameState.GameLose)
             {
@@ -429,6 +449,9 @@ namespace ComGameMidtermASM
 
 
 
+
+        // NOTE extracted medthoid
+
         public void print<T>(T stringable, int x, int y)
         {
             _spriteBatch.DrawString(_spriteFont, stringable.ToString(), new Vector2(x, y), Color.Black);
@@ -440,32 +463,32 @@ namespace ComGameMidtermASM
         {
             //if ((me.X >= 0 && me.Y >= 0) && (me.X <= 7 && me.Y <= 8) && (gameObjects[(int)me.Y, (int)me.X] != null && gameObjects[(int)me.Y, (int)me.X].color == ColorTarget))
             if (((x >= 0 && y >= 0) && (x <= 7 && y < 8)))
-                 if((ball[x, y] != null) && (!ball[x, y].visit) && (ball[x, y].color_ == color))
-            {
-                ball[x, y].visit = true;
-                ball[x, y].Destroy = true;
-                //ball[x, y] = null;
-                CheckBall(ball, color, x - 1, y);//Left
-                CheckBall(ball, color, x + 1, y); // Right
-                if (y % 2 == 0)
+                if ((ball[x, y] != null) && (!ball[x, y].visit) && (ball[x, y].color_ == color))
                 {
-                    CheckBall(ball, color, x, y - 1); // Top Right
-                    CheckBall(ball, color, x - 1, y - 1); // Top Left
-                    CheckBall(ball, color, x, y + 1); // Bot Right
-                    CheckBall(ball, color, x - 1, y + 1); // Bot Left
+                    ball[x, y].visit = true;
+                    ball[x, y].Destroy = true;
+                    //ball[x, y] = null;
+                    CheckBall(ball, color, x - 1, y);//Left
+                    CheckBall(ball, color, x + 1, y); // Right
+                    if (y % 2 == 0)
+                    {
+                        CheckBall(ball, color, x, y - 1); // Top Right
+                        CheckBall(ball, color, x - 1, y - 1); // Top Left
+                        CheckBall(ball, color, x, y + 1); // Bot Right
+                        CheckBall(ball, color, x - 1, y + 1); // Bot Left
+                    }
+                    else
+                    {
+                        CheckBall(ball, color, x + 1, y - 1); // Top Right
+                        CheckBall(ball, color, x, y - 1); // Top Left
+                        CheckBall(ball, color, x + 1, y + 1); // Bot Right
+                        CheckBall(ball, color, x, y + 1); // Bot Left	
+                    }
                 }
                 else
                 {
-                    CheckBall(ball, color, x + 1, y - 1); // Top Right
-                    CheckBall(ball, color, x, y - 1); // Top Left
-                    CheckBall(ball, color, x + 1, y + 1); // Bot Right
-                    CheckBall(ball, color, x, y + 1); // Bot Left	
+                    return;
                 }
-            }
-            else
-            {
-                return;
-            }
         }
     }
 }
