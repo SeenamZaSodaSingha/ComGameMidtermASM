@@ -19,6 +19,13 @@ namespace ComGameMidtermASM.GameObjs
             ballspeed = Singleton.BALLSPEED;
         }
 
+        public MovingBall(List<Texture2D> texturesL, List<Texture2D> texturesR) : base(texturesL)
+        {
+            // be false by default
+            IsActive = false;
+            ballspeed = Singleton.BALLSPEED;
+        }
+
         public override void Update(GameTime gameTime, List<GameObj> GameObjs)
         {
             // shoot a ball when mouse is click.

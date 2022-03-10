@@ -24,7 +24,6 @@ namespace ComGameMidtermASM.GameObjs
         public int HitboxY;
         public int HitboxDX;
         public int HitboxDY;
-        public string TextureDir;
         public int color_;
         public Color Color;
         protected List<Texture2D> _textures;
