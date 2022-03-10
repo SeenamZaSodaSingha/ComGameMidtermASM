@@ -31,6 +31,7 @@ namespace ComGameMidtermASM
         List<Texture2D> pac_texturesL;
         List<Texture2D> pac_texturesR;
         private SoundEffectInstance bounce, click, boom, moving, hit;
+        private int turn;
 
 
         int width = 60;
@@ -50,6 +51,7 @@ namespace ComGameMidtermASM
             _graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
 
             IsMouseVisible = true;
+            turn = 0;
             _graphics.ApplyChanges();
 
 
@@ -243,6 +245,7 @@ namespace ComGameMidtermASM
             if (!ObjInstances.movingball.IsActive && activate)
             {
                 hit.Play();
+                turn++;
                 x = (int)Math.Ceiling((pos.X - Singleton.GAMEPANELLOCX) / width - 1);
                 y = (int)Math.Ceiling((pos.Y - Singleton.GAMEPANELLOCY) / height - 1);
 
@@ -310,8 +313,8 @@ namespace ComGameMidtermASM
                 }
                 if (count >= 3)
                 {
-                    boom.Volume = 1.0f;
-                    boom.Play();
+
+                    
                     for (int i = 0; i < 9; i++)
                     {
                         for (int j = 0; j < 8; j++)
@@ -320,9 +323,10 @@ namespace ComGameMidtermASM
                             {
                                 if (ObjInstances.ball[i, j].Destroy == true)
                                 {
-                                    ObjInstances.ball[i, j].Position = new Vector2(0, 0);
-                                    ObjInstances.ball[i, j].color_ = -1;
-                                    ObjInstances.ball[i, j].Destroy = false;
+                                    //ObjInstances.ball[i, j].Position = new Vector2(0, 0);
+                                    //ObjInstances.ball[i, j].color_ = -1;
+                                    //ObjInstances.ball[i, j].Destroy = false;
+                                    ObjInstances.ball[i, j] = null;
                                 }
                             }
                         }
@@ -340,6 +344,22 @@ namespace ComGameMidtermASM
                             }
                         }
                     }
+                }
+                if(turn == 5)
+                {
+                    for (int i = 8; i > 0; i--)
+                    {
+                        for (int j = 7; j >= 0; j--)
+                        {
+                            if (ObjInstances.ball[i, j] != null && i+1 <= 7)
+                            {
+                                boom.Play();
+                                ObjInstances.ball[i, j] = ObjInstances.ball[i - 1, j];
+                                ObjInstances.ball[i - 1, j] = null;
+                            }
+                        }
+                    }
+                    turn = 0;
                 }
 
 
