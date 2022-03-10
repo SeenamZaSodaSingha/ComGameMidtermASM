@@ -18,13 +18,14 @@ namespace ComGameMidtermASM
         public static List<GameObjs.GameObj> gameobjs = ObjInstances.gameobjs;
         private bool activate = false;
         List<GameObj> _gameObj;
-        
+
         private Texture2D DefaultTexture;
         private int x, y;
         Random rand = new Random();
         int colorID;
         private int count;
         private Texture2D background;
+        private Texture2D losescreen;
         List<Texture2D> ball_textures;
         List<Texture2D> gun_textures;
         List<Texture2D> pac_textures;
@@ -35,6 +36,7 @@ namespace ComGameMidtermASM
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            Singleton.CurrentGameState = Singleton.GameState.GamePlaying;
         }
 
         protected override void Initialize()
@@ -47,7 +49,6 @@ namespace ComGameMidtermASM
             _gameObj = new List<GameObj>();
             _graphics.ApplyChanges();
 
-            // TODO: Add your initialization logic here
 
             base.Initialize();
         }
@@ -90,8 +91,10 @@ namespace ComGameMidtermASM
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
 
+            //TODO FIXME: unnecessary assignment.
             ball_textures[0] = Content.Load<Texture2D>("ghost/blue_ghost");
             background = Content.Load<Texture2D>("Raccoon_norm");
+            losescreen = Content.Load<Texture2D>("Gameover");
 
             //load boarder
             ObjInstances.boarder = new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1));
@@ -148,8 +151,6 @@ namespace ComGameMidtermASM
         }
 
 
-        // TODO: use this.Content to load your game content here
-
 
         protected override void Update(GameTime gameTime)
         {
@@ -190,30 +191,32 @@ namespace ComGameMidtermASM
             {
                 x = (int)Math.Ceiling((pos.X - Singleton.GAMEPANELLOCX) / width - 1);
                 y = (int)Math.Ceiling((pos.Y - Singleton.GAMEPANELLOCY) / height - 1);
-                if (y % 2 == 1)
+
+                if (y < 8)
                 {
-                    if (y < 0) y = 0;
-                    if (y > 8) y = 8;
-                    ObjInstances.ball[y, x] = new GameObjs.Ball(ball_textures)
+                    if (y % 2 == 1)
                     {
-                        Position = new Vector2((x * width) + width + Singleton.GAMEPANELLOCX, (y * height) + height / 2 + Singleton.GAMEPANELLOCY),
-                        visit = false,
-                        Destroy = false,
-                    };
-                    ObjInstances.ball[y, x].SetColor(ObjInstances.movingball.color_);
-                    activate = false;
-                }
-                else
-                {
-                    if (y < 0) y = 0;
-                    if (y > 8) y = 8;
-                    ObjInstances.ball[y, x] = new GameObjs.Ball(ball_textures)
+                        if (y < 0) y = 0;
+                        ObjInstances.ball[y, x] = new GameObjs.Ball(ball_textures)
+                        {
+                            Position = new Vector2((x * width) + width + Singleton.GAMEPANELLOCX, (y * height) + height / 2 + Singleton.GAMEPANELLOCY),
+                            visit = false,
+                            Destroy = false,
+                        };
+                        ObjInstances.ball[y, x].SetColor(ObjInstances.movingball.color_);
+                        activate = false;
+                    }
+                    else
                     {
-                        Position = new Vector2((x * width) + width / 2 + Singleton.GAMEPANELLOCX, (y * height) + height / 2 + Singleton.GAMEPANELLOCY),
-                    };
-                    ObjInstances.ball[y, x].SetColor(ObjInstances.movingball.color_);
-                    activate = false;
-                }
+                        if (y < 0) y = 0;
+                        ObjInstances.ball[y, x] = new GameObjs.Ball(ball_textures)
+                        {
+                            Position = new Vector2((x * width) + width / 2 + Singleton.GAMEPANELLOCX, (y * height) + height / 2 + Singleton.GAMEPANELLOCY),
+                        };
+                        ObjInstances.ball[y, x].SetColor(ObjInstances.movingball.color_);
+                        activate = false;
+                    }
+
 
 
                 //set gun color
@@ -223,14 +226,20 @@ namespace ComGameMidtermASM
                 ObjInstances.nextball.SetColor(colorID);
 
 
+                CheckBall(ObjInstances.ball, ObjInstances.ball[y, x].color_, y, x);
+                }
+                else
+                {
+                    Singleton.CurrentGameState = Singleton.GameState.GameLose;
+                }
+            
                 //Logic of deleting balls
                 //How to Remove
-                CheckBall(ObjInstances.ball, ObjInstances.ball[y, x].color_, y, x);
                 for (int i = 0; i < 9; i++)
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if(ObjInstances.ball[i, j] != null)
+                        if (ObjInstances.ball[i, j] != null)
                         {
                             ObjInstances.ball[i, j].visit = false;
                             if (ObjInstances.ball[i, j].Destroy == true)
@@ -271,7 +280,7 @@ namespace ComGameMidtermASM
                         }
                     }
                 }
-                
+
 
             }
 
@@ -304,6 +313,13 @@ namespace ComGameMidtermASM
             }
 
 
+            //draw lose screen.
+            if (Singleton.CurrentGameState == Singleton.GameState.GameLose)
+            {
+                _spriteBatch.Draw(losescreen, new Vector2(0, 0), null, Color.White);
+            }
+
+
             //draw next ball indicator
             ObjInstances.nextball.Draw(_spriteBatch);
 
@@ -312,20 +328,24 @@ namespace ComGameMidtermASM
             //print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
             print<String>(ObjInstances.movingball.color_.ToString(), 200, 150);
             _spriteBatch.End();
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }
+
+
 
         public void print<T>(T stringable, int x, int y)
         {
             _spriteBatch.DrawString(_spriteFont, stringable.ToString(), new Vector2(x, y), Color.Black);
         }
 
+
+
         public void CheckBall(GameObjs.Ball[,] ball, int color, int x, int y)
         {
             //if ((me.X >= 0 && me.Y >= 0) && (me.X <= 7 && me.Y <= 8) && (gameObjects[(int)me.Y, (int)me.X] != null && gameObjects[(int)me.Y, (int)me.X].color == ColorTarget))
-            if(((x >= 0 && y >= 0) && (x <= 8 && y <= 7)) && (ball[x, y] != null) && (!ball[x, y].visit) &&  (ball[x, y].color_ == color))
+            if (((x >= 0 && y >= 0) && (x <= 7 && y < 8)))
+                 if((ball[x, y] != null) && (!ball[x, y].visit) && (ball[x, y].color_ == color))
             {
                 ball[x, y].visit = true;
                 ball[x, y].Destroy = true;

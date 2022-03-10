@@ -31,24 +31,20 @@ namespace ComGameMidtermASM
 
         public const int BALLSPEED = 5;
 
-        public const int GUNPOSITIONX = GAMEPANELLOCX + (GAMEPANELWIDTH/2);
+        public const int GUNPOSITIONX = GAMEPANELLOCX + (GAMEPANELWIDTH / 2);
         public const int GUNPOSITIONY = GAMEPANELLOCY + (GAMEPANELHEIGHT) - 50;
 
 
-        //TODO: Game State Machine
         public enum GameState
         {
-            //GameMain,
-            GameStart,
             GamePlaying,
             GameWin,
             GameLose,
-            //GameEnded,
         }
- 
-        public GameState CurrentGameState;
-        
 
+        public static GameState CurrentGameState;
+
+        //NOTE: may not use this.
         public enum GameResult
         {
             Win,
@@ -56,7 +52,8 @@ namespace ComGameMidtermASM
         }
 
         public GameResult CurrentGameResult;
-
+        //
+        
         public KeyboardState PreviousKey, CurrentKey;
         public MouseState CurrentMouse;
 

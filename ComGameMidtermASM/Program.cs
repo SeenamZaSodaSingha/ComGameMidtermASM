@@ -8,7 +8,7 @@ namespace ComGameMidtermASM
         static void Main()
         {
             //using (var game = new main()) game.Run();
-
+            
             using (var gametest = new maintest()) gametest.Run();
         }
     }
