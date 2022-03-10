@@ -22,45 +22,7 @@ namespace ComGameMidtermASM.GameObjs
         public void SetColor(int color_)
         {
             this.color_ = color_;
-            switch (color_)
-            {
-                case 0:
-                    {
-                        _texture = textures[0];
-                        break;
-                    }
-                case 1:
-                    {
-                        _texture = textures[1];
-                        break;
-                    }
-                case 2:
-                    {
-                        _texture = textures[2];
-                        break;
-                    }
-                case 3:
-                    {
-                        _texture = textures[3];
-                        break;
-                    }
-                case 4:
-                    {
-                        _texture = textures[4];
-                        break;
-                    }
-                case 5:
-                    {
-                        _texture = textures[5];
-                        break;
-                    }
-                case 6:
-                    {
-                        _texture = textures[6];
-                        break;
-                    }
-
-            }
+            _texture = textures[color_];
         }
 
         //NOTE not used this.

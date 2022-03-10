@@ -28,7 +28,9 @@ namespace ComGameMidtermASM
         private Texture2D losescreen;
         List<Texture2D> ball_textures;
         List<Texture2D> gun_textures;
-        List<Texture2D> pac_textures;
+        List<Texture2D> pac_texturesL;
+        List<Texture2D> pac_texturesR;
+
         int width = 60;
         int height = 60;
 
@@ -77,15 +79,55 @@ namespace ComGameMidtermASM
                 Content.Load<Texture2D>("cannon/canon-original-yellow")
             };
 
-            //pac_textures = new List<Texture2D>
-            //{
-            //    Content.Load<Texture2D>(""),
-            //    Content.Load<Texture2D>(""),
-            //    Content.Load<Texture2D>(""),
-            //    Content.Load<Texture2D>(""),
-            //    Content.Load<Texture2D>(""),
-            //    Content.Load<Texture2D>(""),
-            //};
+            pac_texturesL = new List<Texture2D>
+            {
+                Content.Load<Texture2D>("aim guide line/dot"),
+                Content.Load<Texture2D>("pacman-left-color/cyan-pac/1"),
+                Content.Load<Texture2D>("pacman-left-color/magen-pac/1"),
+                Content.Load<Texture2D>("pacman-left-color/orange-pac/1"),
+                Content.Load<Texture2D>("pacman-left-color/pink-pac/1"),
+                Content.Load<Texture2D>("pacman-left-color/red-pac/1"),
+                Content.Load<Texture2D>("pacman-left-color/yellow-pac/1"),
+
+                Content.Load<Texture2D>("pacman-left-color/cyan-pac/2"),
+                Content.Load<Texture2D>("pacman-left-color/magen-pac/2"),
+                Content.Load<Texture2D>("pacman-left-color/orange-pac/2"),
+                Content.Load<Texture2D>("pacman-left-color/pink-pac/2"),
+                Content.Load<Texture2D>("pacman-left-color/red-pac/2"),
+                Content.Load<Texture2D>("pacman-left-color/yellow-pac/2"),
+
+                Content.Load<Texture2D>("pacman-left-color/cyan-pac/3"),
+                Content.Load<Texture2D>("pacman-left-color/magen-pac/3"),
+                Content.Load<Texture2D>("pacman-left-color/orange-pac/3"),
+                Content.Load<Texture2D>("pacman-left-color/pink-pac/3"),
+                Content.Load<Texture2D>("pacman-left-color/red-pac/3"),
+                Content.Load<Texture2D>("pacman-left-color/yellow-pac/3"),
+            };
+
+            pac_texturesR = new List<Texture2D>
+            {
+                Content.Load<Texture2D>("aim guide line/dot"),
+                Content.Load<Texture2D>("pacman-right-color/cyan-pac/1"),
+                Content.Load<Texture2D>("pacman-right-color/magen-pac/1"),
+                Content.Load<Texture2D>("pacman-right-color/orange-pac/1"),
+                Content.Load<Texture2D>("pacman-right-color/pink-pac/1"),
+                Content.Load<Texture2D>("pacman-right-color/red-pac/1"),
+                Content.Load<Texture2D>("pacman-right-color/yellow-pac/1"),
+
+                Content.Load<Texture2D>("pacman-right-color/cyan-pac/2"),
+                Content.Load<Texture2D>("pacman-right-color/magen-pac/2"),
+                Content.Load<Texture2D>("pacman-right-color/orange-pac/2"),
+                Content.Load<Texture2D>("pacman-right-color/pink-pac/2"),
+                Content.Load<Texture2D>("pacman-right-color/red-pac/2"),
+                Content.Load<Texture2D>("pacman-right-color/yellow-pac/2"),
+
+                Content.Load<Texture2D>("pacman-right-color/cyan-pac/3"),
+                Content.Load<Texture2D>("pacman-right-color/magen-pac/3"),
+                Content.Load<Texture2D>("pacman-right-color/orange-pac/3"),
+                Content.Load<Texture2D>("pacman-right-color/pink-pac/3"),
+                Content.Load<Texture2D>("pacman-right-color/red-pac/3"),
+                Content.Load<Texture2D>("pacman-right-color/yellow-pac/3"),
+            };
 
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -106,7 +148,7 @@ namespace ComGameMidtermASM
             ObjInstances.nextball.Position = new Vector2(190, 570);
 
             //load and set gun and ball
-            ObjInstances.gun = new GameObjs.Gun(gun_textures, Content.Load<Texture2D>("aim guide line/dot"), ball_textures);
+            ObjInstances.gun = new GameObjs.Gun(gun_textures, Content.Load<Texture2D>("aim guide line/dot"), pac_texturesR, pac_texturesL);
             ObjInstances.gun.SetColor(ObjInstances.nextball.color_);
 
             //load ghost 

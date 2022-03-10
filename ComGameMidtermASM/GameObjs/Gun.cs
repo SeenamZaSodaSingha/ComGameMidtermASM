@@ -24,55 +24,22 @@ namespace ComGameMidtermASM.GameObjs
 
         }
 
+        public Gun(List<Texture2D> _textures, Texture2D crosshairtexture, List<Texture2D> balltexturesR, List<Texture2D> balltexturesL) : base(_textures)
+        {
+            ObjInstances.movingball = new MovingBall(balltexturesR, balltexturesL);
+            SetBallColor(0);
+            crosshairTexture = crosshairtexture;
+            Position.X = Singleton.GUNPOSITIONX;
+            Position.Y = Singleton.GUNPOSITIONY;
+
+        }
+
 
         public void SetColor(int color_)
         {
             this.color_ = color_;
-            switch (color_)
-            {
-                case 0:
-                    {
-                        _texture = _textures[0];
-                        SetBallColor(0);
-                        break;
-                    }
-                case 1:
-                    {
-                        _texture = _textures[1];
-                        SetBallColor(1);
-                        break;
-                    }
-                case 2:
-                    {
-                        _texture = _textures[2];
-                        SetBallColor(2);
-                        break;
-                    }
-                case 3:
-                    {
-                        _texture = _textures[3];
-                        SetBallColor(3);
-                        break;
-                    }
-                case 4:
-                    {
-                        _texture = _textures[4];
-                        SetBallColor(4);
-                        break;
-                    }
-                case 5:
-                    {
-                        _texture = _textures[5];
-                        SetBallColor(5);
-                        break;
-                    }
-                case 6:
-                    {
-                        _texture = _textures[6];
-                        SetBallColor(6);
-                        break;
-                    }
-            }
+            _texture = _textures[this.color_];
+            SetBallColor(this.color_);
         }
 
         public float GetAngle()

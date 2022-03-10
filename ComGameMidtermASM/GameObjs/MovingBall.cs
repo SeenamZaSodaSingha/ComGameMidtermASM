@@ -11,6 +11,32 @@ namespace ComGameMidtermASM.GameObjs
         public float MovingAngle;
         float ballspeed;
 
+        List<Texture2D> texturesL;
+        List<Texture2D> texturesR;
+
+        public void SetColor(int color_)
+        {
+            this.color_ = color_;
+            _textures = texturesR;
+            _texture = _textures[this.color_];
+        }
+
+        public void ResetColor()
+        {
+            _texture = _textures[this.color_];
+        }
+
+        public void LRcheck()
+        {
+            if (Velocity.X >= 0)
+            {
+                _textures = texturesR;
+            }
+            else
+            {
+                _textures = texturesL;
+            }
+        }
 
         public MovingBall(List<Texture2D> _textures) : base(_textures)
         {
@@ -19,9 +45,11 @@ namespace ComGameMidtermASM.GameObjs
             ballspeed = Singleton.BALLSPEED;
         }
 
-        public MovingBall(List<Texture2D> texturesL, List<Texture2D> texturesR) : base(texturesL)
+        public MovingBall(List<Texture2D> texturesR, List<Texture2D> texturesL) : base(texturesR)
         {
             // be false by default
+            this.texturesR = texturesR;
+            this.texturesL = texturesL;
             IsActive = false;
             ballspeed = Singleton.BALLSPEED;
         }
@@ -47,6 +75,9 @@ namespace ComGameMidtermASM.GameObjs
                 this.Velocity.X = (float)(-ballspeed * Math.Cos(this.MovingAngle));
                 this.Velocity.Y = (float)(-ballspeed * Math.Sin(this.MovingAngle));
 
+                LRcheck();
+                ResetColor();
+
                 this.Position.X += this.Velocity.X;
                 this.Position.Y += this.Velocity.Y;
 
@@ -60,7 +91,7 @@ namespace ComGameMidtermASM.GameObjs
             {
                 Rotation = MovingAngle + MathHelper.ToRadians(-90f);
                 Rotation = 0;
-                spriteBatch.Draw(_texture, Position, null, Color.White, Rotation , new Vector2(_texture.Width / 2, _texture.Height / 2), 1, SpriteEffects.None, 0f);
+                spriteBatch.Draw(_texture, Position, null, Color.White, Rotation, new Vector2(_texture.Width / 2, _texture.Height / 2), 1, SpriteEffects.None, 0f);
                 Reset();
             }
         }
@@ -78,7 +109,7 @@ namespace ComGameMidtermASM.GameObjs
             }
             else if (IsTouchingRight(GameObj) && Velocity.X > 0)
             {
-                MovingAngle = (float) Math.Acos(Velocity.X/ ballspeed);
+                MovingAngle = (float)Math.Acos(Velocity.X / ballspeed);
             }
 
             else if (IsTouchingTop(GameObj) && Velocity.Y < 0)
@@ -90,7 +121,7 @@ namespace ComGameMidtermASM.GameObjs
             else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
             {
                 //ballspeed = 0;
-                MovingAngle = (float) Math.Asin(Velocity.Y / ballspeed);
+                MovingAngle = (float)Math.Asin(Velocity.Y / ballspeed);
             }
         }
 
