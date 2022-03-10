@@ -10,7 +10,7 @@ namespace ComGameMidtermASM.Control
     public class Button : Component
     {
         #region Fields
-
+        //
         private MouseState _currentMouse;
 
         private SpriteFont _font;
