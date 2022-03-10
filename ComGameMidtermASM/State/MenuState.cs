@@ -12,71 +12,91 @@ namespace ComGameMidtermASM.State
     {
         private List<Component> _components;
 
+        protected Texture2D buttonTexture, _backgroundTexturee;
+        protected SpriteFont buttonFont;
+
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {
-            var buttonTextuere = _content.Load<Texture2D>("Control/start_idle");
-            var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
-            var newGameButton = new Button(buttonTextuere, buttonFont)
+            buttonTexture = _content.Load<Texture2D>("Control/start_idle");
+            buttonFont = _content.Load<SpriteFont>("Font/font");
+            _backgroundTexturee = _content.Load<Texture2D>("Background/unicorn_cat");
+            //var bg = _content.Load<>
+            var newGameButton = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(300, 200),
-                Text = "New Game",
+                Position = new Vector2(0, 0),
+                //Text = "New Game",
             };
 
             newGameButton.Click += newGameButton_Click;
 
-            var loadGameButton = new Button(buttonTextuere, buttonFont)
+            var loadGameButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(300, 250),
-                Text = "Load Game",
+                //Text = "Load Game",
             };
 
             loadGameButton.Click += loadGameButton_Click;
 
-            var quitGameButton = new Button(buttonTextuere, buttonFont)
+            var quitGameButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(300, 300),
-                Text = "Quit Game",
+                //Text = "Quit Game",
             };
 
             quitGameButton.Click += quitGameButton_Click;
 
             _components = new List<Component>
             {
-
+                newGameButton,
+                loadGameButton,
+                quitGameButton
             };
         }
 
         private void newGameButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
         
 
         private void loadGameButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Load Game");
         }
         
         private void quitGameButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            _game.Exit();
         }
 
 
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            throw new NotImplementedException();
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(_backgroundTexturee, new Vector2(0, 0), Color.White);
+
+            foreach (var component in _components)
+            {
+                component.Draw(gameTime, spriteBatch);
+            }
+
+            spriteBatch.End();
         }
 
         public override void PostUpdate(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            
         }
 
         public override void Update(GameTime gameTime)
         {
-            throw new NotImplementedException();
+
+            foreach (var component in _components)
+            {
+                component.Update(gameTime);
+            }
         }
     }
 }
