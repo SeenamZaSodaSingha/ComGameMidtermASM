@@ -70,42 +70,13 @@ namespace ComGameMidtermASM
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             _currentState = new MenuState(this, graphics.GraphicsDevice, Content);
-            /*
-            var randomButton = new Button(Content.Load<Texture2D>("Controls/Button"), Content.Load<SpriteFont>("Fonts/Font"))
-            {
-                Position = new Vector2(350, 200),
-                Text = "Random",
-            };
-
-            randomButton.Click += RandomButton_Click;
-
-            var quitButton = new Button(Content.Load<Texture2D>("Controls/Button"), Content.Load<SpriteFont>("Fonts/Font"))
-            {
-                Position = new Vector2(350, 250),
-                Text = "Quit",
-            };
-
-            quitButton.Click += QuitButton_Click;
-            
-            _gameComponents = new List<Component>()
-      {
-        randomButton,
-        quitButton,
-      };*/
         }
 
-        /*private void QuitButton_Click(object sender, System.EventArgs e)
+        private void QuitButton_Click(object sender, System.EventArgs e)
         {
             Exit();
-        }*/
+        }
 
-        /*
-        private void RandomButton_Click(object sender, System.EventArgs e)
-        {
-            var random = new Random();
-
-            _backgroundColour = new Color(random.Next(0, 255), random.Next(0, 255), random.Next(0, 255));
-        }*/
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -131,9 +102,6 @@ namespace ComGameMidtermASM
 
             _currentState.Update(gameTime);
             _currentState.PostUpdate(gameTime);
-
-            //foreach (var component in _gameComponents)
-                //component.Update(gameTime);
 
             base.Update(gameTime);
         }

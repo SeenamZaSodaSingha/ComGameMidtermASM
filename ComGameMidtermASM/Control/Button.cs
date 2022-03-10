@@ -19,7 +19,7 @@ namespace ComGameMidtermASM.Control
 
         private MouseState _previousMouse;
 
-        private Texture2D _texture;
+        private Texture2D _texture, _hoverTexture;
 
         #endregion
 
@@ -47,10 +47,12 @@ namespace ComGameMidtermASM.Control
 
         #region Methods
 
-        public Button(Texture2D texture, SpriteFont font)
+        public Button(Texture2D texture, Texture2D hoverTexture,  SpriteFont font)
         {
             _texture = texture;
 
+            _hoverTexture = hoverTexture;
+            
             _font = font;
 
             PenColour = Color.Black;
@@ -58,12 +60,13 @@ namespace ComGameMidtermASM.Control
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            var colour = Color.White;
+
+            Texture2D texture = _texture;
 
             if (_isHovering)
-                colour = Color.Gray;
+                texture = _hoverTexture;
 
-            spriteBatch.Draw(_texture, Rectangle, colour);
+            spriteBatch.Draw(texture, Rectangle, Color.White);
 
             if (!string.IsNullOrEmpty(Text))
             {
