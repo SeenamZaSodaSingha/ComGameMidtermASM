@@ -28,6 +28,9 @@ namespace ComGameMidtermASM
         // game panel border width.
         public const int BOARDERWIDTH = 1;
 
+        //TODO
+        public const int NUMBALLSROW = 9;
+        public int NUMBALLSCOL = 8;
 
         public const int BALLSPEED = 5;
 
@@ -53,7 +56,7 @@ namespace ComGameMidtermASM
 
         public GameResult CurrentGameResult;
         //
-        
+
         public KeyboardState PreviousKey, CurrentKey;
         public MouseState CurrentMouse;
 

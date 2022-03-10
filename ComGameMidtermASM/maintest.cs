@@ -133,8 +133,7 @@ namespace ComGameMidtermASM
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
 
-            //TODO FIXME: unnecessary assignment.
-            ball_textures[0] = Content.Load<Texture2D>("ghost/blue_ghost");
+
             background = Content.Load<Texture2D>("Raccoon_norm");
             losescreen = Content.Load<Texture2D>("Gameover3");
 
