@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Project-nebula_background.wav</SourceFile>
+  <SourceTime>2022-03-10T18:44:52.6825654+07:00</SourceTime>
+  <DestFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/Project-nebula_background.xnb</DestFile>
+  <DestTime>2022-03-10T19:31:06.7980612+07:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2020-08-10T23:17:54+07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

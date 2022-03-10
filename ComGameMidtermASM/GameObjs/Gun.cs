@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+
 
 
 namespace ComGameMidtermASM.GameObjs
@@ -13,25 +15,28 @@ namespace ComGameMidtermASM.GameObjs
         Vector2 Distance;
         Vector2 crosshairPosition;
         Texture2D crosshairTexture;
+        SoundEffectInstance click, bounce;
 
-        public Gun(List<Texture2D> _textures, Texture2D crosshairtexture, List<Texture2D> balltextures) : base(_textures)
+        public Gun(List<Texture2D> _textures, Texture2D crosshairtexture, List<Texture2D> balltextures, SoundEffectInstance click, SoundEffectInstance bounce) : base(_textures)
         {
             ObjInstances.movingball = new MovingBall(balltextures);
             SetBallColor(0);
             crosshairTexture = crosshairtexture;
             Position.X = Singleton.GUNPOSITIONX;
             Position.Y = Singleton.GUNPOSITIONY;
-
+            this.click = click;
+            this.bounce = bounce;
         }
 
-        public Gun(List<Texture2D> _textures, Texture2D crosshairtexture, List<Texture2D> balltexturesR, List<Texture2D> balltexturesL) : base(_textures)
+        public Gun(List<Texture2D> _textures, Texture2D crosshairtexture, List<Texture2D> balltexturesR, List<Texture2D> balltexturesL, SoundEffectInstance click, SoundEffectInstance bounce) : base(_textures)
         {
             ObjInstances.movingball = new MovingBall(balltexturesR, balltexturesL);
             SetBallColor(0);
             crosshairTexture = crosshairtexture;
             Position.X = Singleton.GUNPOSITIONX;
             Position.Y = Singleton.GUNPOSITIONY;
-
+            this.click = click;
+            this.bounce = bounce;
         }
 
 
@@ -73,8 +78,9 @@ namespace ComGameMidtermASM.GameObjs
             {
                 ObjInstances.movingball.Position = Position;
                 ObjInstances.movingball.MovingAngle = angle;
+            
             }
-            ObjInstances.movingball.Update(gameTime, GameObjs);
+            ObjInstances.movingball.Update(gameTime, GameObjs, click, bounce);
             Singleton.Instance.CurrentMouse = Mouse.GetState();
 
             if (Singleton.Instance.CurrentMouse.Position.Y <= 560)

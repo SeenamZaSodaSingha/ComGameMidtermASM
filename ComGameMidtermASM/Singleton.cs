@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 //using ComGameMidtermASM.GameObj;
 
 namespace ComGameMidtermASM
@@ -37,6 +38,7 @@ namespace ComGameMidtermASM
         public const int GUNPOSITIONX = GAMEPANELLOCX + (GAMEPANELWIDTH / 2);
         public const int GUNPOSITIONY = GAMEPANELLOCY + (GAMEPANELHEIGHT) - 50;
 
+        public SoundEffectInstance sound;
 
         public enum GameState
         {

@@ -166,3 +166,9 @@ E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover2.xnb
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Gameover3.xnb
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\win.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\MARIO JUMP SOUND EFFECT (FREE DOWNLOAD).xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\pacman_chomp.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Project-nebula_background.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Project-nebula_bullet.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Project-Nenula_Click.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Witcher 3 Quest completed - [HQ] Sound Effect.xnb

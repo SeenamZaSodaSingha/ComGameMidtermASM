@@ -25,6 +25,8 @@
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/pink_ghost.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/red_ghost.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/ghost/yellow_ghost.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/MARIO JUMP SOUND EFFECT (FREE DOWNLOAD).wav</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/pacman_chomp.wav</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/cyan-pac/1.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/cyan-pac/2.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-left-color/cyan-pac/3.png</File>
@@ -61,11 +63,21 @@
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/yellow-pac/1.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/yellow-pac/2.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/pacman-right-color/yellow-pac/3.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Project-nebula_background.wav</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Project-nebula_bullet.wav</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Project-Nenula_Click.wav</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Raccoon_norm.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/unicorn_cat.png</File>
     <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/win.jpg</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Witcher 3 Quest completed - [HQ] Sound Effect.wav</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

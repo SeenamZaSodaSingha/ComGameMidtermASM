@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+
+
 
 namespace ComGameMidtermASM.GameObjs
 {
@@ -13,7 +16,6 @@ namespace ComGameMidtermASM.GameObjs
 
         List<Texture2D> texturesL;
         List<Texture2D> texturesR;
-
         public void SetColor(int color_)
         {
             this.color_ = color_;
@@ -54,18 +56,19 @@ namespace ComGameMidtermASM.GameObjs
             ballspeed = Singleton.BALLSPEED;
         }
 
-        public override void Update(GameTime gameTime, List<GameObj> GameObjs)
+        public void Update(GameTime gameTime, List<GameObj> GameObjs, SoundEffectInstance click, SoundEffectInstance bounce)
         {
             // shoot a ball when mouse is click.
             Singleton.Instance.CurrentMouse = Mouse.GetState();
             if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed)
             {
+                click.Play();
                 this.IsActive = true;
             }
             //
 
             // do a collision
-            Collisionboarder(ObjInstances.boarder);
+            Collisionboarder(ObjInstances.boarder, bounce);
 
             Collisionballs(ObjInstances.ball);
 
@@ -101,14 +104,16 @@ namespace ComGameMidtermASM.GameObjs
             base.Reset();
         }
 
-        private void Collisionboarder(GameObj GameObj)
+        private void Collisionboarder(GameObj GameObj, SoundEffectInstance bounce)
         {
             if (IsTouchingLeft(GameObj) && Velocity.X < 0)
             {
+                bounce.Play();
                 MovingAngle = (float)Math.Acos(Velocity.X / ballspeed);
             }
             else if (IsTouchingRight(GameObj) && Velocity.X > 0)
             {
+                bounce.Play();
                 MovingAngle = (float)Math.Acos(Velocity.X / ballspeed);
             }
 

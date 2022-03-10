@@ -50,7 +50,6 @@ namespace ComGameMidtermASM
             _graphics.PreferredBackBufferWidth = Singleton.SCREENWIDTH;
 
             IsMouseVisible = true;
-            _gameObj = new List<GameObj>();
             _graphics.ApplyChanges();
 
 
@@ -131,18 +130,23 @@ namespace ComGameMidtermASM
                 Content.Load<Texture2D>("pacman-right-color/yellow-pac/3"),
             };
 
-            boom = Content.Load<SoundEffect>("effect/Witcher 3 Quest completed - [HQ] Sound Effect").CreateInstance();
-            bounce = Content.Load<SoundEffect>("effect/MARIO JUMP SOUND EFFECT (FREE DOWNLOAD)").CreateInstance();
-            click = Content.Load<SoundEffect>("effect/Project-nebula_bullet").CreateInstance();
-            moving = Content.Load<SoundEffect>("effect/pacman_chomp").CreateInstance();
-            hit = Content.Load<SoundEffect>("effect/Project-Nenula_Click").CreateInstance();
+            boom = Content.Load<SoundEffect>("Witcher 3 Quest completed - [HQ] Sound Effect").CreateInstance();
+            bounce = Content.Load<SoundEffect>("MARIO JUMP SOUND EFFECT (FREE DOWNLOAD)").CreateInstance();
+            click = Content.Load<SoundEffect>("Project-nebula_bullet").CreateInstance();
+            moving = Content.Load<SoundEffect>("pacman_chomp").CreateInstance();
+            hit = Content.Load<SoundEffect>("Project-Nenula_Click").CreateInstance();
+            bounce.Volume = 0.5f;
+            click.Volume = 1.0f;
+            boom.Volume = 0.7f;
+            moving.Volume = 0.5f;
+            hit.Volume = 0.8f;
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
 
 
             background = Content.Load<Texture2D>("Raccoon_norm");
             losescreen = Content.Load<Texture2D>("Gameover3");
-
+            Singleton.Instance.sound = moving;
             //load boarder
             ObjInstances.boarder = new GameObjs.Boarder(new Texture2D(_spriteBatch.GraphicsDevice, 1, 1));
 
@@ -153,7 +157,7 @@ namespace ComGameMidtermASM
             ObjInstances.nextball.Position = new Vector2(190, 570);
 
             //load and set gun and ball
-            ObjInstances.gun = new GameObjs.Gun(gun_textures, Content.Load<Texture2D>("aim guide line/dot"), pac_texturesR, pac_texturesL);
+            ObjInstances.gun = new GameObjs.Gun(gun_textures, Content.Load<Texture2D>("aim guide line/dot"), pac_texturesR, pac_texturesL, click, bounce);
             ObjInstances.gun.SetColor(ObjInstances.nextball.color_);
 
             //load ghost 
@@ -201,6 +205,7 @@ namespace ComGameMidtermASM
 
         protected override void Update(GameTime gameTime)
         {
+            
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
@@ -230,12 +235,14 @@ namespace ComGameMidtermASM
             //sucking balls
             if (ObjInstances.movingball.IsActive)
             {
+                moving.Play();
                 pos = ObjInstances.movingball.Position;
                 activate = true;
                 count = 0;
             }
             if (!ObjInstances.movingball.IsActive && activate)
             {
+                hit.Play();
                 x = (int)Math.Ceiling((pos.X - Singleton.GAMEPANELLOCX) / width - 1);
                 y = (int)Math.Ceiling((pos.Y - Singleton.GAMEPANELLOCY) / height - 1);
 
@@ -303,6 +310,8 @@ namespace ComGameMidtermASM
                 }
                 if (count >= 3)
                 {
+                    boom.Volume = 1.0f;
+                    boom.Play();
                     for (int i = 0; i < 9; i++)
                     {
                         for (int j = 0; j < 8; j++)
