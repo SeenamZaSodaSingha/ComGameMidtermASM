@@ -9,18 +9,6 @@ namespace ComGameMidtermASM.GameObjs
 {
     public class Ball : GameObj
     {
-        public enum COLOR
-        {
-            blue,
-            cyan,
-            magenta,
-            orange,
-            pink,
-            red,
-            yellow
-        }
-
-        public COLOR color;
         public bool Destroy;
         public bool visit;
         List<Texture2D> textures;
@@ -38,43 +26,36 @@ namespace ComGameMidtermASM.GameObjs
             {
                 case 0:
                     {
-                        color = COLOR.blue;
                         _texture = textures[0];
                         break;
                     }
                 case 1:
                     {
-                        color = COLOR.cyan;
                         _texture = textures[1];
                         break;
                     }
                 case 2:
                     {
-                        color = COLOR.magenta;
                         _texture = textures[2];
                         break;
                     }
                 case 3:
                     {
-                        color = COLOR.orange;
                         _texture = textures[3];
                         break;
                     }
                 case 4:
                     {
-                        color = COLOR.pink;
                         _texture = textures[4];
                         break;
                     }
                 case 5:
                     {
-                        color = COLOR.red;
                         _texture = textures[5];
                         break;
                     }
                 case 6:
                     {
-                        color = COLOR.yellow;
                         _texture = textures[6];
                         break;
                     }
