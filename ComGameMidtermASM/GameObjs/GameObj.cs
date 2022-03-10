@@ -90,34 +90,34 @@ namespace ComGameMidtermASM.GameObjs
 
         protected bool IsTouchingLeft(GameObj g)
         {
-            return this.Rectangle.Right > g.Rectangle.Left &&
-                    this.Rectangle.Left < g.Rectangle.Left &&
-                    this.Rectangle.Bottom > g.Rectangle.Top &&
-                    this.Rectangle.Top < g.Rectangle.Bottom;
+            return this.Rectangle.Right >= g.Rectangle.Left &&
+                    this.Rectangle.Left <= g.Rectangle.Left &&
+                    this.Rectangle.Bottom >= g.Rectangle.Top &&
+                    this.Rectangle.Top <= g.Rectangle.Bottom;
         }
 
         protected bool IsTouchingRight(GameObj g)
         {
-            return this.Rectangle.Right > g.Rectangle.Right &&
-                    this.Rectangle.Left < g.Rectangle.Right &&
-                    this.Rectangle.Bottom > g.Rectangle.Top &&
-                    this.Rectangle.Top < g.Rectangle.Bottom;
+            return this.Rectangle.Right >= g.Rectangle.Right &&
+                    this.Rectangle.Left <= g.Rectangle.Right &&
+                    this.Rectangle.Bottom >= g.Rectangle.Top &&
+                    this.Rectangle.Top <= g.Rectangle.Bottom;
         }
 
         protected bool IsTouchingTop(GameObj g)
         {
-            return this.Rectangle.Right > g.Rectangle.Left &&
-                    this.Rectangle.Left < g.Rectangle.Right &&
-                    this.Rectangle.Bottom > g.Rectangle.Top &&
-                    this.Rectangle.Top < g.Rectangle.Top;
+            return this.Rectangle.Right >= g.Rectangle.Left &&
+                    this.Rectangle.Left <= g.Rectangle.Right &&
+                    this.Rectangle.Bottom >= g.Rectangle.Top &&
+                    this.Rectangle.Top <= g.Rectangle.Top;
         }
 
         protected bool IsTouchingBottom(GameObj g)
         {
-            return this.Rectangle.Right > g.Rectangle.Left &&
-                    this.Rectangle.Left < g.Rectangle.Right &&
-                    this.Rectangle.Bottom > g.Rectangle.Bottom &&
-                    this.Rectangle.Top < g.Rectangle.Bottom;
+            return this.Rectangle.Right >= g.Rectangle.Left &&
+                    this.Rectangle.Left <= g.Rectangle.Right &&
+                    this.Rectangle.Bottom >= g.Rectangle.Bottom &&
+                    this.Rectangle.Top <= g.Rectangle.Bottom;
         }
         #endregion
     }

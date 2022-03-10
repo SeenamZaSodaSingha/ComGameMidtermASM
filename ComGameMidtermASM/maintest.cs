@@ -17,7 +17,7 @@ namespace ComGameMidtermASM
         private SpriteFont _spriteFont;
         public static List<GameObjs.GameObj> gameobjs = ObjInstances.gameobjs;
         private bool activate = false;
-        List<GameObj> _gameObj;
+
 
         private Texture2D DefaultTexture;
         private int x, y;
@@ -30,6 +30,8 @@ namespace ComGameMidtermASM
         List<Texture2D> gun_textures;
         List<Texture2D> pac_texturesL;
         List<Texture2D> pac_texturesR;
+        private SoundEffectInstance bounce, click, boom, moving, hit;
+
 
         int width = 60;
         int height = 60;
@@ -129,7 +131,11 @@ namespace ComGameMidtermASM
                 Content.Load<Texture2D>("pacman-right-color/yellow-pac/3"),
             };
 
-
+            boom = Content.Load<SoundEffect>("effect/Witcher 3 Quest completed - [HQ] Sound Effect").CreateInstance();
+            bounce = Content.Load<SoundEffect>("effect/MARIO JUMP SOUND EFFECT (FREE DOWNLOAD)").CreateInstance();
+            click = Content.Load<SoundEffect>("effect/Project-nebula_bullet").CreateInstance();
+            moving = Content.Load<SoundEffect>("effect/pacman_chomp").CreateInstance();
+            hit = Content.Load<SoundEffect>("effect/Project-Nenula_Click").CreateInstance();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _spriteFont = Content.Load<SpriteFont>("fonts/GameText");
 

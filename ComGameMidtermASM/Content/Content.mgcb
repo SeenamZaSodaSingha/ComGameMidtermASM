@@ -260,6 +260,18 @@
 /processorParam:TextureFormat=Color
 /build:ghost/yellow_ghost.png
 
+#begin MARIO JUMP SOUND EFFECT (FREE DOWNLOAD).wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:MARIO JUMP SOUND EFFECT (FREE DOWNLOAD).wav
+
+#begin pacman_chomp.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:pacman_chomp.wav
+
 #begin pacman-left-color/cyan-pac/1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -692,6 +704,24 @@
 /processorParam:TextureFormat=Color
 /build:pacman-right-color/yellow-pac/3.png
 
+#begin Project-nebula_background.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Project-nebula_background.wav
+
+#begin Project-nebula_bullet.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Project-nebula_bullet.wav
+
+#begin Project-Nenula_Click.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Project-Nenula_Click.wav
+
 #begin Raccoon_norm.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -727,4 +757,10 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:win.jpg
+
+#begin Witcher 3 Quest completed - [HQ] Sound Effect.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Witcher 3 Quest completed - [HQ] Sound Effect.wav
 
