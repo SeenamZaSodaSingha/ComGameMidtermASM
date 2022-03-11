@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
 namespace ComGameMidtermASM.GameObjs
 {
@@ -12,7 +9,6 @@ namespace ComGameMidtermASM.GameObjs
         protected int LineWidth;
         Vector2 Dimentions;
 
-        //texture = Texture2D(_spriteBatch.GraphicsDevice, 1, 1);
         public Boarder(Texture2D texture, Vector2 Position, Vector2 Dimentions, int LineWidth) : base(texture)
         {
             _texture = texture;
@@ -27,7 +23,6 @@ namespace ComGameMidtermASM.GameObjs
             HitboxDX = (int)Dimentions.X;
             HitboxDY = (int)Dimentions.Y;
 
-            //Viewport = new Rectangle((int)Position.X, (int)Position.Y, (int)Dimentions.X, (int)Dimentions.Y);
         }
 
         public Boarder(Texture2D texture) : base(texture)
@@ -44,12 +39,11 @@ namespace ComGameMidtermASM.GameObjs
             HitboxDX = (int)Singleton.GAMEPANELWIDTH;
             HitboxDY = (int)Singleton.GAMEPANELHEIGHT;
 
-            //Viewport = new Rectangle((int)Position.X, (int)Position.Y, (int)Singleton.GAMEPANELWIDTH, (int)Singleton.GAMEPANELHEIGHT);
         }
 
         public void SetColor(Color color)
         {
-            this.Color = Color;
+            Color = color;
         }
 
         public override void Update(GameTime gameTime, List<GameObj> GameObjs)

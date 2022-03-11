@@ -1,10 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
 using ComGameMidtermASM.GameObjs;
-using ComGameMidtermASM.Control;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 using System;
@@ -14,8 +12,6 @@ namespace ComGameMidtermASM.State
 {
     public class GameState : State
     {
-        private GraphicsDevice _graphics;
-        private GraphicsDeviceManager graphics;
         private SpriteBatch _spriteBatch;
         private SpriteFont _spriteFont, _anotherFont;
         public static List<GameObj> gameobjs = ObjInstances.gameobjs;
@@ -482,10 +478,10 @@ namespace ComGameMidtermASM.State
                     }
                     else
                     {
-                        CheckBall(ball, color, x + 1, y - 1, extra); // Top Right
-                        CheckBall(ball, color, x, y - 1, extra); // Top Left
-                        CheckBall(ball, color, x + 1, y + 1, extra); // Bot Right
-                        CheckBall(ball, color, x, y + 1, extra); // Bot Left	
+                        CheckBall(ball, color, x + 2, y - 1, extra); // Top Right
+                        CheckBall(ball, color, x + 1, y - 1, extra); // Top Left
+                        CheckBall(ball, color, x + 2, y + 1, extra); // Bot Right
+                        CheckBall(ball, color, x + 1, y + 1, extra); // Bot Left	
                     }
                 }
                 else

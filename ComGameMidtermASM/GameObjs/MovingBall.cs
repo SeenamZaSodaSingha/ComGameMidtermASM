@@ -65,7 +65,6 @@ namespace ComGameMidtermASM.GameObjs
                 click.Play();
                 this.IsActive = true;
             }
-            //
 
             // do a collision
             Collisionboarder(ObjInstances.boarder, bounce);
