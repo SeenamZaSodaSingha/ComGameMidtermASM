@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/BGMusic/DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION).mp3</SourceFile>
+  <SourceTime>2022-03-11T17:46:52.1966632+07:00</SourceTime>
+  <DestFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/BGMusic/DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION).xnb</DestFile>
+  <DestTime>2022-03-11T18:49:42.8229659+07:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2020-08-10T23:17:54+07:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/BGMusic/DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION).ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>

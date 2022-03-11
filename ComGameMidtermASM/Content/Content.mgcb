@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:Background/unicorn_cat.png
 
+#begin BGMusic/Delfino Plaza - Super Mario Sunshine [OST].mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:BGMusic/Delfino Plaza - Super Mario Sunshine [OST].mp3
+
+#begin BGMusic/DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION).mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:BGMusic/DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION).mp3
+
 #begin cannon/base-transparent.png
 /importer:TextureImporter
 /processor:TextureProcessor

@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using ComGameMidtermASM.Control;
 using ComGameMidtermASM.State;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Content;
 
 
 namespace ComGameMidtermASM
@@ -22,6 +24,7 @@ namespace ComGameMidtermASM
 
         private State.State _nextState;
 
+        private Song bgmusic;
         //end of seenam work
 
         public Game1()
@@ -70,6 +73,8 @@ namespace ComGameMidtermASM
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
+            bgmusic = Content.Load<Song>("BGMusic/Delfino Plaza - Super Mario Sunshine [OST]");
+            MediaPlayer.Play(bgmusic);
         }
 
         private void QuitButton_Click(object sender, System.EventArgs e)

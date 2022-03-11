@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
 using ComGameMidtermASM.GameObjs;
 using ComGameMidtermASM.Control;
@@ -31,6 +32,7 @@ namespace ComGameMidtermASM.State
         List<Texture2D> pac_texturesL;
         List<Texture2D> pac_texturesR;
         private SoundEffectInstance bounce, click, boom, moving, hit;
+        private Song bgmusic;
         private int turn;
         Vector2 pos;
 
@@ -139,8 +141,10 @@ namespace ComGameMidtermASM.State
             click = _content.Load<SoundEffect>("Project-nebula_bullet").CreateInstance();
             moving = _content.Load<SoundEffect>("pacman_chomp").CreateInstance();
             hit = _content.Load<SoundEffect>("Project-Nenula_Click").CreateInstance();
+            bgmusic = _content.Load<Song>("BGMusic/DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION)");
 
-
+            //Background Music
+            MediaPlayer.Play(bgmusic);
             // assign volume
             bounce.Volume = 0.4f * Singleton.MAINVOLUME;
             click.Volume = 1.0f * Singleton.MAINVOLUME;
@@ -215,7 +219,7 @@ namespace ComGameMidtermASM.State
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 //FIXME
                 _game.Exit();
-
+            
             //TODO: extract medthoid here
             // update
             foreach (GameObjs.GameObj obj in gameobjs)
@@ -353,28 +357,28 @@ namespace ComGameMidtermASM.State
                     }
                 }
                 //Ball drop not finish Full Of bug
-                //if (turn == 5)
-                //{
-                //    boom.Play();
-                //    increase++;
-                //    for (int i = 8; i >= 0; i--)
-                //    {
-                //        for (int j = 7; j >= 0; j--)
-                //        {
-                //            if (ObjInstances.ball[i, j] != null && i + 1 <= 8)
-                //            {
-                //                ObjInstances.ball[i + 1, j] = ObjInstances.ball[i, j];
-                //                ObjInstances.ball[i, j].Position += new Vector2(0, height);
+                if (turn == 10)
+                {
+                    boom.Play();
+                    increase++;
+                    for (int i = 8; i >= 0; i--)
+                    {
+                        for (int j = 7; j >= 0; j--)
+                        {
+                            if (ObjInstances.ball[i, j] != null && i + 1 <= 8)
+                            {
+                                ObjInstances.ball[i + 1, j] = ObjInstances.ball[i, j];
+                                ObjInstances.ball[i, j].Position += new Vector2(0, height);
 
-                //            }
-                //            if (i == 0)
-                //            {
-                //                ObjInstances.ball[i, j] = null;
-                //            }
-                //        }
-                //    }
-                //    turn = 0;
-                //}
+                            }
+                            if (i == 0)
+                            {
+                                ObjInstances.ball[i, j] = null;
+                            }
+                        }
+                    }
+                    turn = 0;
+                }
 
 
             }
@@ -421,7 +425,7 @@ namespace ComGameMidtermASM.State
             ObjInstances.nextball.Draw(_spriteBatch);
 
             //draw score
-            print<String>("SCORE : "+ score.ToString(), 50, 350);
+            print<String>("SCORE:"+ score.ToString(), 0, 350);
 
             //draw Game Title
             _spriteBatch.DrawString(_anotherFont, "THIS IS", new Vector2(25, 100), Color.Yellow);

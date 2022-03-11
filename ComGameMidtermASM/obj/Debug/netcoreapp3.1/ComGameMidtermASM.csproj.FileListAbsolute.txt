@@ -206,3 +206,7 @@ E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\start_idle.xnb
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\windows_xp_original-wallpaper-1920x1080.xnb
 E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\fonts\header.xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\BGMusic\Delfino Plaza - Super Mario Sunshine [OST].ogg
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\BGMusic\Delfino Plaza - Super Mario Sunshine [OST].xnb
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\BGMusic\DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION).ogg
+E:\ハウス\Assignment\Kmitl\Year_2\Semester_2\Computer_Game\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\BGMusic\DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION).xnb
