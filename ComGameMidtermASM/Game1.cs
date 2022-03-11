@@ -10,8 +10,8 @@ namespace ComGameMidtermASM
 {
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        GraphicsDeviceManager _graphics;
+        SpriteBatch _spriteBatch;
 
         //private Color _backgroundColour = Color.CornflowerBlue;
 
@@ -26,7 +26,7 @@ namespace ComGameMidtermASM
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
@@ -51,11 +51,11 @@ namespace ComGameMidtermASM
         {
             IsMouseVisible = true;
 
-            graphics.PreferredBackBufferHeight = 680;
-            graphics.PreferredBackBufferWidth = 800;
+            _graphics.PreferredBackBufferHeight = 680;
+            _graphics.PreferredBackBufferWidth = 800;
 
             IsMouseVisible = true;
-            graphics.ApplyChanges();
+            _graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -67,45 +67,16 @@ namespace ComGameMidtermASM
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _currentState = new MenuState(this, graphics.GraphicsDevice, Content);
-            /*
-            var randomButton = new Button(Content.Load<Texture2D>("Controls/Button"), Content.Load<SpriteFont>("Fonts/Font"))
-            {
-                Position = new Vector2(350, 200),
-                Text = "Random",
-            };
-
-            randomButton.Click += RandomButton_Click;
-
-            var quitButton = new Button(Content.Load<Texture2D>("Controls/Button"), Content.Load<SpriteFont>("Fonts/Font"))
-            {
-                Position = new Vector2(350, 250),
-                Text = "Quit",
-            };
-
-            quitButton.Click += QuitButton_Click;
-            
-            _gameComponents = new List<Component>()
-      {
-        randomButton,
-        quitButton,
-      };*/
+            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
         }
 
-        /*private void QuitButton_Click(object sender, System.EventArgs e)
+        private void QuitButton_Click(object sender, System.EventArgs e)
         {
             Exit();
-        }*/
+        }
 
-        /*
-        private void RandomButton_Click(object sender, System.EventArgs e)
-        {
-            var random = new Random();
-
-            _backgroundColour = new Color(random.Next(0, 255), random.Next(0, 255), random.Next(0, 255));
-        }*/
 
         /// <summary>
         /// UnloadContent will be called once per game and is the place to unload
@@ -132,9 +103,6 @@ namespace ComGameMidtermASM
             _currentState.Update(gameTime);
             _currentState.PostUpdate(gameTime);
 
-            //foreach (var component in _gameComponents)
-                //component.Update(gameTime);
-
             base.Update(gameTime);
         }
 
@@ -145,7 +113,7 @@ namespace ComGameMidtermASM
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
-            _currentState.Draw(gameTime, spriteBatch);
+            _currentState.Draw(gameTime, _spriteBatch);
 
             base.Draw(gameTime);
         }

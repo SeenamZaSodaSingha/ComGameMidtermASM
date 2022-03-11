@@ -7,7 +7,7 @@ using ComGameMidtermASM.Control;
 
 namespace ComGameMidtermASM
 {
-    public class Game1 : Game
+    public class Game0 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -16,7 +16,7 @@ namespace ComGameMidtermASM
 
         private List<Component> _gameComponents;
 
-        public Game1()
+        public Game0()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";

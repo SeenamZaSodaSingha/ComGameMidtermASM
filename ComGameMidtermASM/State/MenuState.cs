@@ -12,34 +12,50 @@ namespace ComGameMidtermASM.State
     {
         private List<Component> _components;
 
-        protected Texture2D buttonTexture, _backgroundTexturee;
+        protected Texture2D newGameIdle, newGameHover, quitIdle, quitHover, restartIdle, restartHover, _backgroundTexturee;
         protected SpriteFont buttonFont;
 
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
-        {
-            buttonTexture = _content.Load<Texture2D>("Control/start_idle");
+        {   
+            newGameIdle = _content.Load<Texture2D>("Control/start_idle");
+            newGameHover = _content.Load<Texture2D>("Control/start_hover_ori");
+
+            
+            // NOTE HOT FIX
+            //FIXME need exit texture
+            //quitIdle = _content.Load<Texture2D>("Control/quit_idle");
+            //quitHover = _content.Load<Texture2D>("Control/quit_hover");
+
+            quitIdle = _content.Load<Texture2D>("Control/restart_idle");
+            quitHover = _content.Load<Texture2D>("Control/restart_hover");
+
+
+            restartIdle = _content.Load<Texture2D>("Control/restart_idle");
+            restartHover = _content.Load<Texture2D>("Control/restart_hover");
+
             buttonFont = _content.Load<SpriteFont>("Font/font");
             _backgroundTexturee = _content.Load<Texture2D>("Background/unicorn_cat");
             //var bg = _content.Load<>
-            var newGameButton = new Button(buttonTexture, buttonFont)
+            var newGameButton = new Button(newGameIdle, newGameHover, buttonFont)
             {
-                Position = new Vector2(0, 0),
+                Position = new Vector2(450, 320),
                 //Text = "New Game",
             };
 
             newGameButton.Click += newGameButton_Click;
 
-            var loadGameButton = new Button(buttonTexture, buttonFont)
+            
+            var restartGameButton = new Button(restartIdle, restartHover, buttonFont)
             {
-                Position = new Vector2(300, 250),
+                Position = new Vector2(39, 459),
                 //Text = "Load Game",
             };
 
-            loadGameButton.Click += loadGameButton_Click;
+            restartGameButton.Click += restartGameButton_Click;
 
-            var quitGameButton = new Button(buttonTexture, buttonFont)
+            var quitGameButton = new Button(quitIdle, quitHover, buttonFont)
             {
-                Position = new Vector2(300, 300),
+                Position = new Vector2(450, 450),
                 //Text = "Quit Game",
             };
 
@@ -48,7 +64,7 @@ namespace ComGameMidtermASM.State
             _components = new List<Component>
             {
                 newGameButton,
-                loadGameButton,
+                //restartGameButton,
                 quitGameButton
             };
         }
@@ -58,9 +74,10 @@ namespace ComGameMidtermASM.State
             _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
         }
         
-
-        private void loadGameButton_Click(object sender, EventArgs e)
+        //restart
+        private void restartGameButton_Click(object sender, EventArgs e)
         {
+            //do restart
             Console.WriteLine("Load Game");
         }
         

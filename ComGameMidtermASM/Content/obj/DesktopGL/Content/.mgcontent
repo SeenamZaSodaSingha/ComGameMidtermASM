@@ -4,14 +4,14 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/SeenamZaSodaSingha/source/repos/ComGameMidtermASM/ComGameMidtermASM/Content/Background/unicorn_cat.png</File>
-    <File>C:/Users/SeenamZaSodaSingha/source/repos/ComGameMidtermASM/ComGameMidtermASM/Content/Background/win7.png</File>
-    <File>C:/Users/SeenamZaSodaSingha/source/repos/ComGameMidtermASM/ComGameMidtermASM/Content/Control/restart_hover.png</File>
-    <File>C:/Users/SeenamZaSodaSingha/source/repos/ComGameMidtermASM/ComGameMidtermASM/Content/Control/restart_idle.png</File>
-    <File>C:/Users/SeenamZaSodaSingha/source/repos/ComGameMidtermASM/ComGameMidtermASM/Content/Control/start_hover_Alt.png</File>
-    <File>C:/Users/SeenamZaSodaSingha/source/repos/ComGameMidtermASM/ComGameMidtermASM/Content/Control/start_hover_ori.png</File>
-    <File>C:/Users/SeenamZaSodaSingha/source/repos/ComGameMidtermASM/ComGameMidtermASM/Content/Control/start_idle.png</File>
-    <File>C:/Users/SeenamZaSodaSingha/source/repos/ComGameMidtermASM/ComGameMidtermASM/Content/Font/File.spritefont</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Background/unicorn_cat.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Background/win7.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Control/restart_hover.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Control/restart_idle.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Control/start_hover_Alt.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Control/start_hover_ori.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Control/start_idle.png</File>
+    <File>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Font/File.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
