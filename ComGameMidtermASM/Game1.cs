@@ -10,8 +10,8 @@ namespace ComGameMidtermASM
 {
     public class Game1 : Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        GraphicsDeviceManager _graphics;
+        SpriteBatch _spriteBatch;
 
         //private Color _backgroundColour = Color.CornflowerBlue;
 
@@ -26,7 +26,7 @@ namespace ComGameMidtermASM
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager(this);
+            _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
@@ -51,11 +51,11 @@ namespace ComGameMidtermASM
         {
             IsMouseVisible = true;
 
-            graphics.PreferredBackBufferHeight = 680;
-            graphics.PreferredBackBufferWidth = 800;
+            _graphics.PreferredBackBufferHeight = 680;
+            _graphics.PreferredBackBufferWidth = 800;
 
             IsMouseVisible = true;
-            graphics.ApplyChanges();
+            _graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -67,9 +67,9 @@ namespace ComGameMidtermASM
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _currentState = new MenuState(this, graphics.GraphicsDevice, Content);
+            _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
         }
 
         private void QuitButton_Click(object sender, System.EventArgs e)
@@ -113,7 +113,7 @@ namespace ComGameMidtermASM
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.White);
-            _currentState.Draw(gameTime, spriteBatch);
+            _currentState.Draw(gameTime, _spriteBatch);
 
             base.Draw(gameTime);
         }

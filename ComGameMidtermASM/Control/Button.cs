@@ -58,6 +58,15 @@ namespace ComGameMidtermASM.Control
             PenColour = Color.Black;
         }
 
+        public Button(Texture2D texture, SpriteFont font)
+        {
+            _texture = texture;
+
+            _font = font;
+
+            PenColour = Color.Black;
+        }
+
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
 

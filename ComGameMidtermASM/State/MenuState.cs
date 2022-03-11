@@ -17,12 +17,21 @@ namespace ComGameMidtermASM.State
 
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) : base(game, graphicsDevice, content)
         {   
-            newGameIdle = _content.Load<Texture2D>("Control/ResizeBtn/start_idle");
-            newGameHover = _content.Load<Texture2D>("Control/ResizeBtn/start_hover_ori");
-            quitIdle = _content.Load<Texture2D>("Control/ResizeBtn/quit_idle");
-            quitHover = _content.Load<Texture2D>("Control/ResizeBtn/quit_hover");
-            restartIdle = _content.Load<Texture2D>("Control/ResizeBtn/restart_idle");
-            restartHover = _content.Load<Texture2D>("Control/ResizeBtn/restart_hover");
+            newGameIdle = _content.Load<Texture2D>("Control/start_idle");
+            newGameHover = _content.Load<Texture2D>("Control/start_hover_ori");
+
+            
+            // NOTE HOT FIX
+            //FIXME need exit texture
+            //quitIdle = _content.Load<Texture2D>("Control/quit_idle");
+            //quitHover = _content.Load<Texture2D>("Control/quit_hover");
+
+            quitIdle = _content.Load<Texture2D>("Control/restart_idle");
+            quitHover = _content.Load<Texture2D>("Control/restart_hover");
+
+
+            restartIdle = _content.Load<Texture2D>("Control/restart_idle");
+            restartHover = _content.Load<Texture2D>("Control/restart_hover");
 
             buttonFont = _content.Load<SpriteFont>("Font/font");
             _backgroundTexturee = _content.Load<Texture2D>("Background/unicorn_cat");

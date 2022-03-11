@@ -22,3 +22,11 @@ C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\ne
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\netcoreapp3.1\ComGameMidtermASM.dll
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\netcoreapp3.1\ComGameMidtermASM.pdb
 C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\obj\Debug\netcoreapp3.1\ComGameMidtermASM.genruntimeconfig.cache
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Background\unicorn_cat.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Background\win7.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Control\restart_hover.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Control\restart_idle.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Control\start_hover_Alt.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Control\start_hover_ori.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Control\start_idle.xnb
+C:\Users\dylan\Documents\GitHub\ComGameMidtermASM\ComGameMidtermASM\bin\Debug\netcoreapp3.1\Content\Font\font.xnb
