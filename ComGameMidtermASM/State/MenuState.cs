@@ -38,7 +38,7 @@ namespace ComGameMidtermASM.State
             //var bg = _content.Load<>
             var newGameButton = new Button(newGameIdle, newGameHover, buttonFont)
             {
-                Position = new Vector2(305, 272),
+                Position = new Vector2(450, 250),
                 //Text = "New Game",
             };
 
@@ -55,7 +55,7 @@ namespace ComGameMidtermASM.State
 
             var quitGameButton = new Button(quitIdle, quitHover, buttonFont)
             {
-                Position = new Vector2(305, 363),
+                Position = new Vector2(550, 375),
                 //Text = "Quit Game",
             };
 
