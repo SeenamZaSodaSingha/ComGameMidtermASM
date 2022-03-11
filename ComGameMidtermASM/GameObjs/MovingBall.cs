@@ -1,0 +1,173 @@
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+
+
+
+namespace ComGameMidtermASM.GameObjs
+{
+    class MovingBall : Ball
+    {
+        public float MovingAngle;
+        float ballspeed;
+
+        List<Texture2D> texturesL;
+        List<Texture2D> texturesR;
+        public void SetColor(int color_)
+        {
+            this.color_ = color_;
+            _textures = texturesR;
+            _texture = _textures[this.color_];
+        }
+
+        public void ResetColor()
+        {
+            _texture = _textures[this.color_];
+        }
+
+        public void LRcheck()
+        {
+            if (Velocity.X >= 0)
+            {
+                _textures = texturesR;
+            }
+            else
+            {
+                _textures = texturesL;
+            }
+        }
+
+        public MovingBall(List<Texture2D> _textures) : base(_textures)
+        {
+            // be false by default
+            IsActive = false;
+            ballspeed = Singleton.BALLSPEED;
+        }
+
+        public MovingBall(List<Texture2D> texturesR, List<Texture2D> texturesL) : base(texturesR)
+        {
+            // be false by default
+            this.texturesR = texturesR;
+            this.texturesL = texturesL;
+            IsActive = false;
+            ballspeed = Singleton.BALLSPEED;
+        }
+
+        public void Update(GameTime gameTime, List<GameObj> GameObjs, SoundEffectInstance click, SoundEffectInstance bounce)
+        {
+            // shoot a ball when mouse is click.
+            Singleton.Instance.CurrentMouse = Mouse.GetState();
+            if (Singleton.Instance.CurrentMouse.LeftButton == ButtonState.Pressed)
+            {
+                click.Play();
+                this.IsActive = true;
+            }
+            //
+
+            // do a collision
+            Collisionboarder(ObjInstances.boarder, bounce);
+
+            Collisionballs(ObjInstances.ball);
+
+            //update ball position
+            if (this.IsActive)
+            {
+                this.Velocity.X = (float)(-ballspeed * Math.Cos(this.MovingAngle));
+                this.Velocity.Y = (float)(-ballspeed * Math.Sin(this.MovingAngle));
+
+                LRcheck();
+                ResetColor();
+
+                this.Position.X += this.Velocity.X;
+                this.Position.Y += this.Velocity.Y;
+
+            }
+            base.Update(gameTime, GameObjs);
+        }
+
+        public override void Draw(SpriteBatch spriteBatch)
+        {
+            if (IsActive)
+            {
+                Rotation = MovingAngle + MathHelper.ToRadians(-90f);
+                Rotation = 0;
+                spriteBatch.Draw(_texture, Position, null, Color.White, Rotation, new Vector2(_texture.Width / 2, _texture.Height / 2), 1, SpriteEffects.None, 0f);
+                Reset();
+            }
+        }
+
+        public override void Reset()
+        {
+            base.Reset();
+        }
+
+        private void Collisionboarder(GameObj GameObj, SoundEffectInstance bounce)
+        {
+            if (IsTouchingLeft(GameObj) && Velocity.X < 0)
+            {
+                bounce.Play();
+                MovingAngle = (float)Math.Acos(Velocity.X / ballspeed);
+            }
+            else if (IsTouchingRight(GameObj) && Velocity.X > 0)
+            {
+                bounce.Play();
+                MovingAngle = (float)Math.Acos(Velocity.X / ballspeed);
+            }
+
+            else if (IsTouchingTop(GameObj) && Velocity.Y < 0)
+            {
+                //ballspeed = 0;
+                //MovingAngle = (float) Math.Asin(Velocity.Y / ballspeed);
+                IsActive = false;
+            }
+            else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
+            {
+                //ballspeed = 0;
+                MovingAngle = (float)Math.Asin(Velocity.Y / ballspeed);
+            }
+        }
+
+        private void Collisionball(GameObj GameObj)
+        {
+            if (IsTouchingLeft(GameObj) && Velocity.X < 0)
+            {
+                IsActive = false;
+            }
+            else if (IsTouchingRight(GameObj) && Velocity.X > 0)
+            {
+                IsActive = false;
+            }
+            else if (IsTouchingTop(GameObj) && Velocity.Y < 0)
+            {
+                IsActive = false;
+            }
+            else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
+            {
+                IsActive = false;
+            }
+        }
+
+        private void Collisionballs(GameObjs.Ball[,] ball)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 8 - (i % 2); j++)
+                {
+                    if (ObjInstances.ball[i, j] != null)
+                    {
+                        Collisionball(ObjInstances.ball[i, j]);
+                        if (IsTouching(ObjInstances.ball[i, j]))
+                        {
+                            IsActive = false;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

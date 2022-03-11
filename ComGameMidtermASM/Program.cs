@@ -7,8 +7,9 @@ namespace ComGameMidtermASM
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            //using (var game = new main()) game.Run();
+            
+            using (var gametest = new Game1()) gametest.Run();
         }
     }
 }
