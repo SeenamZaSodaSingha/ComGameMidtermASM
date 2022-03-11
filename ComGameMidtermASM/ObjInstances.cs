@@ -15,6 +15,6 @@ namespace ComGameMidtermASM
         public static GameObjs.MovingBall movingball;
         public static GameObjs.Gun gun;
         public static GameObjs.Boarder boarder;
-
+        public static Control.Button restartGameButton;
     }
 }

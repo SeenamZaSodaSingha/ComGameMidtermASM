@@ -9,7 +9,7 @@ namespace ComGameMidtermASM
         {
             //using (var game = new main()) game.Run();
             
-            using (var gametest = new maintest()) gametest.Run();
+            using (var gametest = new Game1()) gametest.Run();
         }
     }
 }
