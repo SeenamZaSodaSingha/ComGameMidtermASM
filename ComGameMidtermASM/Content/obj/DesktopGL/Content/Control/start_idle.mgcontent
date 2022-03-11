@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/Control/start_idle.png</SourceFile>
-  <SourceTime>2022-03-11T11:13:11.83693+07:00</SourceTime>
-  <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/Control/start_idle.xnb</DestFile>
-  <DestTime>2022-03-11T11:32:29.5719351+07:00</DestTime>
+  <SourceFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Control/start_idle.png</SourceFile>
+  <SourceTime>2022-03-11T17:46:51.8063089+07:00</SourceTime>
+  <DestFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/Control/start_idle.xnb</DestFile>
+  <DestTime>2022-03-11T17:46:52.7205924+07:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

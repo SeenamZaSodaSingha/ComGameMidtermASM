@@ -16,7 +16,7 @@ namespace ComGameMidtermASM.State
         private GraphicsDevice _graphics;
         private GraphicsDeviceManager graphics;
         private SpriteBatch _spriteBatch;
-        private SpriteFont _spriteFont;
+        private SpriteFont _spriteFont, _anotherFont;
         public static List<GameObj> gameobjs = ObjInstances.gameobjs;
         private bool activate = false;
 
@@ -25,7 +25,7 @@ namespace ComGameMidtermASM.State
         Random rand = new Random();
         int colorID;
         private int count;
-        private Texture2D background, losescreen, restartIdle, restartHover;
+        private Texture2D background, losescreen, restartIdle, restartHover, another_bg;
         List<Texture2D> ball_textures;
         List<Texture2D> gun_textures;
         List<Texture2D> pac_texturesL;
@@ -35,13 +35,14 @@ namespace ComGameMidtermASM.State
         Vector2 pos;
 
         int increase;
-
+        int score;
         int width = 60;
         int height = 60;
 
         public GameState(Game1 game, GraphicsDevice _graphicsDevice, ContentManager Content) : base(game, _graphicsDevice, Content)
         {
             turn = 0;
+            score = 0;
             Singleton.CurrentGameState = Singleton.GameState.GamePlaying;
             //graphics = new GraphicsDeviceManager(this);
 
@@ -130,6 +131,7 @@ namespace ComGameMidtermASM.State
             //ObjInstances.restartGameButton.Click += restartGameButton_Click;
 
             background = _content.Load<Texture2D>("Raccoon_norm");
+            another_bg = _content.Load<Texture2D>("windows_xp_original-wallpaper-1920x1080");
             losescreen = _content.Load<Texture2D>("Gameover3");
 
             boom = _content.Load<SoundEffect>("Witcher 3 Quest completed - [HQ] Sound Effect").CreateInstance();
@@ -149,6 +151,8 @@ namespace ComGameMidtermASM.State
             //FIXME
             _spriteBatch = new SpriteBatch(_graphicsDevice);
             _spriteFont = _content.Load<SpriteFont>("fonts/GameText");
+            _anotherFont = _content.Load<SpriteFont>("fonts/header");
+
 
 
             Singleton.Instance.sound = moving;
@@ -316,7 +320,7 @@ namespace ComGameMidtermASM.State
                 }
                 if (count >= 3)
                 {
-
+                    score += count * 100;
 
                     for (int i = 0; i < 9; i++)
                     {
@@ -348,28 +352,29 @@ namespace ComGameMidtermASM.State
                         }
                     }
                 }
-                if (turn == 2)
-                {
-                    boom.Play();
-                    increase++;
-                    for (int i = 8; i >= 0; i--)
-                    {
-                        for (int j = 7; j >= 0; j--)
-                        {
-                            if (ObjInstances.ball[i, j] != null && i + 1 <= 7)
-                            {
-                                ObjInstances.ball[i + 1, j] = ObjInstances.ball[i, j];
-                                ObjInstances.ball[i, j].Position += new Vector2(0, height);
+                //Ball drop not finish Full Of bug
+                //if (turn == 5)
+                //{
+                //    boom.Play();
+                //    increase++;
+                //    for (int i = 8; i >= 0; i--)
+                //    {
+                //        for (int j = 7; j >= 0; j--)
+                //        {
+                //            if (ObjInstances.ball[i, j] != null && i + 1 <= 8)
+                //            {
+                //                ObjInstances.ball[i + 1, j] = ObjInstances.ball[i, j];
+                //                ObjInstances.ball[i, j].Position += new Vector2(0, height);
 
-                            }
-                            if (i == 0)
-                            {
-                                ObjInstances.ball[i, j] = null;
-                            }
-                        }
-                    }
-                    turn = 0;
-                }
+                //            }
+                //            if (i == 0)
+                //            {
+                //                ObjInstances.ball[i, j] = null;
+                //            }
+                //        }
+                //    }
+                //    turn = 0;
+                //}
 
 
             }
@@ -384,6 +389,7 @@ namespace ComGameMidtermASM.State
             //FIXME
             _graphicsDevice.Clear(Color.White);
             _spriteBatch.Begin();
+            _spriteBatch.Draw(another_bg, new Vector2(0, 0), null, Color.White);
             _spriteBatch.Draw(background, new Vector2(Singleton.GAMEPANELLOCX, Singleton.GAMEPANELLOCY), null, Color.White);
 
 
@@ -404,7 +410,9 @@ namespace ComGameMidtermASM.State
                     if (ObjInstances.ball[i, j] != null)
                     {
                         ObjInstances.ball[i, j].Draw(_spriteBatch);
-                        print<String>(ObjInstances.ball[i, j].color_.ToString(), j * 25, i * 25 + 200);
+
+                        //print check array for debug
+                        //print<String>(ObjInstances.ball[i, j].color_.ToString(), j * 25, i * 25 + 200);
                     }
                 }
             }
@@ -412,12 +420,19 @@ namespace ComGameMidtermASM.State
             //draw next ball indicator
             ObjInstances.nextball.Draw(_spriteBatch);
 
+            //draw score
+            print<String>("SCORE : "+ score.ToString(), 50, 350);
+
+            //draw Game Title
+            _spriteBatch.DrawString(_anotherFont, "THIS IS", new Vector2(25, 100), Color.Yellow);
+            _spriteBatch.DrawString(_anotherFont, "NOT", new Vector2(55, 150), Color.Red);
+            _spriteBatch.DrawString(_anotherFont, "PACMAN", new Vector2(0, 200), Color.Yellow); 
 
             //for debug
-            print<Vector2>(pos, 0, 0);
-            print<String>((y.ToString() + " " + x.ToString()), 0, 100);
+            //print<Vector2>(pos, 0, 0);
+            //print<String>((y.ToString() + " " + x.ToString()), 0, 100);
             //print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
-            print<String>(ObjInstances.movingball.color_.ToString(), 200, 150);
+            //print<String>(ObjInstances.movingball.color_.ToString(), 200, 150);
 
 
             //TODO: extract medthoid here

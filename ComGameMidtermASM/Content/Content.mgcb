@@ -236,6 +236,13 @@
 /processorParam:TextureFormat=Compressed
 /build:fonts/GameText.spritefont
 
+#begin fonts/header.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:fonts/header.spritefont
+
 #begin Gameover.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -913,6 +920,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:win.jpg
+
+#begin windows_xp_original-wallpaper-1920x1080.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:windows_xp_original-wallpaper-1920x1080.jpg
 
 #begin Witcher 3 Quest completed - [HQ] Sound Effect.wav
 /importer:WavImporter

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/Project-Nenula_Click.wav</SourceFile>
-  <SourceTime>2022-03-11T11:15:31.0666457+07:00</SourceTime>
-  <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Project-Nenula_Click.xnb</DestFile>
-  <DestTime>2022-03-11T11:40:21.4590113+07:00</DestTime>
+  <SourceFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Project-Nenula_Click.wav</SourceFile>
+  <SourceTime>2022-03-11T16:30:59.8938389+07:00</SourceTime>
+  <DestFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Project-Nenula_Click.xnb</DestFile>
+  <DestTime>2022-03-11T18:15:22.5074622+07:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

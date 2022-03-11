@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/Project-nebula_bullet.wav</SourceFile>
-  <SourceTime>2022-03-11T11:15:31.1006435+07:00</SourceTime>
-  <DestFile>C:/Users/dylan/Documents/GitHub/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/Project-nebula_bullet.xnb</DestFile>
-  <DestTime>2022-03-11T11:30:07.0566505+07:00</DestTime>
+  <SourceFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/Project-nebula_bullet.wav</SourceFile>
+  <SourceTime>2022-03-11T16:30:59.9258673+07:00</SourceTime>
+  <DestFile>E:/ハウス/Assignment/Kmitl/Year_2/Semester_2/Computer_Game/ComGameMidtermASM/ComGameMidtermASM/Content/bin/DesktopGL/Content/Project-nebula_bullet.xnb</DestFile>
+  <DestTime>2022-03-11T17:46:56.0997387+07:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T23:17:54+07:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

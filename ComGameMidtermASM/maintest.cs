@@ -33,7 +33,7 @@ namespace ComGameMidtermASM
         List<Texture2D> pac_texturesR;
         private SoundEffectInstance bounce, click, boom, moving, hit;
         private int turn;
-
+        int score;
 
         int width = 60;
         int height = 60;
