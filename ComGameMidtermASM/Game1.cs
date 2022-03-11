@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using ComGameMidtermASM.Control;
 using ComGameMidtermASM.State;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 
 
@@ -24,7 +25,7 @@ namespace ComGameMidtermASM
 
         private State.State _nextState;
 
-        private Song bgmusic;
+        private SoundEffectInstance bgmusic;
         //end of seenam work
 
         public Game1()
@@ -73,8 +74,11 @@ namespace ComGameMidtermASM
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
-            bgmusic = Content.Load<Song>("BGMusic/Delfino Plaza - Super Mario Sunshine [OST]");
-            MediaPlayer.Play(bgmusic);
+            bgmusic = Content.Load<SoundEffect>("BGMusic/Delfino Plaza - Super Mario Sunshine [OST]").CreateInstance();
+            
+            bgmusic.IsLooped = true;
+            bgmusic.Volume = 0.5f;
+            bgmusic.Play();
         }
 
         private void QuitButton_Click(object sender, System.EventArgs e)
@@ -99,8 +103,10 @@ namespace ComGameMidtermASM
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            
             if(_nextState != null)
             {
+                bgmusic.Stop();
                 _currentState = _nextState;
                 _nextState = null;
             }

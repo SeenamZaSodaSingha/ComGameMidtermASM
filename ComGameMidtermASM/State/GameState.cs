@@ -31,8 +31,8 @@ namespace ComGameMidtermASM.State
         List<Texture2D> gun_textures;
         List<Texture2D> pac_texturesL;
         List<Texture2D> pac_texturesR;
-        private SoundEffectInstance bounce, click, boom, moving, hit;
-        private Song bgmusic;
+        private SoundEffectInstance bounce, click, boom, moving, hit, bgmusic_instance;
+        SoundEffect bgmusic;
         private int turn;
         Vector2 pos;
 
@@ -125,12 +125,6 @@ namespace ComGameMidtermASM.State
             restartIdle = _content.Load<Texture2D>("Control/restart_idle");
             restartHover = _content.Load<Texture2D>("Control/restart_hover");
 
-            //ObjInstances.restartGameButton = new Button(restartIdle, restartHover, _spriteFont)
-            //{
-            //    Position = new Vector2(39, 459),
-            //};
-
-            //ObjInstances.restartGameButton.Click += restartGameButton_Click;
 
             background = _content.Load<Texture2D>("Raccoon_norm");
             another_bg = _content.Load<Texture2D>("windows_xp_original-wallpaper-1920x1080");
@@ -141,10 +135,15 @@ namespace ComGameMidtermASM.State
             click = _content.Load<SoundEffect>("Project-nebula_bullet").CreateInstance();
             moving = _content.Load<SoundEffect>("pacman_chomp").CreateInstance();
             hit = _content.Load<SoundEffect>("Project-Nenula_Click").CreateInstance();
-            bgmusic = _content.Load<Song>("BGMusic/DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION)");
+            bgmusic = _content.Load<SoundEffect>("BGMusic/DJ ADISQUAT - TETRIS (HARDBASS REMIX ARCADE VERSION)");
+            bgmusic_instance = bgmusic.CreateInstance();
+            bgmusic_instance.IsLooped = true;
 
+            //MediaPlayer.
+            bgmusic_instance.Volume = 0.1f;
+            bgmusic_instance.Play();
             //Background Music
-            MediaPlayer.Play(bgmusic);
+
             // assign volume
             bounce.Volume = 0.4f * Singleton.MAINVOLUME;
             click.Volume = 1.0f * Singleton.MAINVOLUME;
@@ -172,10 +171,6 @@ namespace ComGameMidtermASM.State
             //load and set gun and ball
             ObjInstances.gun = new GameObjs.Gun(gun_textures, _content.Load<Texture2D>("aim guide line/dot"), pac_texturesR, pac_texturesL, click, bounce);
             ObjInstances.gun.SetColor(ObjInstances.nextball.color_);
-
-            //load ghost 
-            //var crosshairTexture = _content.Load<Texture2D>("ghost/crosshairs");
-            //background = _content.Load<Texture2D>("ghost/Raccoon_norm");
 
 
             //TODO: extract medthoid here
@@ -296,7 +291,7 @@ namespace ComGameMidtermASM.State
                     ObjInstances.nextball.SetColor(colorID);
 
 
-                    CheckBall(ObjInstances.ball, ObjInstances.ball[y, x].color_, y, x);
+                    CheckBall(ObjInstances.ball, ObjInstances.ball[y, x].color_, y, x, increase);
                 }
                 // cheak if lose
                 else
@@ -467,7 +462,7 @@ namespace ComGameMidtermASM.State
 
 
 
-        public void CheckBall(GameObjs.Ball[,] ball, int color, int x, int y)
+        public void CheckBall(GameObjs.Ball[,] ball, int color, int x, int y, int extra)
         {
             //if ((me.X >= 0 && me.Y >= 0) && (me.X <= 7 && me.Y <= 8) && (gameObjects[(int)me.Y, (int)me.X] != null && gameObjects[(int)me.Y, (int)me.X].color == ColorTarget))
             if (((x >= 0 && y >= 0) && (x <= 7 && y < 8)))
@@ -476,21 +471,21 @@ namespace ComGameMidtermASM.State
                     ball[x, y].visit = true;
                     ball[x, y].Destroy = true;
                     //ball[x, y] = null;
-                    CheckBall(ball, color, x - 1, y);//Left
-                    CheckBall(ball, color, x + 1, y); // Right
-                    if (y % 2 == 0)
+                    CheckBall(ball, color, x - 1, y, extra);//Left
+                    CheckBall(ball, color, x + 1, y, extra); // Right
+                    if ((y + extra) % 2 == 0)
                     {
-                        CheckBall(ball, color, x, y - 1); // Top Right
-                        CheckBall(ball, color, x - 1, y - 1); // Top Left
-                        CheckBall(ball, color, x, y + 1); // Bot Right
-                        CheckBall(ball, color, x - 1, y + 1); // Bot Left
+                        CheckBall(ball, color, x, y - 1, extra); // Top Right
+                        CheckBall(ball, color, x - 1, y - 1, extra); // Top Left
+                        CheckBall(ball, color, x, y + 1, extra); // Bot Right
+                        CheckBall(ball, color, x - 1, y + 1, extra); // Bot Left
                     }
                     else
                     {
-                        CheckBall(ball, color, x + 1, y - 1); // Top Right
-                        CheckBall(ball, color, x, y - 1); // Top Left
-                        CheckBall(ball, color, x + 1, y + 1); // Bot Right
-                        CheckBall(ball, color, x, y + 1); // Bot Left	
+                        CheckBall(ball, color, x + 1, y - 1, extra); // Top Right
+                        CheckBall(ball, color, x, y - 1, extra); // Top Left
+                        CheckBall(ball, color, x + 1, y + 1, extra); // Bot Right
+                        CheckBall(ball, color, x, y + 1, extra); // Bot Left	
                     }
                 }
                 else
@@ -498,6 +493,104 @@ namespace ComGameMidtermASM.State
                     return;
                 }
         }
+
+        //public void isStarMatch(int row, int col)
+        //{
+        //    Singleton.Instance.STARMAP[col, row] = -10;
+        //    count++;
+        //    int sign = 0;
+
+        //    switch (Singleton.Instance.CurrentSign)
+        //    {
+        //        case Singleton.StarSign.Normal:
+        //            sign = 0;
+        //            break;
+        //        case Singleton.StarSign.Invert:
+        //            sign = 1;
+        //            break;
+        //    }
+        //    if ((row + sign) % 2 == 0)
+        //    {
+        //        //even
+        //        //top left
+        //        // row - 1 col - 1
+        //        if (row - 1 >= 0 && col - 1 >= 0 && Singleton.Instance.STARMAP[col - 1, row - 1] == starID)
+        //        {
+        //            isStarMatch(row - 1, col - 1);
+        //        }
+        //        //top right
+        //        // row - 1 col
+        //        if (row - 1 >= 0 && col < 7 && Singleton.Instance.STARMAP[col, row - 1] == starID)
+        //        {
+        //            isStarMatch(row - 1, col);
+        //        }
+        //        //left
+        //        // row col - 1
+        //        if (col - 1 >= 0 && Singleton.Instance.STARMAP[col - 1, row] == starID)
+        //        {
+        //            isStarMatch(row, col - 1);
+        //        }
+        //        //right
+        //        //row col + 1
+        //        if (col + 1 < 8 && Singleton.Instance.STARMAP[col + 1, row] == starID)
+        //        {
+        //            isStarMatch(row, col + 1);
+        //        }
+        //        //down left
+        //        // row + 1 col - 1
+        //        if (row + 1 < 10 && col - 1 >= 0 && Singleton.Instance.STARMAP[col - 1, row + 1] == starID)
+        //        {
+        //            isStarMatch(row + 1, col - 1);
+        //        }
+        //        //down right
+        //        //row + 1 col
+        //        if (row + 1 < 10 && col < 7 && Singleton.Instance.STARMAP[col, row + 1] == starID)
+        //        {
+        //            isStarMatch(row + 1, col);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        //odd
+        //        //top left
+        //        // row - 1 col
+        //        if (row - 1 >= 0 && Singleton.Instance.STARMAP[col, row - 1] == starID)
+        //        {
+        //            isStarMatch(row - 1, col);
+        //        }
+        //        //top right
+        //        // row - 1 col + 1
+        //        if (row - 1 >= 0 && col + 1 < 8 && Singleton.Instance.STARMAP[col + 1, row - 1] == starID)
+        //        {
+        //            isStarMatch(row - 1, col + 1);
+        //        }
+        //        //left
+        //        // row col - 1
+        //        if (col - 1 >= 0 && Singleton.Instance.STARMAP[col - 1, row] == starID)
+        //        {
+        //            isStarMatch(row, col - 1);
+        //        }
+        //        //right
+        //        //row col + 1
+        //        if (col + 1 < 7 && Singleton.Instance.STARMAP[col + 1, row] == starID)
+        //        {
+        //            isStarMatch(row, col + 1);
+        //        }
+        //        //down left
+        //        // row + 1 col
+        //        if (row + 1 < 10 && Singleton.Instance.STARMAP[col, row + 1] == starID)
+        //        {
+        //            isStarMatch(row + 1, col);
+        //        }
+        //        //down right
+        //        //row + 1 col + 1
+        //        if (row + 1 < 10 && col + 1 < 8 && Singleton.Instance.STARMAP[col + 1, row + 1] == starID)
+        //        {
+        //            isStarMatch(row + 1, col + 1);
+        //        }
+        //    }
+        //}
+
         void Play(SoundEffectInstance ins)
         {
             if (Singleton.CurrentGameState == Singleton.GameState.GamePlaying)
