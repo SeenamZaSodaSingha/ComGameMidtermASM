@@ -118,13 +118,10 @@ namespace ComGameMidtermASM.GameObjs
 
             else if (IsTouchingTop(GameObj) && Velocity.Y < 0)
             {
-                //ballspeed = 0;
-                //MovingAngle = (float) Math.Asin(Velocity.Y / ballspeed);
                 IsActive = false;
             }
             else if (IsTouchingBottom(GameObj) && Velocity.Y > 0)
             {
-                //ballspeed = 0;
                 MovingAngle = (float)Math.Asin(Velocity.Y / ballspeed);
             }
         }

@@ -42,7 +42,6 @@ namespace ComGameMidtermASM.State
             turn = 0;
             score = 0;
             Singleton.CurrentGameState = Singleton.GameState.GamePlaying;
-            //graphics = new GraphicsDeviceManager(this);
 
 
             // TODO extrac medthoid loader
@@ -181,7 +180,6 @@ namespace ComGameMidtermASM.State
                         ObjInstances.ball[i, j] = new GameObjs.Ball(ball_textures)
                         {
                             Position = new Vector2((j * width) + width + Singleton.GAMEPANELLOCX, i * height + height / 2 + Singleton.GAMEPANELLOCY),
-                            //color = GetColor(color)
                         };
                     }
                     else
@@ -231,7 +229,6 @@ namespace ComGameMidtermASM.State
                 }
             }
 
-            //ObjInstances.restartGameButton.Update(gameTime);
 
             //update next ball indicator
             ObjInstances.nextball.Update(gameTime, gameobjs);
@@ -325,9 +322,6 @@ namespace ComGameMidtermASM.State
                             {
                                 if (ObjInstances.ball[i, j].Destroy == true)
                                 {
-                                    //ObjInstances.ball[i, j].Position = new Vector2(0, 0);
-                                    //ObjInstances.ball[i, j].color_ = -1;
-                                    //ObjInstances.ball[i, j].Destroy = false;
                                     ObjInstances.ball[i, j] = null;
                                 }
                             }
@@ -374,8 +368,6 @@ namespace ComGameMidtermASM.State
 
             }
 
-            //FIXME
-            //_game.Update(gameTime);
         }
 
 
@@ -405,9 +397,6 @@ namespace ComGameMidtermASM.State
                     if (ObjInstances.ball[i, j] != null)
                     {
                         ObjInstances.ball[i, j].Draw(_spriteBatch);
-
-                        //print check array for debug
-                        //print<String>(ObjInstances.ball[i, j].color_.ToString(), j * 25, i * 25 + 200);
                     }
                 }
             }
@@ -422,12 +411,6 @@ namespace ComGameMidtermASM.State
             _spriteBatch.DrawString(_anotherFont, "THIS IS", new Vector2(25, 100), Color.Yellow);
             _spriteBatch.DrawString(_anotherFont, "NOT", new Vector2(55, 150), Color.Red);
             _spriteBatch.DrawString(_anotherFont, "PACMAN", new Vector2(0, 200), Color.Yellow); 
-
-            //for debug
-            //print<Vector2>(pos, 0, 0);
-            //print<String>((y.ToString() + " " + x.ToString()), 0, 100);
-            //print<Vector2>(ObjInstances.ball[y, x].Position - new Vector2(240, 40), 0, 150);
-            //print<String>(ObjInstances.movingball.color_.ToString(), 200, 150);
 
 
             //TODO: extract medthoid here
@@ -460,28 +443,27 @@ namespace ComGameMidtermASM.State
 
         public void CheckBall(GameObjs.Ball[,] ball, int color, int x, int y, int extra)
         {
-            //if ((me.X >= 0 && me.Y >= 0) && (me.X <= 7 && me.Y <= 8) && (gameObjects[(int)me.Y, (int)me.X] != null && gameObjects[(int)me.Y, (int)me.X].color == ColorTarget))
             if (((x >= 0 && y >= 0) && (x <= 7 && y < 8)))
                 if ((ball[x, y] != null) && (!ball[x, y].visit) && (ball[x, y].color_ == color))
                 {
                     ball[x, y].visit = true;
                     ball[x, y].Destroy = true;
-                    //ball[x, y] = null;
-                    CheckBall(ball, color, x - 1, y, extra);//Left
-                    CheckBall(ball, color, x + 1, y, extra); // Right
+
+                    CheckBall(ball, color, x, y - 1, extra);//Left
+                    CheckBall(ball, color, x, y + 1, extra); // Right
                     if ((y + extra) % 2 == 0)
                     {
-                        CheckBall(ball, color, x, y - 1, extra); // Top Right
+                        CheckBall(ball, color, x - 1, y, extra); // Top Right
                         CheckBall(ball, color, x - 1, y - 1, extra); // Top Left
-                        CheckBall(ball, color, x, y + 1, extra); // Bot Right
-                        CheckBall(ball, color, x - 1, y + 1, extra); // Bot Left
+                        CheckBall(ball, color, x + 1, y, extra); // Bot Right
+                        CheckBall(ball, color, x + 1, y - 1, extra); // Bot Left
                     }
                     else
                     {
-                        CheckBall(ball, color, x + 2, y - 1, extra); // Top Right
-                        CheckBall(ball, color, x + 1, y - 1, extra); // Top Left
-                        CheckBall(ball, color, x + 2, y + 1, extra); // Bot Right
-                        CheckBall(ball, color, x + 1, y + 1, extra); // Bot Left	
+                        CheckBall(ball, color, x - 1, y + 1, extra); // Top Right
+                        CheckBall(ball, color, x - 1, y, extra); // Top Left
+                        CheckBall(ball, color, x + 1, y + 1, extra); // Bot Right
+                        CheckBall(ball, color, x + 1, y, extra); // Bot Left	
                     }
                 }
                 else
@@ -489,103 +471,6 @@ namespace ComGameMidtermASM.State
                     return;
                 }
         }
-
-        //public void isStarMatch(int row, int col)
-        //{
-        //    Singleton.Instance.STARMAP[col, row] = -10;
-        //    count++;
-        //    int sign = 0;
-
-        //    switch (Singleton.Instance.CurrentSign)
-        //    {
-        //        case Singleton.StarSign.Normal:
-        //            sign = 0;
-        //            break;
-        //        case Singleton.StarSign.Invert:
-        //            sign = 1;
-        //            break;
-        //    }
-        //    if ((row + sign) % 2 == 0)
-        //    {
-        //        //even
-        //        //top left
-        //        // row - 1 col - 1
-        //        if (row - 1 >= 0 && col - 1 >= 0 && Singleton.Instance.STARMAP[col - 1, row - 1] == starID)
-        //        {
-        //            isStarMatch(row - 1, col - 1);
-        //        }
-        //        //top right
-        //        // row - 1 col
-        //        if (row - 1 >= 0 && col < 7 && Singleton.Instance.STARMAP[col, row - 1] == starID)
-        //        {
-        //            isStarMatch(row - 1, col);
-        //        }
-        //        //left
-        //        // row col - 1
-        //        if (col - 1 >= 0 && Singleton.Instance.STARMAP[col - 1, row] == starID)
-        //        {
-        //            isStarMatch(row, col - 1);
-        //        }
-        //        //right
-        //        //row col + 1
-        //        if (col + 1 < 8 && Singleton.Instance.STARMAP[col + 1, row] == starID)
-        //        {
-        //            isStarMatch(row, col + 1);
-        //        }
-        //        //down left
-        //        // row + 1 col - 1
-        //        if (row + 1 < 10 && col - 1 >= 0 && Singleton.Instance.STARMAP[col - 1, row + 1] == starID)
-        //        {
-        //            isStarMatch(row + 1, col - 1);
-        //        }
-        //        //down right
-        //        //row + 1 col
-        //        if (row + 1 < 10 && col < 7 && Singleton.Instance.STARMAP[col, row + 1] == starID)
-        //        {
-        //            isStarMatch(row + 1, col);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        //odd
-        //        //top left
-        //        // row - 1 col
-        //        if (row - 1 >= 0 && Singleton.Instance.STARMAP[col, row - 1] == starID)
-        //        {
-        //            isStarMatch(row - 1, col);
-        //        }
-        //        //top right
-        //        // row - 1 col + 1
-        //        if (row - 1 >= 0 && col + 1 < 8 && Singleton.Instance.STARMAP[col + 1, row - 1] == starID)
-        //        {
-        //            isStarMatch(row - 1, col + 1);
-        //        }
-        //        //left
-        //        // row col - 1
-        //        if (col - 1 >= 0 && Singleton.Instance.STARMAP[col - 1, row] == starID)
-        //        {
-        //            isStarMatch(row, col - 1);
-        //        }
-        //        //right
-        //        //row col + 1
-        //        if (col + 1 < 7 && Singleton.Instance.STARMAP[col + 1, row] == starID)
-        //        {
-        //            isStarMatch(row, col + 1);
-        //        }
-        //        //down left
-        //        // row + 1 col
-        //        if (row + 1 < 10 && Singleton.Instance.STARMAP[col, row + 1] == starID)
-        //        {
-        //            isStarMatch(row + 1, col);
-        //        }
-        //        //down right
-        //        //row + 1 col + 1
-        //        if (row + 1 < 10 && col + 1 < 8 && Singleton.Instance.STARMAP[col + 1, row + 1] == starID)
-        //        {
-        //            isStarMatch(row + 1, col + 1);
-        //        }
-        //    }
-        //}
 
         void Play(SoundEffectInstance ins)
         {

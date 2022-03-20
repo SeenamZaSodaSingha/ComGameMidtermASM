@@ -91,7 +91,6 @@ namespace ComGameMidtermASM.GameObjs
                 angle = (float)Math.Atan2(Distance.Y, Distance.X);
             }
 
-            //Ref https://community.monogame.net/t/calculate-the-angle-between-two-points/6919/2
             crosshairPosition = Singleton.Instance.CurrentMouse.Position.ToVector2();
             base.Update(gameTime, GameObjs);
         }

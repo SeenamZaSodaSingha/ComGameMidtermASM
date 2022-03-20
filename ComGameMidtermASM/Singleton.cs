@@ -1,7 +1,7 @@
 ﻿// class contain constant value.
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
-//using ComGameMidtermASM.GameObj;
+
 
 namespace ComGameMidtermASM
 {
