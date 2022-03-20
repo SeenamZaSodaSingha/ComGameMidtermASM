@@ -310,6 +310,7 @@ namespace ComGameMidtermASM.State
                         }
                     }
                 }
+                
                 if (count >= 3)
                 {
                     score += count * 100;
@@ -328,6 +329,7 @@ namespace ComGameMidtermASM.State
                         }
                     }
                 }
+
                 else
                 {
                     for (int i = 0; i < 9; i++)
@@ -341,6 +343,7 @@ namespace ComGameMidtermASM.State
                         }
                     }
                 }
+
                 //Ball drop not finish Full Of bug
                 if (turn == 10)
                 {
@@ -443,7 +446,7 @@ namespace ComGameMidtermASM.State
 
         public void CheckBall(GameObjs.Ball[,] ball, int color, int x, int y, int extra)
         {
-            if (((x >= 0 && y >= 0) && (x <= 7 && y < 8)))
+            if (((x >= 0 && y >= 0) && (x <= 9 && y < 8)))
                 if ((ball[x, y] != null) && (!ball[x, y].visit) && (ball[x, y].color_ == color))
                 {
                     ball[x, y].visit = true;
@@ -453,17 +456,17 @@ namespace ComGameMidtermASM.State
                     CheckBall(ball, color, x, y + 1, extra); // Right
                     if ((y + extra) % 2 == 0)
                     {
-                        CheckBall(ball, color, x - 1, y, extra); // Top Right
-                        CheckBall(ball, color, x - 1, y - 1, extra); // Top Left
-                        CheckBall(ball, color, x + 1, y, extra); // Bot Right
-                        CheckBall(ball, color, x + 1, y - 1, extra); // Bot Left
+                        CheckBall(ball, color, x - 1, y, extra); // Top Left
+                        CheckBall(ball, color, x - 1, y + 1, extra); // Top Right
+                        CheckBall(ball, color, x + 1, y, extra); // Bot Left
+                        CheckBall(ball, color, x + 1, y + 1, extra); // Bot Right
                     }
                     else
                     {
-                        CheckBall(ball, color, x - 1, y + 1, extra); // Top Right
-                        CheckBall(ball, color, x - 1, y, extra); // Top Left
-                        CheckBall(ball, color, x + 1, y + 1, extra); // Bot Right
-                        CheckBall(ball, color, x + 1, y, extra); // Bot Left	
+                        CheckBall(ball, color, x - 1, y - 1, extra); // Top Left
+                        CheckBall(ball, color, x - 1, y, extra); // Top Right
+                        CheckBall(ball, color, x + 1, y - 1, extra); // Bot Left
+                        CheckBall(ball, color, x + 1, y, extra); // Bot Right
                     }
                 }
                 else
